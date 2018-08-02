@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class ConditionalVariableMutation {
   public static void main(String[] args) {
     double a = 24;
@@ -39,7 +37,7 @@ public class ConditionalVariableMutation {
     }
     System.out.println(c);
 
-    
+
     int d = 8;
     int time = 120;
     String out3 = "";
