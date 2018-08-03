@@ -3,14 +3,14 @@ import java.util.Scanner;
 public class PartyIndicator {
   public static void main(String[] args) {
 
-    String girlsr = "Please enter the number of girls: ";
-    System.out.print(girlsr);
+    String girlsreq = "Please enter the number of girls: ";
+    System.out.print(girlsreq);
 
     Scanner input1 = new Scanner(System.in);
     int girls = input1.nextInt();
 
-    String boysr = "Please enter the number of boys: ";
-    System.out.print(boysr);
+    String boysreq = "Please enter the number of boys: ";
+    System.out.print(boysreq);
 
     Scanner input2 = new Scanner(System.in);
     int boys = input2.nextInt();

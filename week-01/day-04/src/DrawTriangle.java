@@ -9,9 +9,9 @@ public class DrawTriangle {
     Scanner input = new Scanner(System.in);
     int number = input.nextInt();
 
-    for (int x = 1; x <= number; x++)
+    for (int i = 1; i <= number; i++)
     {
-      for (int i = 1; i <= x; i++)
+      for (int j = 1; j <= i; j++)
       {
         System.out.print("*");
       }
