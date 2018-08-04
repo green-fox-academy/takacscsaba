@@ -23,6 +23,5 @@ public class CountFromTo {
         System.out.println(i);
       }
     }
-
   }
 }

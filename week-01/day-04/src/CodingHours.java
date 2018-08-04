@@ -8,6 +8,6 @@ public class CodingHours {
 
     System.out.println(hour * week * day);
 
-    System.out.println((hour * week * day) / (workhours * week) * 100 + "%");
+    System.out.println((hour *  day) / workhours  * 100 + "%");
   }
 }
