@@ -17,11 +17,6 @@ public class DrawDiagonal {
         } else {
           System.out.print(" ");
         }
-// %%%%%
-// %%  %
-// % % %
-// %  %%
-// %%%%%
       }
       System.out.println();
     }
