@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class DrawDiagonal {
+public class DrawSquare {
   public static void main(String[] args) {
 
     String request = "Please enter a number: ";
@@ -12,7 +12,7 @@ public class DrawDiagonal {
     for (int row = 1; row <= number; row++) {
       for (int column = 1; column <= number; column++) {
 
-        if (row == 1 || row == number || column == 1 || column == number || row == column) {
+        if (row == 1 || row == number || column == 1 || column == number) {
           System.out.print("%");
         } else {
           System.out.print(" ");

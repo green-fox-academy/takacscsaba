@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class DrawDiagonal {
+public class DrawChessTable {
   public static void main(String[] args) {
 
     String request = "Please enter a number: ";
@@ -10,18 +10,13 @@ public class DrawDiagonal {
     int number = input.nextInt();
 
     for (int row = 1; row <= number; row++) {
-      for (int column = 1; column <= number; column++) {
+      for (int column = 1; column <= 4; column++) {
 
-        if (row == 1 || row == number || column == 1 || column == number || row == column) {
-          System.out.print("%");
+        if (row % 2 == 0) {
+          System.out.print("% ");
         } else {
-          System.out.print(" ");
+          System.out.print(" %");
         }
-// %%%%%
-// %%  %
-// % % %
-// %  %%
-// %%%%%
       }
       System.out.println();
     }

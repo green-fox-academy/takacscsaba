@@ -11,7 +11,7 @@ public class Homework4 {
     int guessResult = 1;
     int randomGuess = 0;
 
-    while(guessResult != -1) {
+    while (guessResult != -1) {
       System.out.println("Guess a number between 0 and 50: ");
       randomGuess = userInput.nextInt();
       guessResult = checkGuess(randomGuess);
@@ -28,7 +28,7 @@ public class Homework4 {
 
   public static int checkGuess(int guess) {
 
-    if(guess == randomNumber) {
+    if (guess == randomNumber) {
       return -1;
     } else {
       return guess;

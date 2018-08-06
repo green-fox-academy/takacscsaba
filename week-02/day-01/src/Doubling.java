@@ -1,6 +1,6 @@
 public class Doubling {
 
-  // static int baseNum = 123;
+  //static int baseNum = 123;
 
   public static void main(String[] args) {
 
