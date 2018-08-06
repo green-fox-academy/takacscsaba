@@ -9,7 +9,7 @@ public class SumAll {
     //for (int i : ai) {
     //  sum += i;
     //}
-    for (int i = 1; i < ai.length; i++) {
+    for (int i = 0; i < ai.length; i++) {
       sum = sum + ai[i];
     }
 

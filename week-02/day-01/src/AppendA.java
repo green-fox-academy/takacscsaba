@@ -5,9 +5,11 @@ public class AppendA {
     String[] animals = {"koal", "pand", "zebr"};
 
     for (int i = 0; i < animals.length; i++) {
-      animals[i] = animals[i] + "a";
+      //animals[i] = animals[i] + "a";
+      animals[i] += "a";
+      System.out.println(animals[i]);
     }
-    System.out.println(Arrays.toString(animals));
+    //System.out.println(Arrays.toString(animals));
 
   }
 }

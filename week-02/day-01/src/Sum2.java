@@ -7,16 +7,14 @@ public class Sum2 {
     System.out.print(request1);
     int numberInput = request01.nextInt();
 
-    System.out.println(sum(numberInput));
+    sum(numberInput);
   }
 
-  public static int sum(int numberInput) {
+  public static void sum(int numberInput) {
     int total = 0;
     for (int i = 0; i <= numberInput; i++) {
       total = total + i;
     }
-    return total;
-
+    System.out.println(total);
   }
-
 }

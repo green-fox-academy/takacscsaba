@@ -14,14 +14,13 @@ public class Sum {
     System.out.print(request2);
     int numberInput2 = request02.nextInt();
 
-    sum(total, numberInput1, numberInput2);
+    sum(numberInput1, numberInput2);
 
   }
-  public static int sum(int total, int numberInput1, int numberInput2) {
+  public static void sum(int numberInput1, int numberInput2) {
 
-    total = numberInput1 + numberInput2;
+    int total = numberInput1 + numberInput2;
     System.out.println(total);
-    return total;
   }
 }
 // - Write a function called `sum` that sum all the numbers

@@ -6,8 +6,8 @@ public class GreeterFunction {
     greet(al);
   }
 
-  public static String greet(String al) {
-    System.out.println("Greetings dear, " + al);
-    return al;
+  public static String greet(String geza) {
+    System.out.println("Greetings dear, " + geza);
+    return geza;
   }
 }

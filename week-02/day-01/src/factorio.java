@@ -16,7 +16,5 @@ public class factorio {
       factorio = factorio * i;
     }
     return factorio;
-
   }
-
 }
