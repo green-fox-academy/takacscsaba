@@ -8,22 +8,22 @@ public class UrlFixer {
     url = url.substring(0, 5) + ":" + url.substring(5);
 
     System.out.println(url);
+
+//    String[] urlArr = url.split("");
 //
-//    String[] urlarr = url.split("");
+//    final int N = urlArr.length;
+//    urlArr = Arrays.copyOf(urlArr, N + 1);
+//    urlArr[N] = " ";
 //
-//    final int N = urlarr.length;
-//    urlarr = Arrays.copyOf(urlarr, N + 1);
-//    urlarr[N] = " ";
-//
-//    for (int i = urlarr.length - 1; i > 0; i--) {
+//    for (int i = urlArr.length - 1; i > 0; i--) {
 //      if (i > 6) {
-//        urlarr[i] = urlarr[i - 1];
+//        urlArr[i] = urlArr[i - 1];
 //      } else {
-//        urlarr[i] = urlarr[i];
+//        urlArr[i] = urlArr[i];
 //      }
 //    }
-//    urlarr[5] = ":";
+//    urlArr[5] = ":";
 //
-//    System.out.println(Arrays.toString(urlarr).replace(", ", "").replace("[", "").replace("]", ""));
+//    System.out.println(Arrays.toString(urlArr).replace(", ", "").replace("[", "").replace("]", ""));
   }
 }
