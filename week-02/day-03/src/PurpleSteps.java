@@ -4,12 +4,15 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class CenteredSquare {
-
+public class PurpleSteps {
   public static void mainDraw(Graphics graphics) {
 
-    graphics.setColor(Color.GREEN);
-    graphics.drawRect(WIDTH / 2 - 5, HEIGHT / 2 - 5, 10, 10);
+    for (int i = 0; i < 19 * 19; i = i + 19) {
+      Color purple = new Color(128, 0, 128);
+      graphics.setColor(purple);
+      graphics.fillRect(i, i, 20, 20);
+    }
+
   }
 
   // Don't touch the code below
@@ -30,7 +33,6 @@ public class CenteredSquare {
     protected void paintComponent(Graphics graphics) {
       super.paintComponent(graphics);
       mainDraw(graphics);
-
     }
   }
 }

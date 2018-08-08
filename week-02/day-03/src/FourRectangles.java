@@ -14,10 +14,10 @@ public class FourRectangles {
       int b = (int) (Math.random() * 255);
       Color randomColor = new Color(r, g, b);
       graphics.setColor(randomColor);
-      int x1 = (int) (Math.random() * ((WIDTH)));
-      int y1 = (int) (Math.random() * ((HEIGHT)));
-      int x2 = (int) (Math.random() * WIDTH);
-      int y2 = (int) (Math.random() * HEIGHT);
+      int x1 = (int) (Math.random() * WIDTH);
+      int y1 = (int) (Math.random() * HEIGHT);
+      int x2 = (int) (Math.random() * (WIDTH - x1));
+      int y2 = (int) (Math.random() * (HEIGHT - y1));
 //      if (x1 + x2 > WIDTH && y1 + y2 > HEIGHT) {
 //        graphics.drawRect(x1, y1, x2 - x1, y2 - y1);
 //      } else if (x1 + x2 > WIDTH) {
@@ -27,12 +27,9 @@ public class FourRectangles {
 //      } else {
 //        graphics.drawRect(x1, y1, x2, y2);
 //      }
-        graphics.drawRect(x1, y1, x2, y2);
-
+      graphics.drawRect(x1, y1, x2, y2);
     }
   }
-  // draw four different size and color rectangles.
-  // avoid code duplication.
 
 
   //    Don't touch the code below

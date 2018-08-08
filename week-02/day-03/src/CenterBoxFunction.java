@@ -4,15 +4,17 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class CenteredSquare {
+public class CenterBoxFunction {
 
   public static void mainDraw(Graphics graphics) {
 
-    graphics.setColor(Color.GREEN);
-    graphics.drawRect(WIDTH / 2 - 5, HEIGHT / 2 - 5, 10, 10);
+    for (int i = 1; i <= 3; i++) {
+      int x = (int) (Math.random() * WIDTH / 2);
+      graphics.drawRect(WIDTH / 2 - x / 2, HEIGHT / 2 - x / 2, x, x);
+    }
   }
 
-  // Don't touch the code below
+  //    Don't touch the code below
   static int WIDTH = 320;
   static int HEIGHT = 343;
 
@@ -33,4 +35,5 @@ public class CenteredSquare {
 
     }
   }
+
 }

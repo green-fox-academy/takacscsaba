@@ -4,12 +4,18 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class CenteredSquare {
-
+public class RainbowBoxFunction {
   public static void mainDraw(Graphics graphics) {
-
-    graphics.setColor(Color.GREEN);
-    graphics.drawRect(WIDTH / 2 - 5, HEIGHT / 2 - 5, 10, 10);
+    for (int i = 1; i <= HEIGHT; i++) {
+      int r = (int) (Math.random() * 255);
+      int g = (int) (Math.random() * 255);
+      int b = (int) (Math.random() * 255);
+      Color randomColor = new Color(r, g, b);
+      graphics.setColor(randomColor);
+      int x = (int) (Math.random() * HEIGHT);
+//      int x = (int) (Math.random() * WIDTH);
+      graphics.drawRect(WIDTH / 2 - x / 2, HEIGHT / 2 - x / 2, x, x);
+    }
   }
 
   // Don't touch the code below
@@ -30,7 +36,6 @@ public class CenteredSquare {
     protected void paintComponent(Graphics graphics) {
       super.paintComponent(graphics);
       mainDraw(graphics);
-
     }
   }
 }

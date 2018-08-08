@@ -9,8 +9,8 @@ public class PositionSquare {
   public static void mainDraw(Graphics graphics) {
 
     for (int i = 1; i <= 3; i++) {
-      int x1 = (int) (Math.random() * ((WIDTH)));
-      int y1 = (int) (Math.random() * ((HEIGHT)));
+      int x1 = (int) (Math.random() * (WIDTH - 50));
+      int y1 = (int) (Math.random() * (HEIGHT - 50));
       graphics.drawRect(x1, y1, 50, 50);
     }
   }
