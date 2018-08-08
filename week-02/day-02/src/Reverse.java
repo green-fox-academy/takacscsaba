@@ -4,7 +4,7 @@ public class Reverse {
 
     String backward = reversed;
     for (int i = backward.length() - 1; i >= 0; i--) {
-      System.out.print(backward.charAt(i));;
+      System.out.print(backward.charAt(i));
     }
 
     /*

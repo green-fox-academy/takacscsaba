@@ -24,9 +24,6 @@ public class UrlFixer {
 //    }
 //    urlarr[5] = ":";
 //
-//    System.out.println(Arrays.toString(urlarr).
-//        replace(", ", "").
-//        replace("[", "").
-//        replace("]", ""));
+//    System.out.println(Arrays.toString(urlarr).replace(", ", "").replace("[", "").replace("]", ""));
   }
 }

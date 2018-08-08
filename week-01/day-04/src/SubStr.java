@@ -3,19 +3,14 @@ import java.util.Scanner;
 public class SubStr {
   public static void main(String[] args) {
     Scanner request = new Scanner(System.in);
+    System.out.print("Please input your text: ");
+    String input = request.nextLine();
 
     System.out.print("Please input your word: ");
     String q = request.nextLine();
 
-    //  Create a function that takes two strings as a parameter
-    //  Returns the starting index where the second one is starting in the first one
-    //  Returns `-1` if the second string is not in the first one
-
-    //  Example:
-    System.out.println(subStr("this is what I'm searching in", q));
-    //  should print: `17`
-    System.out.println(subStr("this is what I'm searching in", "not"));
-    //  should print: `-1`
+    System.out.println(subStr(input, q));
+//    System.out.println(subStr("this is what I'm searching in", "not"));
   }
 
   public static int subStr(String input, String q) {

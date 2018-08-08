@@ -11,7 +11,6 @@ public class TodoPrint {
     todoList.insert(21, missingEnd);
     todoList.insert(39, missingDiablo);*/
 
-    System.out.println(todoList.insert(0, missingBeginning).
-        append(missingEnd).append(missingDiablo));
+    System.out.println(todoList.insert(0, missingBeginning).append(missingEnd).append(missingDiablo));
   }
 }
