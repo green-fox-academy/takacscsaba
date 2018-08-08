@@ -7,17 +7,16 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class GoToCenter {
   public static void mainDraw(Graphics graphics) {
+    centerSquare(graphics);
 
+  }
+
+  public static void centerSquare(Graphics graphics) {
     for (int i = 1; i <= 3; i++) {
       int x1 = (int) (Math.random() * ((WIDTH)));
       int y1 = (int) (Math.random() * ((HEIGHT)));
       graphics.drawLine(x1, y1, WIDTH / 2, HEIGHT / 2);
     }
-
-    // Create a line drawing function that takes 2 parameters:
-    // The x and y coordinates of the line's starting point
-    // and draws a line from that point to the center of the canvas.
-    // Draw 3 lines with that function. Use loop for that.
   }
 
   // Don't touch the code below

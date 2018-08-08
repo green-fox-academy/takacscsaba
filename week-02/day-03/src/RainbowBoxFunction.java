@@ -6,7 +6,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class RainbowBoxFunction {
   public static void mainDraw(Graphics graphics) {
-    for (int i = 1; i <= HEIGHT; i++) {
+    for (int i = HEIGHT; i >= 0; i--) {
       int r = (int) (Math.random() * 255);
       int g = (int) (Math.random() * 255);
       int b = (int) (Math.random() * 255);

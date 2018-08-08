@@ -6,6 +6,10 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class HorizontalLines {
   public static void mainDraw(Graphics graphics) {
+    lines(graphics);
+  }
+
+  public static void lines(Graphics graphics) {
 
     for (int i = 1; i <= 3; i++) {
       int x1 = (int) (Math.random() * ((WIDTH)));

@@ -7,10 +7,15 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class PurpleSteps {
   public static void mainDraw(Graphics graphics) {
 
-    for (int i = 0; i < 19 * 19; i = i + 19) {
+    for (int i = 0; i < 19 * 19; i = i + 20) {
       Color purple = new Color(128, 0, 128);
       graphics.setColor(purple);
       graphics.fillRect(i, i, 20, 20);
+      graphics.setColor(Color.BLACK);
+      graphics.drawLine(i, i, i, i + 20);
+      graphics.drawLine(i, i, i + 20, i);
+      graphics.drawLine(i + 20, i, i + 20, i + 20);
+      graphics.drawLine(i, i + 20, i + 20, i + 20);
     }
 
   }
