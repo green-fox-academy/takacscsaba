@@ -7,12 +7,15 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class PositionSquare {
 
   public static void mainDraw(Graphics graphics) {
-
     for (int i = 1; i <= 3; i++) {
       int x1 = (int) (Math.random() * (WIDTH - 50));
       int y1 = (int) (Math.random() * (HEIGHT - 50));
-      graphics.drawRect(x1, y1, 50, 50);
+      squareDrawing(graphics, x1, y1);
     }
+  }
+
+  public static void squareDrawing(Graphics graphics, int x1, int y1) {
+    graphics.drawRect(x1, y1, 50, 50);
   }
 
   //    Don't touch the code below

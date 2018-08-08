@@ -19,27 +19,38 @@ public class CalculatorV2 {
 
     List<Double> doubleList = new ArrayList<>(inputArr.size());
 
-    for (int i = 1; i < inputArr.size(); ++i) {
-      doubleList.set(i, Double.parseDouble(inputArr.get(i)));
+    for (int i = 1; i < inputArr.size(); i++) {
+      doubleList.add(Double.parseDouble(inputArr.get(i)));
     }
-    System.out.println(doubleList.toString());
 
     String operator = inputArr.get(0);
-    Double operand1 = doubleList.get(1);
-    Double operand2 = doubleList.get(2);
+    Double operand1 = doubleList.get(0);
+    Double operand2 = doubleList.get(1);
 
     double solution = 0;
-    if (operator == "+") {
+    if (operator.equals("+")) {
       solution = operand1 + operand2;
-    } else if (operator == "-") {
+    } else if (operator.equals("-")) {
       solution = operand1 - operand2;
-    } else if (operator == "*") {
+    } else if (operator.equals("*")) {
       solution = operand1 * operand2;
-    } else if (operator == "/") {
+    } else if (operator.equals("/")) {
       solution = operand1 / operand2;
-    } else if (operator == "%") {
+    } else if (operator.equals("%")) {
       solution = operand1 % operand2;
     }
+
+//    if (operator == "+") {
+//      solution = operand1 + operand2;
+//    } else if (operator =="-") {
+//      solution = operand1 - operand2;
+//    } else if (operator == "*") {
+//      solution = operand1 * operand2;
+//    } else if (operator == "/") {
+//      solution = operand1 / operand2;
+//    } else if (operator == "%") {
+//      solution = operand1 % operand2;
+//    }
 
     if (solution % 1 != 0) {
       System.out.println(solution);

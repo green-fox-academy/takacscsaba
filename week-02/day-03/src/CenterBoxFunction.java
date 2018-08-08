@@ -10,8 +10,12 @@ public class CenterBoxFunction {
 
     for (int i = 1; i <= 3; i++) {
       int x = (int) (Math.random() * WIDTH / 2);
-      graphics.drawRect(WIDTH / 2 - x / 2, HEIGHT / 2 - x / 2, x, x);
+      squareSize(graphics, x);
     }
+  }
+
+  public static void squareSize(Graphics graphics, int x) {
+    graphics.drawRect(WIDTH / 2 - x / 2, HEIGHT / 2 - x / 2, x, x);
   }
 
   //    Don't touch the code below

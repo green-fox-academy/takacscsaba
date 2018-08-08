@@ -8,14 +8,20 @@ public class Calculator {
     calculate();
   }
 
-  public static int calculate() {
+  public static double calculate() {
     Scanner requestScan = new Scanner(System.in);
     String requestOperation = "Please type in the expression (e.g. '+ 4 4'): ";
     System.out.print(requestOperation);
 
     String input = requestScan.nextLine();
 
+
     List<String> inputArr = new ArrayList<>(Arrays.asList(input.split(" ")));
+    if (inputArr.size() != 3) {
+      System.out.println("Invalid input");
+      return calculate();
+    }
+
     String operator = inputArr.get(0);
     Double operand1 = Double.parseDouble(inputArr.get(1));
     Double operand2 = Double.parseDouble(inputArr.get(2));
@@ -44,6 +50,7 @@ public class Calculator {
       System.out.println(Math.round(solution));
     }
 
-    return calculate();
+    return solution;
+//    return calculate();
   }
 }
