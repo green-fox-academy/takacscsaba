@@ -3,9 +3,9 @@ import java.util.List;
 public class SubStrList {
   public static void main(String[] args) {
   }
-  public static Integer subStrList(String string, List list) {
-
-  }
+//  public static Integer subStrList(String string, List list) {
+//
+//  }
 }
   //  Create a function that takes a string and a list of string as a parameter
   //  Returns the index of the string in the list where the first string is part of

@@ -9,24 +9,44 @@ public class Checkerboard {
     Color purple = new Color(128, 0, 128);
     for (int i = 0; i <= HEIGHT; i = i + 40) {
       for (int j = 0; j <= WIDTH; j = j + 20) {
-        graphics.setColor(purple);
-        graphics.fillRect(j, i, 20, 20);
+        if (j % 40 == 0) {
+          graphics.setColor(purple);
+          graphics.fillRect(j, i, 20, 20);
+        } else {
+          graphics.setColor(purple);
+          graphics.fillRect(j + 20, i, 20, 20);
+        }
       }
       for (int k = 0; k <= WIDTH; k = k + 20) {
-        graphics.setColor(Color.GREEN);
-        graphics.fillRect(i +20, k, 20, 20);
+        if (k % 40 == 0) {
+          graphics.setColor(Color.GREEN);
+          graphics.fillRect(k + 20, i, 20, 20);
+        } else {
+          graphics.setColor(Color.GREEN);
+          graphics.fillRect(k, i, 20, 20);
+        }
       }
-//      for (int m = 0; m <= WIDTH; l = l + 20) {
-//        graphics.setColor(Color.GREEN);
-//        graphics.fillRect(l, i + 20, 20, 20);
-//      }
     }
-//    for (int i = 0; i <= HEIGHT; i = i + 40) {
-//      for (int j = 0; j <= WIDTH; j = j + 20) {
-//        graphics.setColor(purple);
-//        graphics.fillRect(i, j, 20, 20);
-//      }
-//    }
+    for (int i = 20; i <= HEIGHT; i = i + 40) {
+      for (int j = 0; j <= WIDTH; j = j + 20) {
+        if (j % 40 == 0) {
+          graphics.setColor(Color.GREEN);
+          graphics.fillRect(j, i, 20, 20);
+        } else {
+          graphics.setColor(Color.GREEN);
+          graphics.fillRect(j + 20, i, 20, 20);
+        }
+      }
+      for (int k = 0; k <= WIDTH; k = k + 20) {
+        if (k % 40 == 0) {
+          graphics.setColor(purple);
+          graphics.fillRect(k + 20, i, 20, 20);
+        } else {
+          graphics.setColor(purple);
+          graphics.fillRect(k, i, 20, 20);
+        }
+      }
+    }
   }
 
   // Don't touch the code below
