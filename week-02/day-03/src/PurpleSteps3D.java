@@ -4,21 +4,22 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class CenterBoxFunction {
-
+public class PurpleSteps3D {
   public static void mainDraw(Graphics graphics) {
+    for (int i = 0; i < HEIGHT; i = 2 * i + 10) {
+      Color purple = new Color(128, 0, 128);
+      graphics.setColor(purple);
+      graphics.fill3DRect(i, i, i + 10, i + 10, true);
 
-    for (int i = 1; i <= 3; i++) {
-      int x = (int) (Math.random() * WIDTH);
-      squareSize(graphics, x);
+//      graphics.setColor(Color.BLACK);
+//      graphics.drawLine(i, i, i, 2 * i + 10);
+//      graphics.drawLine(i, i, 2 * i + 10, i);
+//      graphics.drawLine(2 * i + 10, i, 2 * i + 10, 2 * i + 10);
+//      graphics.drawLine(i, 2 * i + 10, 2 * i + 10, 2 * i + 10);
     }
   }
 
-  public static void squareSize(Graphics graphics, int x) {
-    graphics.drawRect(WIDTH / 2 - x / 2, HEIGHT / 2 - x / 2, x, x);
-  }
-
-  //    Don't touch the code below
+  // Don't touch the code below
   static int WIDTH = 320;
   static int HEIGHT = 343;
 
@@ -36,8 +37,6 @@ public class CenterBoxFunction {
     protected void paintComponent(Graphics graphics) {
       super.paintComponent(graphics);
       mainDraw(graphics);
-
     }
   }
-
 }

@@ -22,7 +22,7 @@ public class RainbowBoxFunctionV2 {
     int x = 343;
     for (int i = rainbowColor.length - 1; i >= 0; i--) {
       squareSizeColor(graphics, x, rainbowColorList.get(rainbowColor[i]));
-      x -= 47;
+      x -= (343 / 7);
     }
   }
 
