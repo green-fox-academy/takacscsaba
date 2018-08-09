@@ -22,10 +22,6 @@ public class FunctionToCenter {
       graphics.drawLine(0, i, WIDTH / 2, HEIGHT / 2);
     }
   }
-  // Create a line drawing function that takes 2 parameters:
-  // The x and y coordinates of the line's starting point
-  // and draws a line from that point to the center of the canvas.
-  // Fill the canvas with lines from the edges, every 20 px, to the center.
 
   // Don't touch the code below
   static int WIDTH = 320;
