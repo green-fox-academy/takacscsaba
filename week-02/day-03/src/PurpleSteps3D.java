@@ -6,6 +6,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class PurpleSteps3D {
   public static void mainDraw(Graphics graphics) {
+
     for (int i = 0; i < HEIGHT; i = 2 * i + 10) {
       Color purple = new Color(128, 0, 128);
       graphics.setColor(purple);

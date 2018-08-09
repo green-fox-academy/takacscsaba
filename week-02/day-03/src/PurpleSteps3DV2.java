@@ -1,21 +1,26 @@
 import javax.swing.*;
 
 import java.awt.*;
-import java.util.Scanner;
 
+import static java.awt.Frame.getFrames;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class GoToCenter {
+public class PurpleSteps3DV2 {
   public static void mainDraw(Graphics graphics) {
-    centerSquare(graphics);
+
+    int size = 20;
+    int x = 10;
+    for (int i = 0; i < 7; i++) {
+      size = i * 10;
+      x += size - 10;
+      squareDrawing(graphics, x, size);
+    }
   }
 
-  public static void centerSquare(Graphics graphics) {
-    for (int i = 1; i <= 3; i++) {
-      int x1 = (int) (Math.random() * ((WIDTH)));
-      int y1 = (int) (Math.random() * ((HEIGHT)));
-      graphics.drawLine(x1, y1, WIDTH / 2, HEIGHT / 2);
-    }
+  public static void squareDrawing(Graphics graphics, int x, int size) {
+    Color purple = new Color(128, 0, 128);
+    graphics.setColor(purple);
+    graphics.fill3DRect(x, x, size, size, true);
   }
 
   // Don't touch the code below
@@ -23,7 +28,6 @@ public class GoToCenter {
   static int HEIGHT = 343;
 
   public static void main(String[] args) {
-
     JFrame jFrame = new JFrame("Drawing");
     jFrame.setSize(new Dimension(WIDTH, HEIGHT));
     jFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
