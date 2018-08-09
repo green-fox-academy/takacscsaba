@@ -14,10 +14,10 @@ public class ConnectTheDots {
   public static void coordinates(Graphics graphics, int[][] array) {
     int x = 0;
     int y = 0;
-    array = new int[][];
-    graphics.drawLine(array[x], array[y], );
+    array = new int[][]{{x, x}, {y, y}};
+    graphics.drawLine(array[x][0], array[x][1], array[y][0], array[y][1]);
+
   }
-}
   // Create a function that takes 1 parameter:
   // An array of {x, y} points
   // and connects them with green lines.
@@ -38,11 +38,11 @@ public class ConnectTheDots {
     jFrame.setVisible(true);
   }
 
-static class ImagePanel extends JPanel {
-  @Override
-  protected void paintComponent(Graphics graphics) {
-    super.paintComponent(graphics);
-    mainDraw(graphics);
+  static class ImagePanel extends JPanel {
+    @Override
+    protected void paintComponent(Graphics graphics) {
+      super.paintComponent(graphics);
+      mainDraw(graphics);
+    }
   }
-}
 }
