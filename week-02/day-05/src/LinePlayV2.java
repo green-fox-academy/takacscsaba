@@ -7,21 +7,25 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class LinePlayV2 {
   public static void mainDraw(Graphics graphics) {
-    for (int i = 0; i < WIDTH - 40; i = i + 20) {
-      graphics.setColor(new Color(0, 88, 12));
-      graphics.drawLine(i + 40, 0, WIDTH, i + 20);
-      graphics.setColor(new Color(0, 6, 124));
-      graphics.drawLine(0, i + 40, i + 20, HEIGHT);
-      graphics.setColor(new Color(255, 4, 0));
-      graphics.drawLine(i + 40, HEIGHT, WIDTH, HEIGHT - i - 20);
-      graphics.setColor(new Color(255, 79, 0));
-      graphics.drawLine(i + 20, 0, 0, WIDTH - i - 40);
+    for (int i = 0; i < WIDTH - 2; i = i + 1) {
+      int r = (int) (Math.random() * 255);
+      int g = (int) (Math.random() * 255);
+      int b = (int) (Math.random() * 255);
+      Color randomColor = new Color(r, g, b);
+      graphics.setColor(randomColor);
+      graphics.drawLine(i + 2, 0, WIDTH, i + 1);
+      graphics.setColor(randomColor);
+      graphics.drawLine(0, i + 2, i + 1, HEIGHT);
+      graphics.setColor(randomColor);
+      graphics.drawLine(i + 2, HEIGHT, WIDTH, HEIGHT - i - 1);
+      graphics.setColor(randomColor);
+      graphics.drawLine(i + 1, 0, 0, WIDTH - i - 2);
     }
   }
 
   // Don't touch the code below
-  static int WIDTH = 300;
-  static int HEIGHT = 300;
+  static int WIDTH = 600;
+  static int HEIGHT = 600;
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
