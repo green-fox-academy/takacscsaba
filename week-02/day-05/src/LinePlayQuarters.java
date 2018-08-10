@@ -7,25 +7,27 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class LinePlayQuarters {
   public static void mainDraw(Graphics graphics) {
-    for (int k = 1; k <= 4; k = k + 3) {
-      for (int i = 0; i < WIDTH; i = i + WIDTH / 2) {
-        for (int j = 0; j < (WIDTH - 40); j = (j + 20)) {
-//          graphics.setColor(new Color(128, 0, 128));
-//          graphics.drawLine(i + (j + 40) / 2/k, 0, i + WIDTH / 2/k, (j + 20) / 2/k);
-//          graphics.setColor(Color.GREEN);
-//          graphics.drawLine(i/k, (j + 40) / 2/k, i + (j + 20) / 2/k, HEIGHT / 2/k);
-//
-//          graphics.setColor(new Color(128, 0, 128));
-//          graphics.drawLine((j + 40) / 2/k, i/k, WIDTH / 2/k, i + (j + 20) / 2/k);
-//          graphics.setColor(Color.GREEN);
-//          graphics.drawLine(0, i + (j + 40) / 2/k, (j + 20) / 2/k, i + HEIGHT / 2/k);
-
-          graphics.setColor(new Color(128, 0, 128));
-          graphics.drawLine(i + (j + 40) / 2/k, i/k, i + WIDTH / 2/k, i + (j + 20) / 2/k);
-          graphics.setColor(Color.GREEN);
-          graphics.drawLine(i/k, i + (j + 40) / 2/k, i + (j + 20) / 2/k, i + HEIGHT / 2/k);
-        }
+    int k = 2;
+    for (int i = 0; i < WIDTH; i = i + WIDTH / 2) {
+      for (int j = 0; j < (WIDTH - 40); j = (j + 20)) {
+        graphics.setColor(new Color(128, 0, 128));
+        graphics.drawLine(i + (j + 40) / 2 / k, WIDTH / (2 * k), i + WIDTH / 2 / k, (j + 20) / 2 / k + WIDTH / (2 * k));
+        graphics.setColor(Color.GREEN);
+        graphics.drawLine(i, (j + 40) / 2 / k + WIDTH / (2 * k), i + (j + 20) / 2 / k, HEIGHT / 2 / k + WIDTH / (2 * k));
+        graphics.setColor(new Color(128, 0, 128));
+        graphics.drawLine(i + (j + 40) / 2 / k, 0, i + WIDTH / 2 / k, (j + 20) / 2 / k);
+        graphics.setColor(Color.GREEN);
+        graphics.drawLine(i, (j + 40) / 2 / k, i + (j + 20) / 2 / k, HEIGHT / 2 / k);
       }
+
+//          if (j % 40 == 0) {
+//
+//          } else {
+//            graphics.setColor(new Color(128, 0, 128));
+//            graphics.drawLine(i + (j + 40) / 2 / k, i / k, i + WIDTH / 2 / k, i + (j + 20) / 2 / k);
+//            graphics.setColor(Color.GREEN);
+//            graphics.drawLine(i / k, i + (j + 40) / 2 / k, i + (j + 20) / 2 / k, i + HEIGHT / 2 / k);
+//          }
     }
   }
 
