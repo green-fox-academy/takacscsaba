@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class factorio {
+public class Factorio {
   public static void main(String[] args) {
     Scanner request01 = new Scanner(System.in);
     String request1 = "Please enter a number: ";
