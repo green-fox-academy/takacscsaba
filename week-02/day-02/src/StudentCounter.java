@@ -4,8 +4,6 @@ public class StudentCounter {
   public static void main(String... args) {
     ArrayList<Map<String, Object>> map = new ArrayList<Map<String, Object>>();
 
-    // Given this list of hashmaps...
-
     Map<String, Object> row0 = new HashMap<String, Object>();
     row0.put("name", "Theodor");
     row0.put("age", 9.5);

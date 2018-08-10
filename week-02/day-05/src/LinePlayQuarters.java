@@ -7,8 +7,8 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class LinePlayQuarters {
   public static void mainDraw(Graphics graphics) {
-    int k = 2;
-    for (int i = 0; i < WIDTH; i = i + WIDTH / 2) {
+    int k = 1;
+    for (int i = 0; i < WIDTH/k; i = i + WIDTH / 2/k) {
       for (int j = 0; j < (WIDTH - 40); j = (j + 20)) {
         graphics.setColor(new Color(128, 0, 128));
         graphics.drawLine(i + (j + 40) / 2 / k, WIDTH / (2 * k), i + WIDTH / 2 / k, (j + 20) / 2 / k + WIDTH / (2 * k));

@@ -12,7 +12,12 @@ public class Triangles {
       graphics.drawLine(WIDTH / 2 - i / 2 - 10, i + 20, WIDTH / 2 + i / 2 + 10, i + 20);
       graphics.drawLine(WIDTH / 2 - i / 2, i, WIDTH / 2 + 200 - i, 400);
       graphics.drawLine(WIDTH / 2 + i / 2, i, WIDTH / 2 - 200 + i, 400);
+//      int xpoints[] = {WIDTH / 2 + i / 2 + 10, WIDTH / 2 + i / 2, 0, 0, 0, 0};
+//      int ypoints[] = {i + 20, i, 0, 0, 0, 0};
+//      int npoints = 2;
+//      graphics.drawPolygon(xpoints, ypoints, npoints);
     }
+
   }
 
   // Don't touch the code below
