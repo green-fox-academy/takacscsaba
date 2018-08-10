@@ -31,7 +31,7 @@ public class Calculator {
     Double operand1 = Double.parseDouble(inputArr.get(1));
     Double operand2 = Double.parseDouble(inputArr.get(2));
 
-    double solution = 0;
+    double solution = 0.0;
     switch (operator) {
       case "+":
         solution = operand1 + operand2;

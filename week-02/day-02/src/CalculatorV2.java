@@ -28,7 +28,7 @@ public class CalculatorV2 {
     Double operand1 = doubleList.get(0);
     Double operand2 = doubleList.get(1);
 
-    double solution = 0;
+    double solution = 0.0;
     if (operator.equals("+")) {
       solution = operand1 + operand2;
     } else if (operator.equals("-")) {

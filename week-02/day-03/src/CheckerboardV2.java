@@ -15,7 +15,7 @@ public class CheckerboardV2 {
       }
     }
   }
-  
+
   public static void checkerOne(Graphics graphics, int x, int y) {
     graphics.fillRect(x, y, WIDTH / 8, HEIGHT / 8);
     graphics.fillRect(x + WIDTH / 8, y + HEIGHT / 8, WIDTH / 8, HEIGHT / 8);
