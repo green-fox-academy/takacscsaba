@@ -5,15 +5,16 @@ import java.util.Scanner;
 
 public class CalculatorV2 {
   public static void main(String... args) {
-    calculate();
-  }
-
-  public static int calculate() {
     Scanner requestScan = new Scanner(System.in);
     String requestOperation = "Please type in the expression (e.g. '+ 4 4'): ";
     System.out.print(requestOperation);
 
     String input = requestScan.nextLine();
+
+    calculate(input);
+  }
+
+  public static double calculate(String input) {
 
     List<String> inputArr = new ArrayList<>(Arrays.asList(input.split(" ")));
 
@@ -56,7 +57,24 @@ public class CalculatorV2 {
       System.out.println(solution);
     } else {
       System.out.println(Math.round(solution));
+//      e.g. changes 8.0 -> 8
     }
-    return calculate();
+    return solution;
   }
 }
+// Create a simple calculator application which reads the parameters from the prompt
+// and prints the result to the prompt.
+// It should support the following operations,
+// create a method named "calculate()":
+// +, -, *, /, % and it should support two operands.
+// The format of the expressions must be: {operation} {operand} {operand}.
+// Examples: "+ 3 3" (the result will be 6) or "* 4 4" (the result will be 16)
+
+// You can use the Scanner class
+// It should work like this:
+
+// Start the program
+// It prints: "Please type in the expression:"
+// Waits for the user input
+// Print the result to the prompt
+// Exit

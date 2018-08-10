@@ -15,8 +15,13 @@ public class Calculator {
 
     String input = requestScan.nextLine();
 
+    if (input.equals("x")) {
+      double end = 0;
+      return end;
+    }
 
     List<String> inputArr = new ArrayList<>(Arrays.asList(input.split(" ")));
+
     if (inputArr.size() != 3) {
       System.out.println("Invalid input");
       return calculate();
@@ -50,7 +55,7 @@ public class Calculator {
       System.out.println(Math.round(solution));
     }
 
-    return solution;
-//    return calculate();
+//    return solution;
+      return calculate();
   }
 }
