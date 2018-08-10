@@ -20,12 +20,12 @@ public class SuperHexagon {
     double cubicRoot = 15 * Math.cbrt(3);
     int cubicRootI = (int)cubicRoot;
 
-    for (int j = 0; j <= 120; j = j + 30) {
+    for (int j = 0; j <= 120; j = j + 2 * cubicRootI) {
       for (int i = 0; i <= array.length - 1; i++) {
         if (i != array.length - 1)
-          graphics.drawLine((int) array[i][0] + j + j/2, (int) array[i][1] + cubicRootI, (int) array[i + 1][0] + j + j/2, (int) array[i + 1][1] + cubicRootI);
+          graphics.drawLine((int) array[i][0] + j + j/2, (int) array[i][1] + j/2, (int) array[i + 1][0] + j + j/2, (int) array[i + 1][1] + j/2);
         else {
-          graphics.drawLine((int) array[i][0] + j, (int) array[i][1] + j, (int) array[i - array.length + 1][0] + j, (int) array[i - array.length + 1][1] + j);
+          graphics.drawLine((int) array[i][0] + j + j/2, (int) array[i][1] + j/2, (int) array[i - array.length + 1][0] + j + j/2, (int) array[i - array.length + 1][1] + j/2);
         }
       }
     }
