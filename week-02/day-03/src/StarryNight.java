@@ -23,9 +23,6 @@ public class StarryNight {
       }
     }
   }
-  //  - The stars can be small squares
-  //  - The stars should have random positions on the canvas
-  //  - The stars should have random color (some shade of grey)
 
   // Don't touch the code below
   static int WIDTH = 1000;
