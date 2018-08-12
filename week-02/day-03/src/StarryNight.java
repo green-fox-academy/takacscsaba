@@ -10,12 +10,13 @@ public class StarryNight {
   }
 
   public static void stars(Graphics graphics) {
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 10; i++) {
       int size = 2;
-      for (int j = 0; j < 248; j = j + 8) {
+      for (int j = 0; j < 248; j++) {
         int r = j;
         int g = j;
         int b = j;
+        graphics.setColor(new Color(r, g, b));
           int x = (int) (Math.random() * 2000);
           int y = (int) (Math.random() * 1400);
           graphics.fillOval(x, y, size, size);
