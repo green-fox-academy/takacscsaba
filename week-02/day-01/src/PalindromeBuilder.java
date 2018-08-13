@@ -15,7 +15,6 @@ public class PalindromeBuilder {
   }
 
   public static String palindrome(String string) {
-
     List<Character> chars = new ArrayList<>();
     for (int i = 0; i <= string.length() - 1; i++) {
       chars.add(string.charAt(i));

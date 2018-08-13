@@ -9,6 +9,7 @@ public class SubStrList {
   }
 
   public static Integer subStrList(String string, List list) {
+
     for (int i = 0; i < string.length(); i++) {
       for (int j = 0; j < list.size(); j++) {
         if (list.contains(string)) {

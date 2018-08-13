@@ -7,7 +7,7 @@ public class Bubble {
     List<Integer> listInt = new ArrayList<>();
     Collections.addAll(listInt, new Integer[]{32, 11, 7732, 2, 423342, 2323});
     System.out.println(bubble(listInt));
-    System.out.println(advancedBubble(listInt));
+    System.out.println(advancedBubble(listInt, true));
   }
 
   public static List<Integer> bubble(List<Integer> list) {
@@ -15,10 +15,9 @@ public class Bubble {
     return list;
   }
 
-  public static List<Integer> advancedBubble(List<Integer> list) {
+  public static List<Integer> advancedBubble(List<Integer> list, boolean descending) {
     Collections.sort(list);
     List<Integer> listBackward = new ArrayList<>();
-    boolean descending = true;
     if (descending) {
       for (int i = list.size() - 1; i >= 0; i--) {
         listBackward.add(list.get(i));
