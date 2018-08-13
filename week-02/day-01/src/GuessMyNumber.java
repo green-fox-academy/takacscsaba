@@ -14,7 +14,7 @@ public class GuessMyNumber {
 
     for (int i = 5; i >= 0; i--) {
       Scanner scanner = new Scanner(System.in);
-      System.out.print("Please enter your guess between 1 and " + input + ": ");
+      System.out.print("Please enter your guess between 1 and " + (input - 1) + ": ");
       int guess = scanner.nextInt();
       if (i == 0) {
         System.out.println("You died. The number was: " + exactNumber);
