@@ -1,8 +1,30 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class JosephusProblem {
   public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("Please enter the number of players: ");
+    int input = scanner.nextInt();
+    //
+    List<Integer> numbers = new ArrayList<>();
+    for (int i = 1; i <= input; i++) {
+      numbers.add(i);
+    }
+    System.out.println(numbers.toString());
 
+    for (int i = 0; i < numbers.size(); i++) {
+      if (i == numbers.size() - 1) {
+        numbers.remove(i);
+        System.out.println(numbers.toString());
+      } else {
+        numbers.remove(i + 1);
+        System.out.println(numbers.toString());
+      }
+    }
   }
-//  public static int winner(int gamersNumber) {
+//  public static int winner(int playersNum) {
 //      }
 }
 // Write a function to solve Josephus Problem.
