@@ -12,15 +12,17 @@ public class JosephusProblem {
     for (int i = 1; i <= input; i++) {
       numbers.add(i);
     }
+    
     System.out.println(numbers.toString());
-
-    for (int i = 0; i < numbers.size(); i++) {
-      if (i == numbers.size() - 1) {
-        numbers.remove(i);
-        System.out.println(numbers.toString());
-      } else {
-        numbers.remove(i + 1);
-        System.out.println(numbers.toString());
+    while (numbers.size() > 0) {
+      for (int i = 0; i <= numbers.size(); i++) {
+        if (i == numbers.size()) {
+          numbers.remove(i);
+          System.out.println(numbers.toString());
+        } else {
+          numbers.remove(i + 1);
+          System.out.println(numbers.toString());
+        }
       }
     }
   }
