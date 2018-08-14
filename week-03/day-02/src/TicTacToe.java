@@ -39,7 +39,7 @@ public class TicTacToe {
 
         }
       }
-      System.out.println(line1);
+      System.out.println(line);
     } catch (Exception e){
     }
   }
