@@ -18,7 +18,7 @@ public class SymmetricMatrix {
       if (m.size() != m.get(row).size()) {
         return false;
       }
-      for (int column = 0; column < m.size(); column++) {
+      for (int column = row + 1; column < m.size(); column++) {
         if (m.get(row).get(column) != m.get(column).get(row)) {
           return false;
         }
