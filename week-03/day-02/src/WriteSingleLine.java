@@ -1,6 +1,7 @@
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +17,12 @@ public class WriteSingleLine {
 
     try {
       Path filePath = Paths.get(string);
-      Files.write(filePath, content);
+      Files.write(filePath, content, StandardOpenOption.APPEND);
 
       List<String> lines = Files.readAllLines(filePath);
-      System.out.println(lines.get(0));
+      for (int i = 0; i < lines.size(); i++) {
+        System.out.println(lines.get(i));
+      }
     } catch (Exception e) {
       System.out.println("Unable to write file: my-file.txt");
     }
