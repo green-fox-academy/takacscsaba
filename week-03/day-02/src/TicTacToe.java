@@ -1,6 +1,7 @@
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -29,14 +30,16 @@ public class TicTacToe {
 //      for (int i = 0; i < lines.size(); i++) {
 //        System.out.println(lines.get(i));
 //      }
+      String[][] line = new String[][]{};
+      List<String> line2 = new ArrayList<>();
+      List<String> line3 = new ArrayList<>();
       for (int i = 0; i < lines.size(); i++) {
-        String linesSep = lines.get(i).split("")[i];
-        System.out.println(linesSep);
         for (int j = 0; j < lines.size(); j++) {
-          String linesSep2 = lines.get(j).split("")[j];
-          System.out.println(linesSep2);
+//          line.add(lines.get(i).split("")[j]);
+          
         }
       }
+      System.out.println(line1);
     } catch (Exception e){
     }
   }
