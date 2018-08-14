@@ -36,7 +36,7 @@ public class TicTacToe {
       for (int i = 0; i < lines.size(); i++) {
         for (int j = 0; j < lines.size(); j++) {
 //          line.add(lines.get(i).split("")[j]);
-          
+
         }
       }
       System.out.println(line1);
