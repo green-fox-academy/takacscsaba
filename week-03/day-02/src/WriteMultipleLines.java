@@ -1,8 +1,13 @@
+import java.nio.file.Path;
+
 public class WriteMultipleLines {
   public static void main(String[] args) {
 
   }
-  
+
+  public static void writer(Path path, String string, int number) {
+
+  }
 }
 // Create a function that takes 3 parameters: a path, a word and a number,
 // than it should write to a file.

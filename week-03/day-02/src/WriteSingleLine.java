@@ -19,9 +19,7 @@ public class WriteSingleLine {
       Files.write(filePath, content);
 
       List<String> lines = Files.readAllLines(filePath);
-      for (int i = 0; i <= lines.size(); i++) {
-        System.out.println(lines.get(i));
-      }
+      System.out.println(lines.get(0));
     } catch (Exception e) {
       System.out.println("Unable to write file: my-file.txt");
     }
