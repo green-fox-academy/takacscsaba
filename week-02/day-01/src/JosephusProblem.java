@@ -12,9 +12,9 @@ public class JosephusProblem {
     for (int i = 1; i <= input; i++) {
       numbers.add(i);
     }
-    
+
     System.out.println(numbers.toString());
-    while (numbers.size() > 0) {
+    while (numbers.size() != 0) {
       for (int i = 0; i <= numbers.size(); i++) {
         if (i == numbers.size()) {
           numbers.remove(i);
