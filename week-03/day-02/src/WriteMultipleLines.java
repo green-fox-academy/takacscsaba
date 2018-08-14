@@ -7,6 +7,7 @@ public class WriteMultipleLines {
 
   public static void writer(Path path, String string, int number) {
 
+
   }
 }
 // Create a function that takes 3 parameters: a path, a word and a number,
