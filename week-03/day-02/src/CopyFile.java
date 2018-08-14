@@ -17,7 +17,7 @@ public class CopyFile {
     Path filepath2 = Paths.get(fileName2);
     try {
       List<String> lines = Files.readAllLines(filepath1);
-      Files.write(filepath2, lines, StandardOpenOption.APPEND);
+      Files.write(filepath2, lines);
     } catch (Exception e) {
       return false;
     }
