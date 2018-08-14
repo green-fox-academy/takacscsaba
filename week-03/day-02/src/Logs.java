@@ -9,7 +9,7 @@ public class Logs {
   public static void main(String[] args) {
     Path path = Paths.get("logs.txt");
     System.out.println(uniqueIP(path));
-
+    System.out.println(getPostRatio(path));
   }
 
   public static List<String> uniqueIP(Path path) {
@@ -17,18 +17,34 @@ public class Logs {
     try {
       List<String> lines = Files.readAllLines(path);
       for (int i = 0; i < lines.size(); i++) {
-//        IPList.add((String) lines.get(i).subSequence(27, 38));
         String IPList = lines.get(i).split("   ")[1];
 
-          if (!uniqueIPList.contains(IPList)) {
-            uniqueIPList.add(IPList);
+        if (!uniqueIPList.contains(IPList)) {
+          uniqueIPList.add(IPList);
         }
       }
     } catch (Exception e) {
     }
     return uniqueIPList;
   }
+
+  public static double getPostRatio(Path path) {
+    List<String> getList = new ArrayList<>();
+    List<String> postList = new ArrayList<>();
+    try {
+      List<String> lines = Files.readAllLines(path);
+      for (int i = 0; i < lines.size(); i++) {
+        String IPList = lines.get(i).split("   ")[2];
+
+        if (IPList.equals("GET /")) {
+          getList.add(IPList);
+        } else if (IPList.equals("POST /")) {
+          postList.add(IPList);
+        }
+      }
+    } catch (Exception e) {
+    }
+    double getPost = (double) getList.size() / (double) postList.size();
+    return getPost;
+  }
 }
-// Read all data from 'log.txt'.
-// Each line represents a log message from a web server
-// Write a function that returns the GET / POST request ratio.
