@@ -4,16 +4,17 @@ import java.util.List;
 public class Main {
   public static void main(String[] args) {
     List<Domino> dominoes = initializeDominoes();
-    // You have the list of Dominoes
-    // Order them into one snake where the adjacent dominoes have the same numbers on their adjacent sides
-    // eg: [2, 4], [4, 3], [3, 5] ...
 
     List<Domino> snakeDomino = new ArrayList<>();
     snakeDomino.add(dominoes.get(0));
 
     for (int i = 0; i < dominoes.size(); i++) {
       for (int j = 0; j < dominoes.size(); j++) {
-        if (!snakeDomino.contains(dominoes.get(j)) && snakeDomino.get(snakeDomino.size() - 1).getValues(1).equals(dominoes.get(j).getValues(0))) {
+        int[] x = dominoes.get(j).getValues(0);
+        int[] y = snakeDomino.get(snakeDomino.size() - 1).getValues(1);
+
+        if (!snakeDomino.contains(dominoes.get(j)) &&
+            y[1] == x[0]) {
           snakeDomino.add(dominoes.get(j));
         }
       }
