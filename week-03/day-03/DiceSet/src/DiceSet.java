@@ -6,7 +6,7 @@ public class DiceSet {
 // Check the current rolled numbers with getCurrent()
 // You can reroll with reroll()
 // Your task is to roll the dices until all of the dices are 6
-  int[] dices = new int[6];
+  public static int[] dices = new int[6];
 
   public int[] roll() {
     for (int i = 0; i < dices.length; i++) {
@@ -35,6 +35,12 @@ public class DiceSet {
 
   public static void main(String[] args) {
     DiceSet diceSet = new DiceSet();
+    for (int i = 0; i < dices.length; i++) {
+      diceSet.roll();
+        while (diceSet.getCurrent(i) != 6) {
+          diceSet.reroll();
+        }
+    }
     diceSet.getCurrent();
     diceSet.roll();
     diceSet.getCurrent();
