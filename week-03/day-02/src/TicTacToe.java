@@ -16,10 +16,10 @@ public class TicTacToe {
     System.out.println(ticTacResult("win-o.txt"));
 //    // should print O
 //
-//    System.out.println(ticTacResult("win-x.txt"));
+    System.out.println(ticTacResult("win-x.txt"));
 //    // should print X
 //
-//    System.out.println(ticTacResult("draw.txt"));
+    System.out.println(ticTacResult("draw.txt"));
 //    // should print draw
   }
 
@@ -49,15 +49,13 @@ public class TicTacToe {
     Os.add("O");
 
     for (int i = 0; i < matrix.size(); i++) {
-      for (int j = 0; j < matrix.get(i).size(); j++) {
-        if (matrix.get(0).get(j).equals(matrix.get(1).get(j).equals(matrix.get(2).get(j).equals("X")))) {
-          winning++;
-          System.out.println("XVERT");
-        }
-        if (matrix.get(0).get(j).equals(matrix.get(1).get(j).equals(matrix.get(2).get(j).equals("O")))) {
-          winning--;
-          System.out.println("OVERT");
-        }
+      if (matrix.get(0).get(i).equals("X") && matrix.get(1).get(i).equals("X") && matrix.get(2).get(i).equals("X")) {
+        winning++;
+        System.out.println("XVERT");
+      }
+      if (matrix.get(0).get(i).equals("O") && matrix.get(1).get(i).equals("O") && matrix.get(2).get(i).equals("O")) {
+        winning--;
+        System.out.println("OVERT");
       }
       if (matrix.get(i).equals(Xs)) {
         winning++;
@@ -68,21 +66,21 @@ public class TicTacToe {
         System.out.println("OSOR");
       }
     }
-    if (matrix.get(0).get(2).equals(matrix.get(1).get(1).equals(matrix.get(2).get(0).equals("X")))) {
+    if (matrix.get(0).get(0).equals("X") && matrix.get(1).get(1).equals("X") && matrix.get(2).get(2).equals("X")) {
       winning++;
       System.out.println("XATLOBAL");
     }
-    if (matrix.get(0).get(2).equals(matrix.get(1).get(1).equals(matrix.get(2).get(0).equals("O")))) {
+    if (matrix.get(0).get(0).equals("O") && matrix.get(1).get(1).equals("O") && matrix.get(2).get(2).equals("O")) {
       winning--;
       System.out.println("OATLOBAL");
     }
-    if (matrix.get(0).get(0).equals(matrix.get(1).get(1).equals(matrix.get(2).get(2).equals("X")))) {
+    if (matrix.get(0).get(2).equals("X") && matrix.get(1).get(1).equals("X") && matrix.get(2).get(0).equals("X")) {
       winning++;
       System.out.println("XATLOJOBB");
     }
-    if (matrix.get(0).get(0).equals(matrix.get(1).get(1).equals(matrix.get(2).get(2).equals("O")))) {
+    if (matrix.get(0).get(2).equals("O") && matrix.get(1).get(1).equals("O") && matrix.get(2).get(0).equals("O")) {
       winning--;
-      System.out.println("XOATLOJOBB");
+      System.out.println("OATLOJOBB");
     }
     if (winning > 0) {
       return "X";
@@ -93,7 +91,3 @@ public class TicTacToe {
     }
   }
 }
-// Write a function that takes a filename as string,
-// open and read it. The file data represents a tic-tac-toe
-// game result. Return 'X'/'O'/'draw' based on which player
-// has winning situation.
