@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -8,39 +9,87 @@ import java.util.List;
 public class TicTacToe {
 
   public static void main(String[] args) {
-    ticTacResult("win-o.txt");
+//    ticTacResult("win-o.txt");
 //    ticTacResult("win-x.txt");
 //    ticTacResult("draw.txt");
 
-//    System.out.println(ticTacResult("win-o.txt"))
+    System.out.println(ticTacResult("win-o.txt"));
 //    // should print O
 //
-//    System.out.println(ticTacResult("win-x.txt"))
+//    System.out.println(ticTacResult("win-x.txt"));
 //    // should print X
 //
-//    System.out.println(ticTacResult("draw.txt"))
+//    System.out.println(ticTacResult("draw.txt"));
 //    // should print draw
   }
 
-  private static void ticTacResult(String s) {
+  private static String ticTacResult(String s) {
     Path path = Paths.get(s);
-    String[] chars;
+    List<List<String>> matrix = new ArrayList<>();
+    int winning = 0;
     try {
       List<String> lines = Files.readAllLines(path);
-//      for (int i = 0; i < lines.size(); i++) {
-//        System.out.println(lines.get(i));
-//      }
-      String[][] line = new String[][]{};
-      List<String> line2 = new ArrayList<>();
-      List<String> line3 = new ArrayList<>();
+      // Creating matrix
       for (int i = 0; i < lines.size(); i++) {
-        for (int j = 0; j < lines.size(); j++) {
-//          line.add(lines.get(i).split("")[j]);
-
+        String[] matrixLines = lines.get(i).split("");
+        matrix.add(new ArrayList<>());
+        for (int j = 0; j < matrixLines.length; j++) {
+          matrix.get(i).add(matrixLines[j]);
         }
       }
-      System.out.println(line);
-    } catch (Exception e){
+    } catch (Exception e) {
+    }
+    List<String> Xs = new ArrayList<String>();
+    Xs.add("X");
+    Xs.add("X");
+    Xs.add("X");
+    List<String> Os = new ArrayList<String>();
+    Os.add("O");
+    Os.add("O");
+    Os.add("O");
+
+    for (int i = 0; i < matrix.size(); i++) {
+      for (int j = 0; j < matrix.get(i).size(); j++) {
+        if (matrix.get(0).get(j).equals(matrix.get(1).get(j).equals(matrix.get(2).get(j).equals("X")))) {
+          winning++;
+          System.out.println("XVERT");
+        }
+        if (matrix.get(0).get(j).equals(matrix.get(1).get(j).equals(matrix.get(2).get(j).equals("O")))) {
+          winning--;
+          System.out.println("OVERT");
+        }
+      }
+      if (matrix.get(i).equals(Xs)) {
+        winning++;
+        System.out.println("XSOR");
+      }
+      if (matrix.get(i).equals(Os)) {
+        winning--;
+        System.out.println("OSOR");
+      }
+    }
+    if (matrix.get(0).get(2).equals(matrix.get(1).get(1).equals(matrix.get(2).get(0).equals("X")))) {
+      winning++;
+      System.out.println("XATLOBAL");
+    }
+    if (matrix.get(0).get(2).equals(matrix.get(1).get(1).equals(matrix.get(2).get(0).equals("O")))) {
+      winning--;
+      System.out.println("OATLOBAL");
+    }
+    if (matrix.get(0).get(0).equals(matrix.get(1).get(1).equals(matrix.get(2).get(2).equals("X")))) {
+      winning++;
+      System.out.println("XATLOJOBB");
+    }
+    if (matrix.get(0).get(0).equals(matrix.get(1).get(1).equals(matrix.get(2).get(2).equals("O")))) {
+      winning--;
+      System.out.println("XOATLOJOBB");
+    }
+    if (winning > 0) {
+      return "X";
+    } else if (winning < 0) {
+      return "O";
+    } else {
+      return "draw";
     }
   }
 }
