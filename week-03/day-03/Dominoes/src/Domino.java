@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Domino {
   private final int[] values;
 
@@ -7,7 +5,7 @@ public class Domino {
     this.values = new int[]{valueA, valueB};
   }
 
-  public int[] getValues() {
+  public int[] getValues(int i) {
     return values;
   }
 
@@ -16,7 +14,3 @@ public class Domino {
     return "[" + values[0] + ", " + values[1] + "]";
   }
 }
-//Dominoes
-//    You have the list of Dominoes
-//    Order them into one snake where the adjacent dominoes have the same numbers on their adjacent sides
-//    eg: [2, 4], [4, 3], [3, 5] ...
