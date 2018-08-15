@@ -1,5 +1,15 @@
 public class Counter {
+  int number;
   int field = 0;
+
+  public Counter() {
+    field = 0;
+  }
+
+  public Counter(int number) {
+    this.number = number;
+  }
+
 
   public int add(int number) {
     field += field + number;
@@ -12,7 +22,7 @@ public class Counter {
   }
 
   public int get() {
-    System.out.println(field);
+    field += number;
     return field;
   }
 
