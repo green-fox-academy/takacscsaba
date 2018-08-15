@@ -1,13 +1,16 @@
 public class Main {
 
   public static void main(String[] args) {
+    Student student = new Student();
+    Teacher teacher = new Teacher();
 
+    student.learn();
+    System.out.println(student.IQ);
+    student.question(teacher);
+    System.out.println(teacher.knowledge);
+    teacher.answer();
+    System.out.println(teacher.knowledge);
+    teacher.teach(student);
+    System.out.println(student.IQ);
   }
 }
-//  Create Student and Teacher classes
-//    Student
-//      learn()
-//      question(teacher) -> calls the teachers answer method
-//    Teacher
-//      teach(student) -> calls the students learn method
-//      answer()
