@@ -4,16 +4,18 @@ public class String1 {
     System.out.println(x2y(text));
 
   }
+
   public static String x2y(String s) {
     int length = s.length();
-    if(length == 0) {
+    StringBuilder builder = new StringBuilder();
+
+    if (length == 0) {
       return s;
+    } else if (s.startsWith("x")) {
+      return "y" + x2y(s.substring(1));
     } else {
-      if (s.contains("x")) {
-        return s.replace("x", "y");
-      }
+      return s.charAt(0) + x2y(s.substring(1));
     }
-    return s;
   }
 }
 // Given a string, compute recursively (no loops) a new string where all the
