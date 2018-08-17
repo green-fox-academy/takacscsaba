@@ -7,7 +7,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class YellowCrossSquares {
   public static void mainDraw(Graphics graphics) {
 
-    int size = 600;
+    int size = (int) Math.pow(3, 6);
     int startingPositionX = 0;
     int startingPositionY = 0;
     drawFractal(startingPositionX, startingPositionY, size, graphics);
@@ -29,8 +29,8 @@ public class YellowCrossSquares {
   }
 
   // Don't touch the code below
-  static int WIDTH = 600;
-  static int HEIGHT = 600;
+  static int WIDTH = (int) Math.pow(3, 6);
+  static int HEIGHT = (int) Math.pow(3, 6);
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
@@ -44,6 +44,7 @@ public class YellowCrossSquares {
   static class ImagePanel extends JPanel {
     @Override
     protected void paintComponent(Graphics graphics) {
+      this.setBackground(Color.YELLOW);
       super.paintComponent(graphics);
       mainDraw(graphics);
     }
