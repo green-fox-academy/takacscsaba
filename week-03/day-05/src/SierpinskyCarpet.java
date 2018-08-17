@@ -7,7 +7,8 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class SierpinskyCarpet {
   public static void mainDraw(Graphics graphics) {
     int size = 200;
-    squares(300 - size/2, 300-size/2, size, graphics);
+    squares(WIDTH / 2 - size / 2, HEIGHT / 2 - size / 2, size, graphics);
+    graphics.drawRect(0, 0, WIDTH, HEIGHT);
   }
 
   public static void mainSquare(int xTile, int yTile, int size, Graphics graphics) {
@@ -18,7 +19,10 @@ public class SierpinskyCarpet {
     if (size < 2) {
     } else {
       mainSquare(X, Y, size, graphics);
-      squares(X+size/3, Y / 3, size / 3, graphics);
+      squares(X - 2 * size / 3, Y + size / 3, size / 3, graphics);
+      squares(X + size / 3, Y / 3, size / 3, graphics);
+      squares(X + 4 * size / 3, Y + size / 3, size / 3, graphics);
+//      squares(X + size / 3, 2 * Y + Y / 3, size / 3, graphics);
     }
   }
 
