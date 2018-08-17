@@ -6,31 +6,34 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class PolygonFractal {
   public static void mainDraw(Graphics graphics) {
-
-    int size = 600;
-    int startingPositionX = 0;
-    int startingPositionY = 0;
-    drawFractal(startingPositionX, startingPositionY, size, graphics);
+    honeyComb(200, 0, 150, graphics);
   }
 
-  public static void drawRectal(int x, int y, int size, Graphics graphics) {
-    graphics.drawRect(x, y, size, size);
+  //side of the hexagon is one size long
+  public static void hexagon(int xTile, int yTile, int size, Graphics graphics) {
+    int height = (int) (Math.sqrt(3) / 2 * size);
+    int xpoints[] = {xTile - size / 2, xTile, xTile + size, xTile + size * 3 / 2, xTile + size, xTile};
+    int ypoints[] = {yTile + height, yTile, yTile, yTile + height, yTile + height * 2, yTile + height * 2};
+    int npoints = 6;
+
+    graphics.drawPolygon(xpoints, ypoints, npoints);
   }
 
-  public static void drawFractal(int x, int y, int size, Graphics graphics) {
-    drawRectal(x, y, size, graphics);
-    if (size > 5) {
-      drawFractal(x + size / 3, y, size / 3, graphics);
-      drawFractal(x, y + size / 3, size / 3, graphics);
-      drawFractal(x + 2 * (size / 3), y + size / 3, size / 3, graphics);
-      drawFractal(x + size / 3, y + 2 * (size / 3), size / 3, graphics);
-
+  public static void honeyComb(int origoX, int origoY, int size, Graphics graphics) {
+    if (size < 10) {
+    } else {
+      hexagon(origoX, origoY, size, graphics);
+      int height = (int) (Math.sqrt(3) / 2 * size);
+      honeyComb(origoX, origoY, size / 2, graphics);
+      honeyComb(origoX + size * 3 / 4, origoY + height / 2, size / 2, graphics);
+      honeyComb(origoX, origoY + height, size / 2, graphics);
     }
   }
 
+
   // Don't touch the code below
-  static int WIDTH = 600;
-  static int HEIGHT = 600;
+  static int WIDTH = 666;
+  static int HEIGHT = 666;
 
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
