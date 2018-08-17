@@ -6,27 +6,36 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Triangles {
   public static void mainDraw(Graphics graphics) {
-    honeyComb(200, 0, 150, graphics);
+    triangles(300, 0, 300, graphics);
+    upsideDownTriangle(300, 0, 300, graphics);
   }
 
-  //side of the hexagon is one size long
-  public static void hexagon(int xTile, int yTile, int size, Graphics graphics) {
+  public static void upsideDownTriangle(int xTile, int yTile, int size, Graphics graphics) {
     int height = (int) (Math.sqrt(3) / 2 * size);
-    int xpoints[] = {xTile - size / 2, xTile, xTile + size, xTile + size * 3 / 2, xTile + size, xTile};
-    int ypoints[] = {yTile + height, yTile, yTile, yTile + height, yTile + height * 2, yTile + height * 2};
-    int npoints = 6;
+    int xpoints[] = {xTile - xTile, 2 * xTile, xTile};
+    int ypoints[] = {yTile, yTile, yTile + 2 * height};
+    int npoints = 3;
 
     graphics.drawPolygon(xpoints, ypoints, npoints);
   }
 
-  public static void honeyComb(int origoX, int origoY, int size, Graphics graphics) {
-    if (size < 10) {
+  public static void mainTriangle(int xTile, int yTile, int size, Graphics graphics) {
+    int height = (int) (Math.sqrt(3) / 2 * size);
+    int xpoints[] = {xTile, xTile + size / 2, xTile - size / 2};
+    int ypoints[] = {yTile, yTile + height, yTile + height};
+    int npoints = 3;
+
+    graphics.drawPolygon(xpoints, ypoints, npoints);
+  }
+
+  public static void triangles(int origoX, int origoY, int size, Graphics graphics) {
+    if (size < 5) {
     } else {
-      hexagon(origoX, origoY, size, graphics);
+      mainTriangle(origoX, origoY, size, graphics);
       int height = (int) (Math.sqrt(3) / 2 * size);
-      honeyComb(origoX, origoY, size / 2, graphics);
-      honeyComb(origoX + size * 3 / 4, origoY + height / 2, size / 2, graphics);
-      honeyComb(origoX, origoY + height, size / 2, graphics);
+      triangles(origoX + size / 2, origoY, size / 2, graphics);
+      triangles(origoX - size / 2, origoY, size / 2, graphics);
+      triangles(origoX, origoY + height, size / 2, graphics);
     }
   }
 
