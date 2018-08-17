@@ -18,7 +18,6 @@ public class Circles {
     } else {
       mainCircle(origoX, origoY, size, graphics);
 //      circles(origoX + size / 4, origoY / 2, size / 2, graphics);
-      circles();
     }
   }
 
