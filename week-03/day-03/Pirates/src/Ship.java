@@ -19,6 +19,7 @@ public class Ship {
   }
 
   public void status() {
+    System.out.println(shipName);
     System.out.print("Captain has drunk " + captain.intoxication + " bottle of rum. He's");
     System.out.println(captain.dead ? " dead." : captain.passedOut ? " passed out." : " fine.");
 
