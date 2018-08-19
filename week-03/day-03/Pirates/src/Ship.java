@@ -5,6 +5,7 @@ public class Ship {
   List<Pirate> crew;
   Pirate captain;
   String shipName;
+  boolean loserShip = false;
 
   public Ship(String name) {
     shipName = name;
@@ -68,5 +69,6 @@ public class Ship {
         crew.get(i).die();
       }
     }
+    loserShip = true;
   }
 }

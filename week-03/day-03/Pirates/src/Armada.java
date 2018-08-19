@@ -9,9 +9,27 @@ public class Armada {
     }
   }
 
+  public boolean hasNotLost() {
+    int loserShipCount = 0;
+    for (int i = 0; i < armada.size(); i++) {
+      if (armada.get(i).loserShip) {
+        loserShipCount++;
+      }
+    }
+    return loserShipCount == armada.size();
+  }
+
   public boolean war(Armada otherArmada) {
-
-
+    while (otherArmada.hasNotLost()) {
+      for (int i = 0; i < armada.size(); i++) {
+        for (int j = 0; j < otherArmada.armada.size(); j++) {
+          if (!otherArmada.armada.get(j).loserShip) {
+            armada.get(i).battle(otherArmada.armada.get(j));
+          }
+        }
+      }
+    }
+    return hasNotLost();
   }
 }
 
