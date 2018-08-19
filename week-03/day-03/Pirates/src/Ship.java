@@ -18,15 +18,23 @@ public class Ship {
     System.out.print("Captain has drunk " + captain.intoxication + " bottle of rum. He is ");
     System.out.println(captain.dead ? " dead." : captain.passedOut ? " passed out." : " fine.");
 
+
+    System.out.println("The number of alive pirates is: " + aliveCrew() + ".");
+  }
+
+  public int aliveCrew() {
     int aliveCrewNum = 0;
     for (int i = 0; i < crew.size(); i++) {
       if (!crew.get(i).dead) {
         aliveCrewNum++;
       }
     }
-    System.out.println("The number of alive pirates is: " + aliveCrewNum + ".");
+    return aliveCrewNum;
   }
 
+  public boolean battle(Ship otherShip) {
+    
+  }
 }
 
 
