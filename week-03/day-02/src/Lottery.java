@@ -29,11 +29,14 @@ public class Lottery {
       System.out.println(map);
     } catch (Exception e) {
     }
-    List<Integer> list = new ArrayList<Integer>(map.values());
-    Collections.sort(list, Collections.reverseOrder());
-    List<Integer> top5Values = list.subList(0, 5);
     List<String> top5 = new ArrayList<String>();
-    for (int i = 0; i < top5Values.size(); i++) {
+    map
+        .entrySet()
+        .stream()
+        .sorted((x, y) ->
+            y.getValue().compareTo(x.getValue()))
+        .limit(5)
+        .forEach(x -> top5.add(x.getKey()));
     return top5;
   }
 }
