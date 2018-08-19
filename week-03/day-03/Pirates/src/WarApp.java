@@ -5,15 +5,14 @@ public class WarApp {
     Armada EnterpriseArmada = new Armada("EnterpriseArmada");
 
     EzerEvesSolyomArmada.fillArmada();
-//    EzerEvesSolyomArmada.statusArmada();
-//
+    EzerEvesSolyomArmada.statusArmada();
+
     EnterpriseArmada.fillArmada();
-//    EnterpriseArmada.statusArmada();
+    EnterpriseArmada.statusArmada();
 
     EzerEvesSolyomArmada.war(EnterpriseArmada);
 
     EzerEvesSolyomArmada.statusArmada();
     EnterpriseArmada.statusArmada();
-
   }
 }

@@ -32,10 +32,11 @@ public class Armada {
         loserShipCount++;
       }
     }
-    return loserShipCount == armadaList.size();
+    return loserShipCount != armadaList.size();
   }
 
   public boolean war(Armada otherArmada) {
+    System.out.println(otherArmada.hasNotLost());
     while (otherArmada.hasNotLost()) {
       for (int i = 0; i < armadaList.size(); i++) {
         for (int j = 0; j < otherArmada.armadaList.size(); j++) {

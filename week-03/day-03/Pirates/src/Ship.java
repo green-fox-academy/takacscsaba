@@ -25,7 +25,7 @@ public class Ship {
     System.out.println(captain.dead ? " dead." : captain.passedOut ? " passed out." : " fine.");
 
 
-    System.out.println("The ship has " + aliveCrew() + " number of crew.");
+    System.out.println("The ship has " + aliveCrew() + " pirate in the crew.");
   }
 
   public int aliveCrew() {

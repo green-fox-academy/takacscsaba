@@ -6,6 +6,9 @@ public class Pirate {
   public void drinkSumRum() {
     if (dead) {
       System.out.println("He's dead");
+    } else if (intoxication > 5) {
+      intoxication++;
+      passOut();
     } else {
       intoxication++;
     }
