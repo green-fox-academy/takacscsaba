@@ -33,14 +33,35 @@ public class Ship {
   }
 
   public boolean battle(Ship otherShip) {
-    
+    int scoreShip1 = aliveCrew() - captain.intoxication;
+    int scoreShip2 = otherShip.aliveCrew() - otherShip.captain.intoxication;
+    if (scoreShip1 > scoreShip2) {
+      win();
+      otherShip.lose();
+      return true;
+    } else {
+      lose();
+      otherShip.win();
+      return false;
+    }
+  }
+
+  public void win() {
+    for (int i = 0; i < Math.random() * 3; i++) {
+      captain.drinkSumRum();
+    }
+    for (int i = 0; i < crew.size(); i++) {
+      for (int j = 0; j < Math.random() * 3; j++) {
+        crew.get(i).drinkSumRum();
+      }
+    }
+  }
+
+  public void lose() {
+    for (int i = 0; i < crew.size(); i++) {
+      if (Math.random() > 0.5) {
+        crew.get(i).die();
+      }
+    }
   }
 }
-
-
-//    Ships should have a method to battle other ships: ship.battle(otherShip)
-//    should return true if the actual ship (this) wins
-//    the ship should win if its calculated score is higher
-//    calculate score: Number of Alive pirates in the crew - Number of consumed rum by the captain
-//    The loser crew has a random number of losses (deaths).
-//    The winner captain and crew has a party, including a random number of rum :)
