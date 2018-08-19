@@ -1,30 +1,46 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Armada {
-  List<Ship> armada;
+  List<Ship> armadaList;
+  String armadaName;
 
-  public void fillArmada(String armadaName) {
+  public Armada(String name) {
+    armadaName = name;
+    armadaList = new ArrayList<>();
+  }
+
+  public void fillArmada() {
     for (int i = 0; i < (int) (Math.random() * 5) + 1; i++) {
-      armada.add(new Ship(armadaName + (i + 1)));
+      armadaList.add(new Ship(armadaName + (i + 1)));
+      armadaList.get(i).fillShip();
+    }
+  }
+
+  public void statusArmada() {
+    System.out.println("The " + armadaName + " contains " + armadaList.size() + " ships.");
+    for (int i = 0; i < armadaList.size(); i++) {
+      armadaList.get(i).status();
+      System.out.println();
     }
   }
 
   public boolean hasNotLost() {
     int loserShipCount = 0;
-    for (int i = 0; i < armada.size(); i++) {
-      if (armada.get(i).loserShip) {
+    for (int i = 0; i < armadaList.size(); i++) {
+      if (armadaList.get(i).loserShip) {
         loserShipCount++;
       }
     }
-    return loserShipCount == armada.size();
+    return loserShipCount == armadaList.size();
   }
 
   public boolean war(Armada otherArmada) {
     while (otherArmada.hasNotLost()) {
-      for (int i = 0; i < armada.size(); i++) {
-        for (int j = 0; j < otherArmada.armada.size(); j++) {
-          if (!otherArmada.armada.get(j).loserShip) {
-            armada.get(i).battle(otherArmada.armada.get(j));
+      for (int i = 0; i < armadaList.size(); i++) {
+        for (int j = 0; j < otherArmada.armadaList.size(); j++) {
+          if (!otherArmada.armadaList.get(j).loserShip) {
+            armadaList.get(i).battle(otherArmada.armadaList.get(j));
           }
         }
       }
@@ -32,11 +48,3 @@ public class Armada {
     return hasNotLost();
   }
 }
-
-//  Contains Ship-s as a list
-//    Have a armada.war(otherArmada) method where two armada can engage in war
-//    it should work like merge sort
-//    first ship from the first armada battles the first of the other
-//    the loser gets skipped so the next ship comes in play from that armada
-//    whichever armada gets to the end of its ships loses the war
-//    return true if this is the winner

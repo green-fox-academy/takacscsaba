@@ -26,7 +26,7 @@ public class Pirate {
     dead = true;
   }
 
-  public void passOut () {
+  public void passOut() {
     passedOut = true;
   }
 
