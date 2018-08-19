@@ -35,19 +35,21 @@ public class DiceSet {
 
   public static void main(String[] args) {
     DiceSet diceSet = new DiceSet();
-    for (int i = 0; i < dices.length; i++) {
-      diceSet.roll();
-        while (diceSet.getCurrent(i) != 6) {
-          diceSet.reroll();
-        }
-    }
-    diceSet.getCurrent();
     diceSet.roll();
     diceSet.getCurrent();
-    diceSet.getCurrent(5);
-    diceSet.reroll();
-    diceSet.getCurrent();
-    diceSet.reroll(4);
-    diceSet.getCurrent();
+
+    int[] sixSixes = {6, 6, 6, 6, 6, 6};
+//    System.out.println(Arrays.toString(sixSixes));
+
+    if (diceSet.getCurrent() == sixSixes) {
+    } else {
+      for (int i = 0; i < dices.length; i++) {
+        while (dices[i] != 6) {
+          diceSet.reroll(i);
+          System.out.println(diceSet.getCurrent(i));
+        }
+      }
+    }
+    System.out.println(Arrays.toString(diceSet.getCurrent()));
   }
 }
