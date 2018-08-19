@@ -4,22 +4,26 @@ import java.util.List;
 public class Ship {
   List<Pirate> crew;
   Pirate captain;
+  String shipName;
 
-  public void fillShip() {
+  public Ship(String name) {
+    shipName = name;
     captain = new Pirate();
     crew = new ArrayList<>();
+  }
 
-    for (int i = 0; i < (int) (Math.random() * 6) + 1; i++) {
+  public void fillShip() {
+    for (int i = 0; i < (int) (Math.random() * 10) + 1; i++) {
       crew.add(new Pirate());
     }
   }
 
   public void status() {
-    System.out.print("Captain has drunk " + captain.intoxication + " bottle of rum. He is ");
+    System.out.print("Captain has drunk " + captain.intoxication + " bottle of rum. He's");
     System.out.println(captain.dead ? " dead." : captain.passedOut ? " passed out." : " fine.");
 
 
-    System.out.println("The number of alive pirates is: " + aliveCrew() + ".");
+    System.out.println("The ship has " + aliveCrew() + " number of crew.");
   }
 
   public int aliveCrew() {
