@@ -15,15 +15,20 @@ public class Ship {
   }
 
   public void status() {
-    System.out.println("Captain has drunk " + captain.intoxication + " bottle of rum. He is " + );
+    System.out.print("Captain has drunk " + captain.intoxication + " bottle of rum. He is ");
+    System.out.println(captain.dead ? " dead." : captain.passedOut ? " passed out." : " fine.");
+
+    int aliveCrewNum = 0;
+    for (int i = 0; i < crew.size(); i++) {
+      if (!crew.get(i).dead) {
+        aliveCrewNum++;
+      }
+    }
+    System.out.println("The number of alive pirates is: " + aliveCrewNum + ".");
   }
 
 }
 
-
-//    Ships should be represented in a nice way on command line including information about
-//    captains consumed rum, state (passed out / died)
-//    number of alive pirates in the crew
 
 //    Ships should have a method to battle other ships: ship.battle(otherShip)
 //    should return true if the actual ship (this) wins
