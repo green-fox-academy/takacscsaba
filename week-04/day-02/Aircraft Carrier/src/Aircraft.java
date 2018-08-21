@@ -1,11 +1,11 @@
 public class Aircraft {
   int maxAmmo;
   int baseDamage;
-  String name;
+  String type;
   int ammo = 0;
 
-  public Aircraft(String name, int maxAmmo, int baseDamage, int ammo) {
-    this.name = name;
+  public Aircraft(String type, int maxAmmo, int baseDamage, int ammo) {
+    this.type = type;
     this.maxAmmo = maxAmmo;
     this.baseDamage = baseDamage;
     this.ammo = ammo;
@@ -25,11 +25,31 @@ public class Aircraft {
   }
 
   public void refill(int ammoFill) {
+    int remainingAmmo = 0;
     for (int i = 0; i <= ammoFill; i++) {
       if (i < maxAmmo) {
         ammo++;
       } else {
+        remainingAmmo++;
       }
+    }
+    System.out.println(remainingAmmo);
+  }
+
+  public String getType(Aircraft aircraft) {
+    return aircraft.type;
+  }
+
+  public String getStatus(Aircraft aircraft) {
+    String status = "Type " + aircraft.type + ", Ammo:" + aircraft.ammo + ", Base Damage: " + aircraft.baseDamage + ", All Damage: " + aircraft.ammo * aircraft.baseDamage;
+    return status;
+  }
+
+  public boolean isPriority(Aircraft aircraft) {
+    if (aircraft.type == "F35") {
+      return true;
+    } else {
+      return false;
     }
   }
 }
