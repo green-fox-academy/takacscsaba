@@ -24,7 +24,7 @@ public class Aircraft {
     System.out.println(otherAircraft.type + " aircraft caused " + otherAircraftDamage + " damage.");
   }
 
-  public void refill(int ammoFill) {
+  public int refill(int ammoFill) {
     int remainingAmmo = 0;
     for (int i = 1; i <= ammoFill; i++) {
       if (i <= maxAmmo) {
@@ -33,7 +33,8 @@ public class Aircraft {
         remainingAmmo++;
       }
     }
-    System.out.println(remainingAmmo);
+    System.out.println(type);
+    return remainingAmmo;
   }
 
   public String getType(Aircraft aircraft) {
