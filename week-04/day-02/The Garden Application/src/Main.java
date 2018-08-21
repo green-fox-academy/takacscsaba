@@ -17,15 +17,22 @@ public class Main {
     Tree orange = new Tree("orange", 0);
     garden.addTree(orange);
 
-    needsWater(yellow, blue, purple, orange);
-    garden.watering(garden, 40);
+    info(yellow, blue, purple, orange);
 
+    System.out.println();
+    garden.watering(yellow, blue, purple, orange, 40);
+    info(yellow, blue, purple, orange);
+
+
+    System.out.println();
+    garden.watering(yellow, blue, purple, orange, 70);
+    info(yellow, blue, purple, orange);
   }
 
-  public static void needsWater(Flower flower, Flower flower2, Tree tree, Tree tree2) {
-    flower.needsWater(flower);
-    flower2.needsWater(flower2);
-    tree.needsWater(tree);
-    tree2.needsWater(tree2);
+  public static void info(Flower flower, Flower flower2, Tree tree, Tree tree2) {
+    flower.infoFlower(flower);
+    flower2.infoFlower(flower2);
+    tree.infoTree(tree);
+    tree2.infoTree(tree2);
   }
 }

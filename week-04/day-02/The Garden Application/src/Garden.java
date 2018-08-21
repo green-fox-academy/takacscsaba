@@ -4,7 +4,6 @@ import java.util.List;
 public class Garden {
   List<Flower> flowers = new ArrayList<Flower>();
   List<Tree> trees = new ArrayList<Tree>();
-  float waterAmount;
   String name;
 
 
@@ -16,10 +15,11 @@ public class Garden {
     trees.add(tree);
   }
 
-  public void watering(Garden garden, float water) {
-    this.waterAmount = waterAmount;
-    waterAmount += water;
-    System.out.println("Watering with " + water);
+  public void watering(Flower flower, Flower flower2, Tree tree, Tree tree2, float water) {
+    System.out.println("Watering with " + (int) water);
+    int sum = needsWaterFlow(flower, flower2) + needsWaterTree(tree, tree2);
+
+    wateringFunction(flower, flower2, tree, tree2, water / sum);
   }
 
   public Garden(String name) {
@@ -30,7 +30,34 @@ public class Garden {
 
   public Garden() {
   }
+
+
+  public int needsWaterFlow(Flower flower, Flower flower2) {
+    int x = 0;
+    if (flower.needsWater(flower)) {
+      x++;
+    }
+    if (flower.needsWater(flower)) {
+      x++;
+    }
+    return x;
+  }
+
+  public int needsWaterTree(Tree tree, Tree tree2) {
+    int y = 0;
+    if (tree.needsWater(tree)) {
+      y++;
+    }
+    if (tree2.needsWater(tree2)) {
+      y++;
+    }
+    return y;
+  }
+
+  public void wateringFunction(Flower flower, Flower flower2, Tree tree, Tree tree2, float water) {
+    flower.watering(flower, water);
+    flower2.watering(flower2, water);
+    tree.watering(tree, water);
+    tree2.watering(tree2, water);
+  }
 }
-//  is able to hold unlimited amount of flowers or trees
-//  when watering it should only water those what needs water with equally divided amount amongst them
-//  eg. watering with 40 and 4 of them need water then each gets watered with 10

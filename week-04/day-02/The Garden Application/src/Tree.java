@@ -1,22 +1,29 @@
-import java.util.List;
-
 public class Tree extends Garden {
   float waterAmount;
   String name;
 
 
-  public void needsWater(Tree tree) {
+  public boolean needsWater(Tree tree) {
     if (tree.waterAmount < 10) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  public void infoTree(Tree tree) {
+    if (tree.waterAmount < 10) {
+      System.out.println(tree.waterAmount);
       System.out.println("The " + name + " Tree needs water");
     } else {
+      System.out.println(tree.waterAmount);
       System.out.println("The " + name + " Tree doesn't need water");
     }
   }
 
-  public void watering(float waterAmount, List<Tree> trees) {
-    this.waterAmount = waterAmount;
-    for (int i = 0; i < trees.size(); i++) {
-      trees.get(i).waterAmount = (waterAmount / 100) * 45;
+  public void watering(Tree tree, float water) {
+    if (tree.waterAmount < 10) {
+      tree.waterAmount += water * 0.4;
+    } else {
     }
   }
 
@@ -30,6 +37,3 @@ public class Tree extends Garden {
     waterAmount = 0;
   }
 }
-//  needs water if its current water amount is less then 10
-//    when watering it the tree can only absorb the 40% of the water
-//    eg. watering with 10 the tree's amount of water should only increase with 4
