@@ -17,7 +17,7 @@ public class Garden {
 
   public void watering(Flower flower, Flower flower2, Tree tree, Tree tree2, float water) {
     System.out.println("Watering with " + (int) water);
-    int sum = needsWaterFlow(flower, flower2) + needsWaterTree(tree, tree2);
+    int sum = needsWaterFlow(flower, flower2, tree, tree2);
 
     wateringFunction(flower, flower2, tree, tree2, water / sum);
   }
@@ -32,26 +32,21 @@ public class Garden {
   }
 
 
-  public int needsWaterFlow(Flower flower, Flower flower2) {
+  public int needsWaterFlow(Flower flower, Flower flower2, Tree tree, Tree tree2) {
     int x = 0;
     if (flower.needsWater(flower)) {
       x++;
     }
-    if (flower.needsWater(flower)) {
+    if (flower2.needsWater(flower2)) {
+      x++;
+    }
+    if (tree.needsWater(tree)) {
+      x++;
+    }
+    if (tree2.needsWater(tree2)) {
       x++;
     }
     return x;
-  }
-
-  public int needsWaterTree(Tree tree, Tree tree2) {
-    int y = 0;
-    if (tree.needsWater(tree)) {
-      y++;
-    }
-    if (tree2.needsWater(tree2)) {
-      y++;
-    }
-    return y;
   }
 
   public void wateringFunction(Flower flower, Flower flower2, Tree tree, Tree tree2, float water) {
@@ -59,5 +54,12 @@ public class Garden {
     flower2.watering(flower2, water);
     tree.watering(tree, water);
     tree2.watering(tree2, water);
+  }
+
+  public static void infoPlants(Flower flower, Flower flower2, Tree tree, Tree tree2) {
+    flower.infoFlower(flower);
+    flower2.infoFlower(flower2);
+    tree.infoTree(tree);
+    tree2.infoTree(tree2);
   }
 }

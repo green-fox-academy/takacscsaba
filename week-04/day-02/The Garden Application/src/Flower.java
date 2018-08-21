@@ -1,4 +1,4 @@
-public class Flower extends Garden {
+public class Flower {
   float waterAmount;
   String name;
 

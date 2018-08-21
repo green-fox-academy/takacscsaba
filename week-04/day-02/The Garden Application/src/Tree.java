@@ -1,7 +1,6 @@
-public class Tree extends Garden {
+public class Tree {
   float waterAmount;
   String name;
-
 
   public boolean needsWater(Tree tree) {
     if (tree.waterAmount < 10) {
@@ -10,6 +9,7 @@ public class Tree extends Garden {
       return false;
     }
   }
+
   public void infoTree(Tree tree) {
     if (tree.waterAmount < 10) {
       System.out.println(tree.waterAmount);
