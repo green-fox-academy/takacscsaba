@@ -18,6 +18,7 @@ public class Student extends Person {
     this.name = name;
     this.age = age;
     this.gender = gender;
+    this.previousOrganization = previousOrganization;
     skippedDays = 0;
   }
 
