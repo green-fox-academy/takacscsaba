@@ -20,6 +20,7 @@ public class Cohort {
   }
 
   public Cohort(String name) {
+    this.name = name;
     students = new ArrayList<Student>();
     mentors = new ArrayList<Mentor>();
   }
