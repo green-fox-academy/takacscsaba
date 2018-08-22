@@ -14,20 +14,16 @@ public class Aircraft {
   public Aircraft() {
   }
 
-  public void fight(Aircraft otherAircraft) {
+  public int fight() {
     int aircraftDamage = ammo * baseDamage;
-    int otherAircraftDamage = otherAircraft.ammo * otherAircraft.baseDamage;
     for (int i = ammo; i >= 1; i--) {
       ammo--;
     }
-    for (int i = otherAircraft.ammo; i >= 1; i--) {
-      otherAircraft.ammo--;
-    }
     System.out.println(type + " aircraft caused " + aircraftDamage + " damage.");
-    System.out.println(otherAircraft.type + " aircraft caused " + otherAircraftDamage + " damage.");
+    return aircraftDamage;
   }
 
-  public int refill(int ammoFill) {
+  public void refill(int ammoFill) {
     int remainingAmmo = 0;
     for (int i = 1; i <= ammoFill; i++) {
       if (i <= maxAmmo) {
@@ -36,8 +32,7 @@ public class Aircraft {
         remainingAmmo++;
       }
     }
-    System.out.println(type);
-    return remainingAmmo;
+    System.out.println(remainingAmmo);
   }
 
   public String getType() {

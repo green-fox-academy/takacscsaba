@@ -31,8 +31,17 @@ public class Main {
 //    System.out.println();
 
     //Carrier
-    Carrier carrier = new Carrier("Infernus", 52, 5000);
-    carrier.add();
-    carrier.fill();
+    Carrier infernus = new Carrier("Infernus", 2300, 5000);
+    Carrier blizzardo = new Carrier("Blizzardo", 2800, 5500);
+
+    infernus.add();
+    infernus.fill();
+    System.out.println();
+    blizzardo.add2();
+    blizzardo.fill();
+    System.out.println();
+
+    infernus.fight(blizzardo);
+
   }
 }

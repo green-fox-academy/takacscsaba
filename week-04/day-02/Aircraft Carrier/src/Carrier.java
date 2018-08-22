@@ -16,6 +16,11 @@ public class Carrier {
   public void add() {
     carrierList.add(new F16());
     carrierList.add(new F16());
+    carrierList.add(new F16());
+    carrierList.add(new F16());
+  }
+
+  public void add2() {
     carrierList.add(new F35());
     carrierList.add(new F35());
     carrierList.add(new F35());
@@ -37,6 +42,23 @@ public class Carrier {
       }
     }
   }
+
+  public void fight(Carrier otherCarrier) {
+    int damageCarrier = 0;
+    int damageOtherCarrier = 0;
+    for (int i = 0; i < carrierList.size(); i++) {
+      if (carrierList.get(i).ammo != 0) {
+        damageCarrier = carrierList.get(i).fight();
+        otherCarrier.healthPoint -= damageCarrier;
+      }
+    }
+    for (int i = 0; i < otherCarrier.carrierList.size(); i++) {
+      if (otherCarrier.carrierList.get(i).ammo != 0 ) {
+        damageOtherCarrier = otherCarrier.carrierList.get(i).fight();
+        healthPoint -= damageOtherCarrier;
+      }
+    }
+    System.out.println(healthPoint);
+    System.out.println(otherCarrier.healthPoint);
+  }
 }
-//    fight
-//    It should take another carrier as a refrence parameter and fire all the ammo from the aircrafts to it, than substract all the damage from it's health points
