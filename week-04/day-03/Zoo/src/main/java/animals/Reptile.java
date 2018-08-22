@@ -8,18 +8,24 @@ public class Reptile extends Animal {
     cute = true;
   }
 
-  @Override
-  public void getName() {
-    name = "bronto";
+  public Reptile(){
+    name = "Bronto";
+    age = 65000000;
+    cute = true;
   }
 
   @Override
-  public void breed() {
-    System.out.println("laying eggs");
+  public String getName() {
+    return name;
   }
 
   @Override
-  public void speak() {
-    System.out.println("kvavakvkavka");
+  public String breed() {
+    return "laying eggs";
+  }
+
+  @Override
+  public String sound() {
+    return "kvavakvkavka";
   }
 }

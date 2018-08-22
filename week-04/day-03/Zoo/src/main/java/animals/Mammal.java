@@ -8,18 +8,24 @@ public class Mammal extends Animal {
     cute = true;
   }
 
-  @Override
-  public void getName() {
-    name = "fox";
+  public Mammal() {
+    name = "Fox";
+    age = 7;
+    cute = true;
   }
 
   @Override
-  public void breed() {
-    System.out.println("pushing miniature versions out");
+  public String getName() {
+    return name;
   }
 
   @Override
-  public void speak() {
-    System.out.println("kiiiiiikiiii");
+  public String breed() {
+    return "pushing miniature versions out";
+  }
+
+  @Override
+  public String sound() {
+    return "kiiiiiikiiii";
   }
 }

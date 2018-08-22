@@ -8,18 +8,24 @@ public class Bird extends Animal {
     cute = false;
   }
 
-  @Override
-  public void getName() {
-    name = "dove";
+  public Bird() {
+    name = "Dove";
+    age = 3;
+    cute = false;
   }
 
   @Override
-  public void breed() {
-    System.out.println("laying eggs");
+  public String getName() {
+    return name;
   }
 
   @Override
-  public void speak() {
-    System.out.println("gulugy");
+  public String breed() {
+    return "laying eggs";
+  }
+
+  @Override
+  public String sound() {
+    return "gulugy";
   }
 }

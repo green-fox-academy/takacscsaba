@@ -5,9 +5,9 @@ public abstract class Animal {
   int age;
   boolean cute;
 
-  public abstract void getName();
+  public abstract String getName();
 
-  public abstract void breed();
+  public abstract String breed();
 
-  public abstract void speak();
+  public abstract String sound();
 }
