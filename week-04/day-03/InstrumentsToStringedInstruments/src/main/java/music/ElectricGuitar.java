@@ -2,7 +2,6 @@ package main.java.music;
 
 public class ElectricGuitar extends StringedInstrument {
   public ElectricGuitar(int numberOfStrings) {
-    numberOfStrings = 6;
     this.numberOfStrings = numberOfStrings;
     this.name = "Electric Guitar";
   }
@@ -14,6 +13,6 @@ public class ElectricGuitar extends StringedInstrument {
 
   @Override
   public void sound() {
-    System.out.println("Twang");
+    System.out.println(name + ", a " + numberOfStrings + "-stringed instrument that goes Twang");
   }
 }

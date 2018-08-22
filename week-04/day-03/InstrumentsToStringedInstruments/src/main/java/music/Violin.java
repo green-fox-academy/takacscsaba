@@ -8,6 +8,6 @@ public class Violin extends StringedInstrument {
 
   @Override
   public void sound() {
-    System.out.println("Screech");
+    System.out.println(name + ", a " + numberOfStrings + "-stringed instrument that goes Screech");
   }
 }
