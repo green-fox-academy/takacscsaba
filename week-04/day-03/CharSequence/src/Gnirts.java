@@ -7,16 +7,21 @@ public class Gnirts implements CharSequenceInterface {
 
   @Override
   public int length() {
-    return 0;
+    return string.length();
   }
 
   @Override
   public char charAt(int index) {
-    return string.charAt(string.length() - 1 -index);
+    return string.charAt(string.length() - 1 - index);
   }
 
   @Override
   public CharSequence subSequence(int start, int end) {
-    return null;
+    return string.subSequence(start, end);
+  }
+
+  @Override
+  public String toString() {
+    return string.toString();
   }
 }
