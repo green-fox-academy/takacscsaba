@@ -14,11 +14,11 @@ public class Carrier {
   }
 
   public void add() {
-    carrierList.add(new Aircraft("F16", 8, 30, 0));
-    carrierList.add(new Aircraft("F16", 8, 30, 0));
-    carrierList.add(new Aircraft("F35", 12, 50, 0));
-    carrierList.add(new Aircraft("F35", 12, 50, 0));
-    carrierList.add(new Aircraft("F35", 12, 50, 0));
+    carrierList.add(new F16());
+    carrierList.add(new F16());
+    carrierList.add(new F35());
+    carrierList.add(new F35());
+    carrierList.add(new F35());
   }
 
   public void fill() {
@@ -26,20 +26,17 @@ public class Carrier {
       throw new ArithmeticException("Ammo null");
     }
     for (int i = 0; i < carrierList.size(); i++) {
-      if (carrierAmmo < 52) {
-        if (carrierList.get(i).isPriority())
+      if (carrierAmmo < 36) {
+        if (carrierList.get(i).isPriority()) {
           carrierList.get(i).refill(carrierAmmo);
+          carrierAmmo -= carrierList.get(i).ammo;
+        }
       } else {
         carrierList.get(i).refill(carrierAmmo);
-        System.out.println(carrierAmmo + " asd");
+        carrierAmmo -= carrierList.get(i).ammo;
       }
     }
   }
 }
-//    fill
-//    It should fill all the aircraft with ammo and substract the needed ammo from the ammo storage
-//    If there is not enough ammo than it should start to fill the aircraftis with priority first
-//    If there is no ammo when this method is called it should throw an exception
-
 //    fight
 //    It should take another carrier as a refrence parameter and fire all the ammo from the aircrafts to it, than substract all the damage from it's health points

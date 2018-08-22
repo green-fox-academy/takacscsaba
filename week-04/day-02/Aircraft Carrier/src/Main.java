@@ -31,7 +31,7 @@ public class Main {
 //    System.out.println();
 
     //Carrier
-    Carrier carrier = new Carrier("Infernus", 2300, 5000);
+    Carrier carrier = new Carrier("Infernus", 52, 5000);
     carrier.add();
     carrier.fill();
   }
