@@ -1,4 +1,4 @@
-public class Student extends Person {
+public class Student extends Person implements Cloneable {
   String previousOrganization;
   int skippedDays;
 
@@ -28,5 +28,15 @@ public class Student extends Person {
     gender = "female";
     previousOrganization = "The School of Life";
     skippedDays = 0;
+  }
+
+  public Student clone() {
+    Student clone = new Student();
+    clone.name = name;
+    clone.age = age;
+    clone.gender = gender;
+    clone.previousOrganization = previousOrganization;
+    clone.skippedDays = 0;
+    return clone;
   }
 }
