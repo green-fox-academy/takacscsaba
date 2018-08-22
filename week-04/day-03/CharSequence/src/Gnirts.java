@@ -1,4 +1,4 @@
-public class Gnirts implements CharSequenceInterface {
+public class Gnirts implements CharSequence {
   public String string;
 
   public Gnirts(String string) {
