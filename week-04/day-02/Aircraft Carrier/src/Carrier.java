@@ -25,15 +25,15 @@ public class Carrier {
     if (carrierAmmo == 0) {
       throw new ArithmeticException("Ammo null");
     }
-//    for (int i = 0; i < carrierList.size(); i++) {
-//      if (carrierAmmo < 52) {
-//        if (carrierList.get(i).isPriority(carrierList.get(i)))
-//          carrierList.get(i).refill(carrierAmmo);
-//      } else {
-//        carrierList.get(i).refill(carrierAmmo);
-//        System.out.println(carrierAmmo + " asd");
-//      }
-//    }
+    for (int i = 0; i < carrierList.size(); i++) {
+      if (carrierAmmo < 52) {
+        if (carrierList.get(i).isPriority())
+          carrierList.get(i).refill(carrierAmmo);
+      } else {
+        carrierList.get(i).refill(carrierAmmo);
+        System.out.println(carrierAmmo + " asd");
+      }
+    }
   }
 }
 //    fill

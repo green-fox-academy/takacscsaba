@@ -11,6 +11,9 @@ public class Aircraft {
     this.ammo = ammo;
   }
 
+  public Aircraft() {
+  }
+
   public void fight(Aircraft otherAircraft) {
     int aircraftDamage = ammo * baseDamage;
     int otherAircraftDamage = otherAircraft.ammo * otherAircraft.baseDamage;
