@@ -23,7 +23,7 @@ public class Aircraft {
     return aircraftDamage;
   }
 
-  public void refill(int ammoFill) {
+  public int refill(int ammoFill) {
     int remainingAmmo = 0;
     for (int i = 1; i <= ammoFill; i++) {
       if (i <= maxAmmo) {
@@ -32,7 +32,7 @@ public class Aircraft {
         remainingAmmo++;
       }
     }
-    System.out.println(remainingAmmo);
+    return remainingAmmo;
   }
 
   public String getType() {

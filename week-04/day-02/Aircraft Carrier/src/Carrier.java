@@ -16,8 +16,9 @@ public class Carrier {
   public void add() {
     carrierList.add(new F16());
     carrierList.add(new F16());
-    carrierList.add(new F16());
-    carrierList.add(new F16());
+    carrierList.add(new F35());
+    carrierList.add(new F35());
+    carrierList.add(new F35());
   }
 
   public void add2() {
@@ -53,12 +54,33 @@ public class Carrier {
       }
     }
     for (int i = 0; i < otherCarrier.carrierList.size(); i++) {
-      if (otherCarrier.carrierList.get(i).ammo != 0 ) {
+      if (otherCarrier.carrierList.get(i).ammo != 0) {
         damageOtherCarrier = otherCarrier.carrierList.get(i).fight();
         healthPoint -= damageOtherCarrier;
       }
     }
-    System.out.println(healthPoint);
-    System.out.println(otherCarrier.healthPoint);
+    if (otherCarrier.healthPoint < 0) {
+      System.out.println("It's dead Jim!");
+    }
+    if (healthPoint < 0) {
+      System.out.println("We're dead Jim!");
+    }
+//    else {
+//      System.out.println(healthPoint);
+//      System.out.println(otherCarrier.healthPoint);
+//    }
+  }
+
+  public String getStatus() {
+    int totalDamage = 0;
+    for (int i = 0; i < carrierList.size(); i++) {
+      totalDamage += carrierList.get(i).ammo * carrierList.get(i).baseDamage;
+    }
+    String status = ("HP: " + healthPoint + ", Aircraft count: " + carrierList.size() + 1 + ", Ammo Storage: " + carrierAmmo + ", Total damage: " + totalDamage + "\nAircrafts:\n");
+
+    for (int i = 0; i < carrierList.size(); i++) {
+      status += carrierList.get(i).getStatus() + "\n";
+    }
+    return status;
   }
 }
