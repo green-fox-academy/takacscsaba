@@ -37,20 +37,16 @@ public class Aircraft {
     return remainingAmmo;
   }
 
-  public String getType(Aircraft aircraft) {
-    return aircraft.type;
+  public String getType() {
+    return type;
   }
 
-  public String getStatus(Aircraft aircraft) {
-    String status = "Type " + aircraft.type + ", Ammo:" + aircraft.ammo + ", Base Damage: " + aircraft.baseDamage + ", All Damage: " + aircraft.ammo * aircraft.baseDamage;
+  public String getStatus() {
+    String status = "Type " + type + ", Ammo:" + ammo + ", Base Damage: " + baseDamage + ", All Damage: " + ammo * baseDamage;
     return status;
   }
 
-  public boolean isPriority(Aircraft aircraft) {
-    if (aircraft.type == "F35") {
-      return true;
-    } else {
-      return false;
-    }
+  public boolean isPriority() {
+    return type.equals("F35");
   }
 }
