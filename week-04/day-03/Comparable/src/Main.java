@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -23,8 +24,14 @@ public class Main {
 //    System.out.println(dominoes);
 //    System.out.println(snakeDomino);
 
+    System.out.println(dominoes);
     Collections.sort(dominoes);
     System.out.println(dominoes);
+    System.out.println(snakeDomino);
+
+    for (int i = 0; i < dominoes.size(); i++) {
+      System.out.println(dominoes.get(i).compareTo(snakeDomino.get(i)));
+    }
   }
 
   static List<Domino> initializeDominoes() {
