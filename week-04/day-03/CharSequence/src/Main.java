@@ -1,6 +1,8 @@
 public class Main {
 
-    public static void main(String[] args) {
-	// write your code here
-    }
+  public static void main(String[] args) {
+    Gnirts g = new Gnirts("example");
+    System.out.println(g.charAt(1));
+    // should print out: l
+  }
 }
