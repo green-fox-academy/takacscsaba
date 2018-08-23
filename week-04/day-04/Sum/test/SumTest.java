@@ -43,11 +43,9 @@ public class SumTest {
     Assert.assertEquals(expectedResult, sumResult);
   }
 
-  @Test
+  @Test(expected = NullPointerException.class)
   public void nullListTest() {
-    List<Integer> nullList = new ArrayList<>();
-    nullList.add(0);
-    int expectedResult = 0;
-    Assert.assertEquals(expectedResult, sum.getSum(nullList));
+    List<Integer> nullList = null;
+    Assert.assertEquals(null, sum.getSum(nullList));
   }
 }
