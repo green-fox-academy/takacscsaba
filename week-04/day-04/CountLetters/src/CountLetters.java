@@ -2,10 +2,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CountLetters {
-  public Map<Character, Integer> counter(String string) {
-    Map<Character, Integer> dictionary = new HashMap<>();
+  public Map<String, Integer> counter(String string) {
+    Map<String, Integer> dictionary = new HashMap<>();
 
+    for (char c : string.toCharArray()) {
+      String str = c + "";
+      if (!dictionary.containsKey(str)) {
+        dictionary.put(str, 1);
+      } else {
+        dictionary.put(str, dictionary.get(str) + 1);
+      }
+    }
+    return dictionary;
   }
 }
-
-//  Write a function, that takes a string as an argument and returns a dictionary with all letters in the string as keys, and numbers as values that shows how many occurrences there are.
