@@ -7,7 +7,7 @@ import java.util.List;
 public class Main {
   public static void main(String[] args) {
     List<Fox> foxList = new ArrayList<>();
-    foxList.add(new Fox("RokaUr", "foxyfox", "green"));
+    foxList.add(new Fox("RokaUr", "pallida", "green"));
     foxList.add(new Fox("RokaKoma", "foxer", "red"));
     foxList.add(new Fox("RavaszRoka", "focks", "black"));
     foxList.add(new Fox("RoKalapos", "pallida", "green"));
@@ -15,8 +15,14 @@ public class Main {
     foxList.add(new Fox("RoKapuska", "fogox", "green"));
 
 
+
+    System.out.println("Green foxes:");
     for (int i = 0; i < greenFoxesMethod(foxList).size(); i++) {
-      System.out.println(greenFoxesMethod(foxList).toString());
+      System.out.println(greenFoxesMethod(foxList).get(i).toString());
+    }
+    System.out.println("\nGreen and pallida foxes:");
+    for (int i = 0; i < greenPallidaFoxesMethod(foxList).size(); i++) {
+      System.out.println(greenPallidaFoxesMethod(foxList).get(i).toString());
     }
   }
 
@@ -28,5 +34,15 @@ public class Main {
       }
     }
     return greenFoxList;
+  }
+
+  public static List<Fox> greenPallidaFoxesMethod(List<Fox> foxList) {
+    List<Fox> greenPallidaFoxList = new ArrayList<>();
+    for (int i = 0; i < foxList.size(); i++) {
+      if (foxList.get(i).color == "green" && foxList.get(i).type == "pallida") {
+        greenPallidaFoxList.add(foxList.get(i));
+      }
+    }
+    return greenPallidaFoxList;
   }
 }
