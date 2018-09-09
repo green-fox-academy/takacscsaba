@@ -7,6 +7,11 @@ public class Exercise4 {
 //    Write a Stream Expression to find which number squared value is more than 20 from the following array:
     ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(3, 9, 2, 8, 6, 5));
 
+    numbers.stream()
+        .filter(x -> x * x > 20)
+        .mapToInt(x -> x * x)
+        .forEach(System.out::println);
+
     System.out.println(sqrValueAbove20Method(numbers));
   }
 
