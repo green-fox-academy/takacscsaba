@@ -1,13 +1,21 @@
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.counting;
 
 public class Exercise7 {
   public static void main(String[] args) {
 //    Write a Stream Expression to find the frequency of characters in a given string!
     String charFrequency = "I wanna see Joe Hisaishi live in Budokan.";
 
+    System.out.println(
+        charFrequency.chars()
+            .mapToObj(c -> (char) c)
+            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting())));
 
     System.out.println(charFreqMethod(charFrequency));
   }
