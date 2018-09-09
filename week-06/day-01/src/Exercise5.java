@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Exercise5 {
@@ -6,6 +7,14 @@ public class Exercise5 {
 //    Write a Stream Expression to find the uppercase characters in a string!
     String upperLowerCases = "I wanna see Joe Hisaishi live in Budokan.";
 
+    List<String> upperLetters = new ArrayList<>(Arrays.asList(upperLowerCases));
+
+    upperLowerCases.chars()
+        .filter(Character::isUpperCase)
+        .mapToObj(c -> Character.toString((char)c))
+        .forEach(System.out::print);
+
+    System.out.println();
     System.out.println(upperCaseMethod(upperLowerCases));
   }
 
@@ -17,7 +26,7 @@ public class Exercise5 {
         upperLetters.add(string.charAt(i));
       }
     }
-    String upperLettersString = upperLetters.toString().replaceAll(",", "").replace("[", "").replace("]", "");
+    String upperLettersString = upperLetters.toString().replaceAll(", ", "").replace("[", "").replace("]", "");
     return upperLettersString;
   }
 }
