@@ -11,7 +11,7 @@ public class Exercise5 {
 
     upperLowerCases.chars()
         .filter(Character::isUpperCase)
-        .mapToObj(c -> Character.toString((char)c))
+        .mapToObj(c -> Character.toString((char) c))
         .forEach(System.out::print);
 
     System.out.println();
