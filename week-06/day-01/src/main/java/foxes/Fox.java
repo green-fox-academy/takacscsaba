@@ -11,4 +11,9 @@ public class Fox {
     this.type = type;
     this.color = color;
   }
+
+  public String toString() {
+    String foxDescription = "Name: " + this.name + " | Type: " + this.type + " | Color: " + this.color;
+    return foxDescription;
+  }
 }
