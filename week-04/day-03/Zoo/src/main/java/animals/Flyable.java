@@ -1,9 +1,9 @@
 package main.java.animals;
 
 public interface Flyable {
-  void land();
+  void takeOff();
 
   void fly();
 
-  void takeOff();
+  void land();
 }
