@@ -8,9 +8,9 @@ public class Exercise3 {
     ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 3, -2, -4, -7, -3, -8, 12, 19, 6, 9, 10, 14));
 
     numbers.stream()
-           .filter(x -> x % 2 ==0)
-           .mapToInt(x -> x*x)
-           .forEach(System.out::println);
+        .filter(x -> x >= 0)
+        .mapToInt(x -> x * x)
+        .forEach(System.out::println);
 
     System.out.println(sqrValueMethod(numbers));
   }
@@ -18,7 +18,7 @@ public class Exercise3 {
   public static List<Integer> sqrValueMethod(ArrayList<Integer> numbers) {
     List<Integer> sqrValue = new ArrayList<>();
     for (int i = 0; i < numbers.size(); i++) {
-      if (numbers.get(i) % 2 ==0) {
+      if (numbers.get(i) >= 0) {
         sqrValue.add(numbers.get(i) * numbers.get(i));
       }
     }

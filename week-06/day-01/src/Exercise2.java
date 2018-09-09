@@ -10,18 +10,23 @@ public class Exercise2 {
 
     System.out.println(
         numbers.stream()
-               .mapToDouble(x -> x)
-               .average());
+            .filter(x -> x % 2 != 0)
+            .mapToDouble(x -> x)
+            .average());
 
     System.out.println(avrValueMethod(numbers));
   }
 
   public static double avrValueMethod(ArrayList<Integer> numbers) {
     double avrValue = 0;
+    List<Integer> oddNums = new ArrayList<>();
     for (int i = 0; i < numbers.size(); i++) {
-      avrValue += numbers.get(i);
+      if (numbers.get(i) % 2 != 0) {
+        avrValue += numbers.get(i);
+        oddNums.add(numbers.get(i));
+      }
     }
-    double avr = avrValue / numbers.size();
+    double avr = avrValue / oddNums.size();
     return avr;
   }
 }
