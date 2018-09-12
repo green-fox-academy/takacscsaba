@@ -12,33 +12,56 @@
         <th>ACCOUNT LOGIN</th>
     </tr>
     </thead>
-    <tbody>
-    <tr>
-        <td class="userpw">
-            USERNAME</br>
-        </td>
-    </tr>
-    <tr>
-        <td id="first_input">
-            <input type="text" maxlength="15" required> <br/>
-        </td>
-    </tr>
-    <tr>
-        <td class="userpw">
-            PASSWORD</br>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <input type="text" maxlength="15" required> <br/>
-        </td>
-    </tr>
-    <tr>
-        <td id="forgotten">
-            Forgot Password?
-        </td>
-    </tr>
-    </tbody>
+    <form action="https://www.index.hu">
+        <tbody>
+        <tr>
+            <td class="userpw">
+                USERNAME<br/>
+            </td>
+        </tr>
+        <tr>
+            <td id="first_input">
+                <input class="input" type="text" name="username" maxlength="15" required autofocus> <br/>
+            </td>
+        </tr>
+        <tr>
+            <td class="userpw">
+                PASSWORD<br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="password" class="input" type="password">
+            </td>
+        </tr>
+        <tr>
+            <td id="checkboxpw">
+                <label for="checkbox">Show password:</label>
+                <input id="checkbox" type="checkbox" onclick="myFunction()">
+                <script>
+                    function myFunction() {
+                        var x = document.getElementById("password");
+                        if (x.type === "password") {
+                            x.type = "text";
+                        } else {
+                            x.type = "password";
+                        }
+                    }
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td id="forgotten">
+                Forgot Password?
+            </td>
+        </tr>
+        <tr>
+            <td id="submit_table">
+                <input id="submit_button" type="submit"> <br/>
+            </td>
+        </tr>
+        </tbody>
+    </form>
 </table>
 </body>
 </html>
