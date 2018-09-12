@@ -1,0 +1,41 @@
+body {
+    background-color: rgb(219, 219, 219);
+}
+
+table {
+    width: 200px;
+}
+
+th {
+    padding: 25px 0px 15px 50px;
+    font-size: 10px;
+}
+
+td {
+    padding: 0px 50px;
+    font-size: 6px;
+    font-weight: 100;
+}
+
+table, th, td {
+    border-radius: 0 1px 0 0;
+    border-collapse: collapse;
+    color: #404040;
+    background-color: white;
+    font-weight: 100;
+    text-align: left;
+    font-family: Calibri;
+}
+
+#forgotten {
+    padding-top: 4px;
+    text-align: right;
+}
+
+.userpw {
+    padding-bottom: 4px;
+}
+
+#first_input {
+    padding-bottom: 10px;
+}
