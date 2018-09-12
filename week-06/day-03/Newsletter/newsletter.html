@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Newsletter</th>
+    </tr>
+    </thead>
+    <form action="https://newsletter-ws.herokuapp.com/signup" method="post">
+        <tbody>
+        <tr>
+            <td class="userpw">
+                Name<br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="Name" maxlength="15" placeholder="Firstame Lastname" required autofocus> <br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email<br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="email" name="email" placeholder="email@email.com" required>
+            </td>
+        </tr>
+        <tr>
+            <td id="submit_table">
+                <input id="submit_button" type="submit"> <br/>
+            </td>
+        </tr>
+        </tbody>
+    </form>
+</table>
+</body>
+</html>
