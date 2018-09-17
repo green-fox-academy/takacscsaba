@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @SpringBootApplication
 @RestController
 public class HelloRESTController {
-  AtomicLong atomicLong = new AtomicLong(0);
+  public final AtomicLong atomicLong = new AtomicLong(0);
 
   @RequestMapping("/greeting")
   @ResponseBody
