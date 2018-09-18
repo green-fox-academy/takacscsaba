@@ -29,8 +29,8 @@ public class HelloWebController {
   @RequestMapping("/web/greeting")
   public String greeting(Model model, @RequestParam(name = "name") String name) {
     model.addAttribute("fontcolor", textColor());
-    model.addAttribute("fontsize", (int) Math.floor(Math.random() * 32));
-    model.addAttribute("hello", hellos[0]);
+    model.addAttribute("fontsize", (int) Math.floor(8 + Math.random() * 32));
+    model.addAttribute("hello", hellos[(int) (Math.random() * hellos.length)]);
     model.addAttribute("name", name);
     model.addAttribute("number", atomicLong.incrementAndGet());
     return "greeting";
