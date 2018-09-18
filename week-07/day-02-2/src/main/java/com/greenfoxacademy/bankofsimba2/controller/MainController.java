@@ -11,18 +11,10 @@ import java.util.List;
 
 @Controller
 public class MainController {
-  BankServiceImp bankServiceImp;
-
-  @Autowired
-  public MainController(BankServiceImp bankServiceImp) {
-    this.bankServiceImp = bankServiceImp;
-  }
 
   @GetMapping("")
   public String showingAccount(Model model) {
-
-    List<BankAccount> bankAccounts = bankServiceImp.getBankAccounts();
-    model.addAttribute("bankAccounts", bankAccounts);
+    model.addAttribute();
     return "show";
   }
 

@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.List;
 
 @Entity
 public class BankAccount {
@@ -12,14 +11,13 @@ public class BankAccount {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
   private String name;
-  private List<Animal> animals;
+  private Double balance;
+  private String animalType;
 
-  public BankAccount(String name) {
+  public BankAccount(String name, Double balance, String animalType) {
     this.name = name;
-  }
-
-  public BankAccount() {
-    this(null);
+    this.balance = balance;
+    this.animalType = animalType;
   }
 
   public String getName() {
@@ -38,15 +36,20 @@ public class BankAccount {
     this.id = id;
   }
 
-  public List<Animal> getAnimals() {
-    return animals;
+  public Double getBalance() {
+    return balance;
   }
 
-  public void setAnimals(List<Animal> animals) {
-    this.animals = animals;
+  public void setBalance(Double balance) {
+    this.balance = balance;
   }
 
-  public void addAnimal(Animal animal) {
-    this.animals.add(animal);
+  public String getAnimalType() {
+    return animalType;
+  }
+
+  public void setAnimalType(String animalType) {
+    this.animalType = animalType;
   }
 }
+
