@@ -1,7 +1,7 @@
-package com.greenfoxacademy.bankofsimba.services;
+package com.greenfoxacademy.bankofsimba2.services;
 
-import com.greenfoxacademy.bankofsimba.models.Animal;
-import com.greenfoxacademy.bankofsimba.models.BankAccount;
+import com.greenfoxacademy.bankofsimba2.models.Animal;
+import com.greenfoxacademy.bankofsimba2.models.BankAccount;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

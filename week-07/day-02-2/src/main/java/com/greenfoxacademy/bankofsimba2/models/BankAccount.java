@@ -1,4 +1,4 @@
-package com.greenfoxacademy.bankofsimba.models;
+package com.greenfoxacademy.bankofsimba2.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

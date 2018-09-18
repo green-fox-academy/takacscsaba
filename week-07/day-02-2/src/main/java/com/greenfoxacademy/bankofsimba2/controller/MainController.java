@@ -1,7 +1,7 @@
-package com.greenfoxacademy.bankofsimba.controller;
+package com.greenfoxacademy.bankofsimba2.controller;
 
-import com.greenfoxacademy.bankofsimba.models.BankAccount;
-import com.greenfoxacademy.bankofsimba.services.BankServiceImp;
+import com.greenfoxacademy.bankofsimba2.models.BankAccount;
+import com.greenfoxacademy.bankofsimba2.services.BankServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

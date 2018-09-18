@@ -1,9 +1,9 @@
-package com.greenfoxacademy.bankofsimba.services;
+package com.greenfoxacademy.bankofsimba2.services;
 
-import com.greenfoxacademy.bankofsimba.models.Animal;
-import com.greenfoxacademy.bankofsimba.models.BankAccount;
-import com.greenfoxacademy.bankofsimba.repositories.AnimalRepository;
-import com.greenfoxacademy.bankofsimba.repositories.BankAccountRepository;
+import com.greenfoxacademy.bankofsimba2.models.Animal;
+import com.greenfoxacademy.bankofsimba2.models.BankAccount;
+import com.greenfoxacademy.bankofsimba2.repositories.AnimalRepository;
+import com.greenfoxacademy.bankofsimba2.repositories.BankAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
