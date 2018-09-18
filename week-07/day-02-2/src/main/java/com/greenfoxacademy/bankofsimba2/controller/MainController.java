@@ -5,17 +5,33 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class MainController {
 
-  private BankAccount bankAccountCreater() {
-    BankAccount bankAccount = new BankAccount("Simba", 2000.0, "lion");
-    return bankAccount;
+  private List<BankAccount> bankAccountCreater() {
+    List<BankAccount> bankAccounts = new ArrayList<>();
+    BankAccount simbaAccount = new BankAccount("Simba", 2500.0, "lion", true);
+    bankAccounts.add(simbaAccount);
+    BankAccount mufasaAccount = new BankAccount("Mufasa", 5000.0, "lion", true);
+    bankAccounts.add(mufasaAccount);
+    BankAccount rafikiAccount = new BankAccount("Rafiki", 500.0, "pavian", false);
+    bankAccounts.add(rafikiAccount);
+    BankAccount kiraAccount = new BankAccount("Kira", 1000.0, "lion", false);
+    bankAccounts.add(kiraAccount);
+    BankAccount pumbaAccount = new BankAccount("Pumba", 1500.0, "vaddiszno", false);
+    bankAccounts.add(pumbaAccount);
+    BankAccount zordonAccount = new BankAccount("Zordon", 150.0, "lion", true);
+    bankAccounts.add(zordonAccount);
+
+    return bankAccounts;
   }
 
   @GetMapping("")
   public String showingAccount(Model model) {
-    model.addAttribute("bankAccount", bankAccountCreater());
+    model.addAttribute("bankAccounts", bankAccountCreater());
     return "showaccounts";
   }
 

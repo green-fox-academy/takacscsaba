@@ -9,13 +9,15 @@
 <table>
     <thead>
     <tr>
+        <th>Id</th>
         <th>Name</th>
         <th>Balance</th>
         <th>Type</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
+    <tr th:each="bankAccount : ${bankAccounts}" th:if="${bankAccount.isKing()}==true ? >
+        <td th:text="${bankAccountStat.index} + 1" }></td>
         <td th:text="${bankAccount.getName()}" }></td>
         <td th:text="${#numbers.formatDecimal(bankAccount.getBalance(), 1, 'COMMA', 2, 'POINT')}" }></td>
         <td th:text="${bankAccount.getAnimalType()}" }></td>
