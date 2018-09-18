@@ -1,12 +1,10 @@
-package com.greenfoxacademy.bankofsimba.Controller;
+package com.greenfoxacademy.bankofsimba.controller;
 
-import com.greenfoxacademy.bankofsimba.Model.BankAccount;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.greenfoxacademy.bankofsimba.models.BankAccount;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@SpringBootApplication
 @Controller
 public class MainController {
 
