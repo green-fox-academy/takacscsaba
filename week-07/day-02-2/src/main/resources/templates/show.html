@@ -1,16 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Bank account attributes</title>
 </head>
 <body>
-<div>
-<ul>
-    <li th:each="bankAccount : ${bankAccounts}" >
-        <a th:href="@{'/bankAccounts/' + ${bankAccount.id}}" th:text="'Name: ' + ${bankAccount.name} + ', Balance: ' + ${bankAccount.balance} + ', Type: ' +  ${bankAccount.animaltype}"></a>
-    </li>
-</ul>
-</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Balance</th>
+        <th>Type</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${bankAccount.getName()}" }></td>
+        <td th:text="${#numbers.formatDecimal(bankAccount.getBalance(), 1, 'COMMA', 2, 'POINT')}" }></td>
+        <td th:text="${bankAccount.getAnimalType()}" }></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
