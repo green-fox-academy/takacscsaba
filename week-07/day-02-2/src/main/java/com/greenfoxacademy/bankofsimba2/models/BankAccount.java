@@ -14,12 +14,14 @@ public class BankAccount {
   private Double balance;
   private String animalType;
   private boolean isKing;
+  private boolean isGood;
 
-  public BankAccount(String name, Double balance, String animalType, boolean isKing) {
+  public BankAccount(String name, Double balance, String animalType, boolean isKing, boolean isGood) {
     this.name = name;
     this.balance = balance;
     this.animalType = animalType;
     this.isKing = isKing;
+    this.isGood = isGood;
   }
 
   public String getName() {
@@ -60,6 +62,14 @@ public class BankAccount {
 
   public void setKing(boolean king) {
     isKing = king;
+  }
+
+  public boolean isGood() {
+    return isGood;
+  }
+
+  public void setGood(boolean good) {
+    isGood = good;
   }
 }
 

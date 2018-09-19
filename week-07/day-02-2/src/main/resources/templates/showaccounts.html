@@ -2,25 +2,45 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Bank account attributes</title>
+    <title>Bank account table</title>
 </head>
 <body>
 
 <table>
     <thead>
     <tr>
+        <th>Raise balance</th>
         <th>Id</th>
         <th>Name</th>
         <th>Balance</th>
         <th>Type</th>
+        <th>Personality</th>
+        <th>Title</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="bankAccount : ${bankAccounts}" th:if="${bankAccount.isKing()}==true ? >
+    <tr th:each="bankAccount : ${bankAccounts}" th:object="${bankAccount}" }>
+        <th:block th:switch="${bankAccount.isKing()}">
+            <td th:case="true">
+                    <input action="#" method="POST" type="button" id="+100" zebraNumber="100.0" name="${bankAccount.getName()}" required>
+            </td>
+            <td th:case="false">
+                <input action="#" method="POST" type="button" id="+10" zebraNumber=10.0 name="${bankAccount.getName()}" required>
+            </td>
+        </th:block>
         <td th:text="${bankAccountStat.index} + 1" }></td>
         <td th:text="${bankAccount.getName()}" }></td>
         <td th:text="${#numbers.formatDecimal(bankAccount.getBalance(), 1, 'COMMA', 2, 'POINT')}" }></td>
         <td th:text="${bankAccount.getAnimalType()}" }></td>
+        <th:block th:switch="${bankAccount.isGood()}">
+            <td th:case="true">
+                Good one
+            </td>
+            <td th:case="false">
+                Bad guy
+            </td>
+        </th:block>
+        <td th:if="${bankAccount.isKing()}" th:text="King"}></td>
     </tr>
     </tbody>
 </table>
