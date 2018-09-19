@@ -17,9 +17,9 @@
         <th>Personality</th>
         <th>Title</th>
     </tr>
-    </thead>
     <tbody>
     <tr th:each="bankAccount : ${bankAccounts}" th:object="${bankAccount}" }>
+    </thead>
         <th:block th:switch="${bankAccount.isKing()}">
             <td th:case="true">
                     <input action="#" method="POST" type="button" id="+100" zebraNumber="100.0" name="${bankAccount.getName()}" required>

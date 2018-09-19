@@ -9,6 +9,7 @@ import java.util.Random;
 public class UtilityService {
   ArrayList<String> colors;
   Random random;
+  boolean isValid;
 
   public UtilityService() {
     colors = new ArrayList<>();
@@ -27,6 +28,14 @@ public class UtilityService {
 
   public String randomColor() {
     return colors.get(random.nextInt(colors.size()));
+  }
+
+  public boolean validateEmail(String emailAddress){
+    isValid = false;
+    if (emailAddress.contains("@") && emailAddress.contains(".")) {
+      isValid = true;
+    }
+    return isValid;
   }
 
   public ArrayList<String> getColors() {
