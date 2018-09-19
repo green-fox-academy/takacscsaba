@@ -1,5 +1,6 @@
 package com.greenfoxacademy.dependencytraining;
 
+import com.greenfoxacademy.dependencytraining.services.MyColor;
 import com.greenfoxacademy.dependencytraining.services.Printer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -11,9 +12,11 @@ public class DependencytrainingApplication implements CommandLineRunner {
 
   @Autowired
   Printer printer;
+  MyColor myColor;
 
-  public DependencytrainingApplication(Printer printer) {
+  public DependencytrainingApplication(Printer printer, MyColor myColor) {
     this.printer = printer;
+    this.myColor = myColor;
   }
 
   public static void main(String[] args) {
@@ -23,5 +26,6 @@ public class DependencytrainingApplication implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
     printer.log("hello");
+    myColor.printColor();
   }
 }
