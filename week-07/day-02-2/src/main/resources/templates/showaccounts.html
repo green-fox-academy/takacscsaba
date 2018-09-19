@@ -32,14 +32,15 @@
         <td th:text="${bankAccount.getName()}" }></td>
         <td th:text="${#numbers.formatDecimal(bankAccount.getBalance(), 1, 'COMMA', 2, 'POINT')}" }></td>
         <td th:text="${bankAccount.getAnimalType()}" }></td>
-        <th:block th:switch="${bankAccount.isGood()}">
-            <td th:case="true">
-                Good one
-            </td>
-            <td th:case="false">
-                Bad guy
-            </td>
-        </th:block>
+        <!--<th:block th:switch="${bankAccount.isGood()}">-->
+            <!--<td th:case="true">-->
+                <!--Good one-->
+            <!--</td>-->
+            <!--<td th:case="false">-->
+                <!--Bad guy-->
+            <!--</td>-->
+        <!--</th:block>-->
+        <td th:text="${bankAccount.isGood()? 'Good one' : 'Bad guy'}">
         <td th:if="${bankAccount.isKing()}" th:text="King"}></td>
     </tr>
     </tbody>
