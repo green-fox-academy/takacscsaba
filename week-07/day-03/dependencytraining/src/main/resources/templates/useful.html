@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Useful</title>
+</head>
+<body>
+<tbody>
+<tr th:each="color : ${colors}" }>
+    <td th:text="${color}" }></td>
+</tr>
+</tbody>
+</body>
+</html>
