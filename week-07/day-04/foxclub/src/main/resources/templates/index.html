@@ -9,7 +9,7 @@
     <li><a href="http://www.google.com">Information</a></li>
 </ul>
 <img th:src="greenfox.png" alt="Róka Úr">
-<p>This is Róka Úr. Currently living on pizza and lemonade. He knows 2 tricks.</p>
+<p th:text="'This is ' + ${} + '. Currently living on pizza and lemonade. He knows 2 tricks.'"></p>
 <h1>Known tricks</h1>
 <ul>
     <li>write HTML</li>

@@ -1,5 +1,6 @@
 package com.greenfoxacademy.programmerfoxclub.controller;
 
+import com.greenfoxacademy.programmerfoxclub.model.Fox;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,9 +9,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
+  Fox fox;
 
   @GetMapping("")
   public String showIndex(Model model) {
+    model.addAttribute("foxName", fox.getName());
     return "index";
   }
 
@@ -19,9 +22,10 @@ public class MainController {
     return "login";
   }
 
-  @PostMapping("/add")
-  public String addName(@RequestParam(value = "name") String name) {
-    return "index";
+  @PostMapping("/login")
+  public String getFox(@RequestParam(value = "name") String foxname, Model model) {
+    model.addAttribute("foxName", foxname);
+    return "redirect:/";
   }
 
 }
