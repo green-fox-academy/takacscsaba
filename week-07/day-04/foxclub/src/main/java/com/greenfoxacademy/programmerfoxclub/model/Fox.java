@@ -1,10 +1,11 @@
 package com.greenfoxacademy.programmerfoxclub.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Fox {
   private String name;
-  private List<String> tricks;
+  private List<String> tricks = new ArrayList<>();
   private String food;
   private String drink;
 
@@ -17,6 +18,9 @@ public class Fox {
 
   public Fox(String name) {
     this.name = name;
+  }
+
+  public Fox() {
   }
 
   public String getName() {

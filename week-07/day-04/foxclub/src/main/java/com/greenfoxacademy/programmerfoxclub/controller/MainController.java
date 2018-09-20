@@ -1,31 +1,22 @@
 package com.greenfoxacademy.programmerfoxclub.controller;
 
-import com.greenfoxacademy.programmerfoxclub.model.Fox;
+import com.greenfoxacademy.programmerfoxclub.services.FoxService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
-  Fox fox;
+  private FoxService foxService;
 
-  @GetMapping("")
+  public MainController(FoxService foxService) {
+    this.foxService = foxService;
+  }
+
+  @GetMapping("/")
   public String showIndex(Model model) {
-    model.addAttribute("foxName", fox.getName());
+    foxService.createFox("Róka Úr");
+    model.addAttribute("fox", foxService.getFoxList().get(0));
     return "index";
   }
-
-  @GetMapping("/login")
-  public String showLogin(Model model) {
-    return "login";
-  }
-
-  @PostMapping("/login")
-  public String getFox(@RequestParam(value = "name") String foxname, Model model) {
-    model.addAttribute("foxName", foxname);
-    return "redirect:/";
-  }
-
 }
