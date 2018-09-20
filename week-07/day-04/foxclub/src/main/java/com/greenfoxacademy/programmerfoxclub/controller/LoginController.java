@@ -23,7 +23,7 @@ public class LoginController {
   @PostMapping("/login")
   public String createFoxFromName(@RequestParam(value = "name") String foxName, Model model) {
     model.addAttribute("foxName", foxName);
-    foxService.createFox(foxName);
+    foxService.createFoxByName(foxName);
     return "redirect:/";
   }
 }

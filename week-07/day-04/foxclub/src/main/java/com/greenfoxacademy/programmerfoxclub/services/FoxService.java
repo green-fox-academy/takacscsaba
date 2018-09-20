@@ -7,7 +7,8 @@ import java.util.List;
 
 @Service
 public interface FoxService {
-  Fox createFox(String name);
+  Fox createFox(String name, List<String> tricks, String food, String drink);
+  Fox createFoxByName(String name);
   List<Fox> getFoxList();
   List<Fox> addFox(Fox fox);
 }

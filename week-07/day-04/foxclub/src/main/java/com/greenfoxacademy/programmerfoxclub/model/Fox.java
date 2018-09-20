@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Fox {
   private String name;
-  private List<String> tricks = new ArrayList<>();
+  private List<String> tricks;
   private String food;
   private String drink;
 
@@ -17,7 +17,7 @@ public class Fox {
   }
 
   public Fox(String name) {
-    this.name = name;
+    this.name = name;;
   }
 
   public Fox() {
@@ -53,5 +53,8 @@ public class Fox {
 
   public void setDrink(String drink) {
     this.drink = drink;
+  }
+
+  public void addTrick() {
   }
 }

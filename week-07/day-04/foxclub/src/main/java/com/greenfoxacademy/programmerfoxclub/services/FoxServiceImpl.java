@@ -12,7 +12,14 @@ public class FoxServiceImpl implements FoxService {
   List<Fox> foxList = new ArrayList<>();
 
   @Override
-  public Fox createFox(String name) {
+  public Fox createFox(String name, List<String> tricks, String food, String drink) {
+    fox = new Fox(name, tricks, food, drink);
+    foxList.add(fox);
+    return new Fox(name);
+  }
+
+  @Override
+  public Fox createFoxByName(String name) {
     fox = new Fox(name);
     foxList.add(fox);
     return new Fox(name);
@@ -28,4 +35,6 @@ public class FoxServiceImpl implements FoxService {
     foxList.add(fox);
     return foxList;
   }
+
+
 }
