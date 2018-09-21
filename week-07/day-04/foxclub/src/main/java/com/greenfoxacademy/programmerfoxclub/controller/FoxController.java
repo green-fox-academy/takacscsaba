@@ -18,20 +18,21 @@ public class FoxController {
 
   @RequestMapping("/nutritionstore")
   public String nutritionDefault() {
-    return "nutrition";
+    return "nutritionstore";
   }
 
   @GetMapping("/nutritionstore")
   public String nutrition(@RequestParam(required = false, value = "name") String foxName, Model model) {
     model.addAttribute("fox", foxService.getFoxByName(foxName));
-    return "nutrition";
+    return "nutritionstore";
   }
 
   @PostMapping("/nutritionstore")
-  public String nutritionUpdate(@RequestParam(required = false, value = "name") String foxName,
+  public String nutritionUpdate(@RequestParam(required = false, value = "foxName") String foxName,
                                 @RequestParam(required = false, value = "food") String food,
                                 @RequestParam(required = false, value = "drink") String drink,
                                 Model model) {
+    System.out.println(foxName);
     foxService.getFoxByName(foxName).setFood(food);
     foxService.getFoxByName(foxName).setDrink(drink);
     model.addAttribute("fox", foxService.getFoxByName(foxName));
