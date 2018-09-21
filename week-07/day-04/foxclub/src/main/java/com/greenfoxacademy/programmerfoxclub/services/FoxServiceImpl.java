@@ -37,5 +37,13 @@ public class FoxServiceImpl implements FoxService {
     return foxList;
   }
 
-
+  @Override
+  public Fox getFoxByName(String name) {
+    for (int i = 0; i < getFoxList().size(); i++) {
+        if (getFoxList().get(i).getName().equals(name)) {
+          return getFoxList().get(i);
+        }
+      }
+    return null;
+  }
 }

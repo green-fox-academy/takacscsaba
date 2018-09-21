@@ -4,8 +4,8 @@ import com.greenfoxacademy.programmerfoxclub.services.FoxService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class LoginController {
@@ -21,9 +21,11 @@ public class LoginController {
   }
 
   @PostMapping("/login")
-  public String createFoxFromName(@RequestParam(value = "name") String foxName, Model model) {
-    model.addAttribute("foxName", foxName);
+  public String createFoxFromName(@ModelAttribute(value = "name") String foxName, Model model) {
     foxService.createFoxByName(foxName);
-    return "redirect:/";
+//    foxService.getFoxByName(foxName);
+
+    model.addAttribute("fox", foxService.getFoxByName(foxName));
+    return "redirect:/?name=" + foxName;
   }
 }

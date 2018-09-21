@@ -11,4 +11,5 @@ public interface FoxService {
   Fox createFoxByName(String name);
   List<Fox> getFoxList();
   List<Fox> addFox(Fox fox);
+  Fox getFoxByName(String name);
 }
