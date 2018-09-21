@@ -3,7 +3,9 @@ package com.greenfoxacademy.programmerfoxclub.controller;
 import com.greenfoxacademy.programmerfoxclub.services.FoxService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -14,7 +16,18 @@ public class FoxController {
     this.foxService = foxService;
   }
 
-  @PostMapping("/nutritionStore")
+  @RequestMapping("/nutritionstore")
+  public String nutritionDefault() {
+    return "nutrition";
+  }
+
+  @GetMapping("/nutritionstore")
+  public String nutrition(@RequestParam(required = false, value = "name") String foxName, Model model) {
+    model.addAttribute("fox", foxService.getFoxByName(foxName));
+    return "nutrition";
+  }
+
+  @PostMapping("/nutritionstore")
   public String nutritionUpdate(@RequestParam(required = false, value = "name") String foxName,
                                 @RequestParam(required = false, value = "food") String food,
                                 @RequestParam(required = false, value = "drink") String drink,
