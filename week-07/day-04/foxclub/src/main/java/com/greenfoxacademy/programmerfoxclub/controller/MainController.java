@@ -21,6 +21,7 @@ public class MainController {
     List<String> tricks = new ArrayList<>();
     tricks.add("Knows Java");
     tricks.add("Knows Python");
+//    foxService.createFoxByName("Róka Uraság");
     foxService.createFox("Róka Úr", tricks, "pizza", "coke");
     model.addAttribute("fox", foxService.getFoxList().get(0));
     return "index";

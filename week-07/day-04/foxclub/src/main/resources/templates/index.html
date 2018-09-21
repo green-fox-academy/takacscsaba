@@ -11,6 +11,8 @@
 <img th:src="greenfox.png" th:alt="${fox.getName()}"/>
 <p th:text="'This is ' +  ${fox.getName()} + '. Currently living on ' + ${fox.getFood()} + ' and ' + ${fox.getDrink()} + ' . He knows ' +  ${fox.getTricks().size()} + ' tricks.'"></p>
 <h1>Known tricks</h1>
+<p th:text="${fox.getTricks().isEmpty()}? ${fox.getName()} + ' doesn\'t know any tricks yet.'">
+</p>
 <ul th:each="trick : ${fox.getTricks()}" >
     <li th:text="${trick}"></li>
 </ul>

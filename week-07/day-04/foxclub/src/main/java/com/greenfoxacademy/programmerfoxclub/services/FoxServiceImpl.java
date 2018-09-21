@@ -21,6 +21,7 @@ public class FoxServiceImpl implements FoxService {
   @Override
   public Fox createFoxByName(String name) {
     fox = new Fox(name);
+    fox.setTricks(new ArrayList<>());
     foxList.add(fox);
     return new Fox(name);
   }

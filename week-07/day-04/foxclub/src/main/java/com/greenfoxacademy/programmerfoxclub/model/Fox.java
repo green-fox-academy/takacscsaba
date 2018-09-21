@@ -17,7 +17,7 @@ public class Fox {
   }
 
   public Fox(String name) {
-    this.name = name;;
+    this.name = name;
   }
 
   public Fox() {
