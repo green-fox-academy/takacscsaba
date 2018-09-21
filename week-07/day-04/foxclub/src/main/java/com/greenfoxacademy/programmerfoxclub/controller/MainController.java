@@ -3,10 +3,7 @@ package com.greenfoxacademy.programmerfoxclub.controller;
 import com.greenfoxacademy.programmerfoxclub.services.FoxService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController {
@@ -29,11 +26,22 @@ public class MainController {
 //    foxService.createFoxByName("Róka Uraság");
 //    foxService.createFox("Róka Úr", tricks, "pizza", "coke");
 //    model.addAttribute("fox", foxService.getFoxList().get(0));
-    if (foxName == null || (foxName != null && foxService.getFoxByName(foxName) == null)) {
-      return "redirect:/login";
-    } else {
+
+//    if (foxName == null || (foxName != null && foxService.getFoxByName(foxName) == null)) {
+//      return "redirect:/login";
+//    } else {
+//      model.addAttribute("fox", foxService.getFoxByName(foxName));
+//      return "index";
+//    }
+
+    if (foxName != null) {
       model.addAttribute("fox", foxService.getFoxByName(foxName));
       return "index";
+    } else if (!foxService.getFoxList().isEmpty()) {
+      model.addAttribute("fox", foxService.getFoxByName(foxService.getFoxList().get(0).getName()));
+      return "index";
+    } else {
+      return "redirect:/login";
     }
   }
 }

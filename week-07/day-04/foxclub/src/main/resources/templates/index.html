@@ -2,14 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${fox.getName()}"> lak</title>
+    <title th:text="${fox.getName()} + 'lak'"></title>
 </head>
 <body>
 <ul>
-    <li><a th:href="@{index}">Information</a></li>
-    <li><a th:href="@{nutritionstore}">Nutrition Store</a></li>
-    <li><a th:href="@{trickcenter}">Trick Center</a></li>
-    <li><a th:href="@{actionhistory}">Action History</a></li>
+    <li><a th:href="@{/(name=${fox.getName()})}">Information</a></li>
+    <li><a th:href="@{/login}">Login</a></li>
+    <li><a th:href="@{/nutritionstore/(name=${fox.getName()})}">Nutrition Store</a></li>
+    <li><a th:href="@{/trickcenter/(name=${fox.getName()})}">Trick Center</a></li>
+    <li><a th:href="@{/actionhistory/(name=${fox.getName()})}">Action History</a></li>
 </ul>
 
 <img th:src="greenfox.png" th:alt="${fox.getName()}"/>

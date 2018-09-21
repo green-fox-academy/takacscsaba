@@ -6,10 +6,11 @@
 </head>
 <body>
 <ul>
-    <li><a th:href="@{index}">Information</a></li>
-    <li><a th:href="@{nutritionstore}">Nutrition Store</a></li>
-    <li><a th:href="@{trickcenter}">Trick Center</a></li>
-    <li><a th:href="@{actionhistory}">Action History</a></li>
+    <li><a th:href="@{/(name=${fox.getName()})}">Information</a></li>
+    <li><a th:href="@{/login}">Login</a></li>
+    <li><a th:href="@{/nutritionstore/(name=${fox.getName()})}">Nutrition Store</a></li>
+    <li><a th:href="@{/trickcenter/(name=${fox.getName()})}">Trick Center</a></li>
+    <li><a th:href="@{/actionhistory/(name=${fox.getName()})}">Action History</a></li>
 </ul>
 <h1>
     Welcome to Programmer Fox Club!

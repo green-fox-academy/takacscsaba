@@ -1,5 +1,6 @@
 package com.greenfoxacademy.programmerfoxclub.controller;
 
+import com.greenfoxacademy.programmerfoxclub.model.Fox;
 import com.greenfoxacademy.programmerfoxclub.services.FoxService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +23,8 @@ public class LoginController {
   }
 
   @GetMapping("/login")
-  public String showLogin() {
+  public String showLogin(Model model) {
+    model.addAttribute("fox", foxService.createFoxByName("deafult"));
     return "login";
   }
 

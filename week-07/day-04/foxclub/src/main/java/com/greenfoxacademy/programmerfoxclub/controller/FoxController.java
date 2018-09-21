@@ -22,7 +22,7 @@ public class FoxController {
   }
 
   @GetMapping("/nutritionstore")
-  public String nutrition(@RequestParam(value = "name") String foxName, Model model) {
+  public String nutrition(@RequestParam(required = false, value = "name") String foxName, Model model) {
     model.addAttribute("fox", foxService.getFoxByName(foxName));
     return "nutritionstore";
   }
@@ -32,7 +32,7 @@ public class FoxController {
                                 @RequestParam(required = false, value = "food") String food,
                                 @RequestParam(required = false, value = "drink") String drink,
                                 Model model) {
-    System.out.println(foxName);
+
     foxService.getFoxByName(foxName).setFood(food);
     foxService.getFoxByName(foxName).setDrink(drink);
     model.addAttribute("fox", foxService.getFoxByName(foxName));
