@@ -6,8 +6,13 @@
 </head>
 <body>
 <ul>
+    <li><a href="index.html">Information</a></li>
     <li><a href="http://www.google.com">Information</a></li>
+    <li><a href="nutritionstore.html">Nutrition Store</a></li>
+    <li><a href="trickcenter.html">Trick Center</a></li>
+    <li><a href="actionhistory.html">Action History</a></li>
 </ul>
+
 <img th:src="greenfox.png" th:alt="${fox.getName()}"/>
 <p th:text="'This is ' +  ${fox.getName()} + '. Currently living on ' + ${fox.getFood()} + ' and ' + ${fox.getDrink()} + ' . He knows ' +  ${fox.getTricks().size()} + ' tricks.'"></p>
 <h1>Known tricks</h1>
