@@ -17,12 +17,12 @@ public class FoxController {
   }
 
   @RequestMapping("/nutritionstore")
-  public String nutritionDefault() {
+  public String nutritionDefault(@RequestParam(value = "name") String foxName) {
     return "nutritionstore";
   }
 
   @GetMapping("/nutritionstore")
-  public String nutrition(@RequestParam(required = false, value = "name") String foxName, Model model) {
+  public String nutrition(@RequestParam(value = "name") String foxName, Model model) {
     model.addAttribute("fox", foxService.getFoxByName(foxName));
     return "nutritionstore";
   }

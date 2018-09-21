@@ -29,7 +29,7 @@ public class MainController {
 //    foxService.createFoxByName("Róka Uraság");
 //    foxService.createFox("Róka Úr", tricks, "pizza", "coke");
 //    model.addAttribute("fox", foxService.getFoxList().get(0));
-    if (foxName == null) {
+    if (foxName == null || (foxName != null && foxService.getFoxByName(foxName) == null)) {
       return "redirect:/login";
     } else {
       model.addAttribute("fox", foxService.getFoxByName(foxName));
