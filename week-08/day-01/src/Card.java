@@ -23,8 +23,6 @@ public class Card {
 
   @Override
   public int hashCode() {
-    int result = 17;
-    result = 31 * result + number;
-    return result;
+    return suit.hashCode() * 100 + this.valueCode.hashCode();
   }
 }

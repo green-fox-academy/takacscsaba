@@ -15,5 +15,4 @@ public class MainPokerTest {
     Card card = new Card("10", 'H');
     Assert.assertEquals(card, Main.cardFromString("10H"));
   }
-
 }
