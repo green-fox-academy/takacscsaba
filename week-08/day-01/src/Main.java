@@ -1,5 +1,4 @@
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.Arrays;
 
 public class Main {
 
@@ -8,7 +7,11 @@ public class Main {
   }
 
   public static boolean isAnagram(String word1, String word2) {
-    if (word1.equals(word2)) {
+    char[] word1Chars = word1.toLowerCase().toCharArray();
+    char[] word2Chars = word2.toLowerCase().toCharArray();
+    Arrays.sort(word1Chars);
+    Arrays.sort(word2Chars);
+    if (Arrays.equals(word1Chars, word2Chars)) {
       return true;
     } else if (word1.length() != word2.length()) {
       return false;

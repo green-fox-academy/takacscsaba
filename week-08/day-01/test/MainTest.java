@@ -23,4 +23,12 @@ public class MainTest {
     String word2 = "karok";
     Assert.assertFalse(Main.isAnagram(word1, word2));
   }
+
+  @Test
+  public void comparisonNotCaseSensitive() {
+    String word1 = "RoKa";
+    String word2 = "rOkA";
+    Assert.assertTrue(Main.isAnagram(word1, word2));
+
+  }
 }
