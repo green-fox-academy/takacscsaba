@@ -8,4 +8,23 @@ public class Card {
     this.valueCode = valueCode;
     this.suit = suit;
   }
+
+  @Override
+  public boolean equals(Object o) {
+    if (o == this) {
+      return true;
+    }
+    if (!(o instanceof Card)) {
+      return false;
+    }
+    Card card = (Card)o;
+    return card.hashCode() == hashCode();
+  }
+
+  @Override
+  public int hashCode() {
+    int result = 17;
+    result = 31 * result + number;
+    return result;
+  }
 }

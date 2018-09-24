@@ -9,4 +9,11 @@ public class MainPokerTest {
     String whiteHand = "2C 3H 4S 8C AH";
     Main.Poker(blackHand, whiteHand);
   }
+
+  @Test
+  public void validCardCreation() {
+    Card card = new Card("10", 'H');
+    Assert.assertEquals(card, Main.cardFromString("10H"));
+  }
+
 }

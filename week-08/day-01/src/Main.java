@@ -43,7 +43,7 @@ public class Main {
     } else if (card.length() == 2) {
       return new Card(card.substring(0, 1), card.charAt(1));
     } else {
-      throw new IllegalArgumentException();
+      throw new IllegalArgumentException("Invalid card string format");
     }
   }
 }
