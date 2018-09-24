@@ -29,6 +29,19 @@ public class MainTest {
     String word1 = "RoKa";
     String word2 = "rOkA";
     Assert.assertTrue(Main.isAnagram(word1, word2));
+  }
 
+  @Test
+  public void emptyStringsAreAnagram() {
+    String word1 = "";
+    String word2 = "";
+    Assert.assertTrue(Main.isAnagram(word1, word2));
+  }
+
+  @Test
+  public void emptyStringIsNotAnagramOfNotEmptyString() {
+    String word1 = "roka";
+    String word2 = "";
+    Assert.assertFalse(Main.isAnagram(word1, word2));
   }
 }

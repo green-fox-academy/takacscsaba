@@ -13,9 +13,8 @@ public class Main {
     Arrays.sort(word2Chars);
     if (Arrays.equals(word1Chars, word2Chars)) {
       return true;
-    } else if (word1.length() != word2.length()) {
+    } else {
       return false;
     }
-    return false;
   }
 }
