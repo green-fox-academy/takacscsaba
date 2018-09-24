@@ -4,9 +4,23 @@ import org.junit.Test;
 public class MainTest {
 
   @Test
+  public void ifTheyAreTheSame() {
+    String word1 = "roka";
+    String word2 = "roka";
+    Assert.assertTrue(Main.isAnagram(word1, word2));
+  }
+
+  @Test
   public void ifAnagramReturnsTrue() {
     String word1 = "roka";
     String word2 = "karo";
     Assert.assertTrue(Main.isAnagram(word1, word2));
+  }
+
+  @Test
+  public void ifTheyNotContainTheSameAmountOfCharacters() {
+    String word1 = "roka";
+    String word2 = "karok";
+    Assert.assertFalse(Main.isAnagram(word1, word2));
   }
 }
