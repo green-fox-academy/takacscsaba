@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -27,14 +28,27 @@ public class Main {
     handToCards(whiteHand);
     return "Invalid Hand!";
   }
+  
+  public static Integer handChecker(List<Card> hand) {
+//    return Collections.sort(hand);
+    return null;
+  }
 
   public static List<Card> handToCards(String hand) {
     List<Card> cardList = new ArrayList<Card>();
     String[] handArray = hand.split(" ");
-    for (String card : handArray) {
-      cardList.add(cardFromString(card));
+    if (handArray.length != 5) {
+      throw new IllegalArgumentException("Cards in hand not equal to 5.");
+    } else {
+      for (String cardString : handArray) {
+        Card card = cardFromString(cardString);
+        if (cardList.contains(card)) {
+          throw new IllegalArgumentException("Duplicate card in hand: " + cardString);
+        }
+        cardList.add(card);
+      }
+      return cardList;
     }
-    return cardList;
   }
 
   public static Card cardFromString(String card) {
