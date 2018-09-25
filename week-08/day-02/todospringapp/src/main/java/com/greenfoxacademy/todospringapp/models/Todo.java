@@ -1,21 +1,27 @@
-package com.greenfoxacademy.todospringapp;
+package com.greenfoxacademy.todospringapp.models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.websocket.OnError;
 
 @Entity
 public class Todo {
   @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
   Long id;
   String title;
   boolean urgent;
   boolean done;
 
-  public Todo(Long id, String title) {
-    this.id = id;
+  public Todo(String title) {
     this.title = title;
     this.urgent = false;
     this.done = false;
+  }
+
+  public Todo() {
   }
 
   public Long getId() {
