@@ -7,9 +7,18 @@
 <body>
 <h1>Add new todo</h1>
 <form action="/todo/add" th:action="@{/todo/add}" th:object="${todo}" method="post">
-    <p><input type="text" required th:field="*{title}"/></p>
+    <p>
+        <label for ="description">Task description:</label>
+        <input type="text" required th:field="*{title}" id="description"/>
+        <label for ="isUrgent">Urgent:</label>
+        <input type="checkbox" th:field="*{urgent}" id="isUrgent"/>
+        <label for ="isDone">Done:</label>
+        <input type="checkbox" th:field="*{done}" id="isDone"/>
+    </p>
     <p><input type="submit" value="Submit"/>
         <input type="reset" value="Reset"/></p>
 </form>
+
+<h3><a href="/todo/">Go back to list</a></h3>
 </body>
 </html>
