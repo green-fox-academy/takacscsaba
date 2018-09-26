@@ -2,43 +2,48 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <style>
-        table, td, th {
-            border: 1px solid grey;
-            border-collapse: collapse;
-            width: 1000px;
-            text-indent: 10px;
-            font-family: Arial, Helvetica, sans-serif;
-            color: rgb(82, 64, 64);
-        }
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-        tbody tr:nth-child(odd) {
-            background-color: lightgrey;
-        }
 
-        th, tr {
-            line-height: 40px;
-        }
+    <!--<style>-->
+    <!--table, td, th {-->
+    <!--border: 1px solid grey;-->
+    <!--border-collapse: collapse;-->
+    <!--width: 1000px;-->
+    <!--text-indent: 10px;-->
+    <!--font-family: Arial, Helvetica, sans-serif;-->
+    <!--color: rgb(82, 64, 64);-->
+    <!--}-->
 
-        th {
-            background-color: black;
-            color: lightgrey;
-            font-weight: normal;
-            text-align: left;
-        }
-    </style>
+    <!--tbody tr:nth-child(odd) {-->
+    <!--background-color: lightgrey;-->
+    <!--}-->
+
+    <!--th, tr {-->
+    <!--line-height: 40px;-->
+    <!--}-->
+
+    <!--th {-->
+    <!--background-color: black;-->
+    <!--color: lightgrey;-->
+    <!--font-weight: normal;-->
+    <!--text-align: left;-->
+    <!--}-->
+    <!--</style>-->
     <title>Todo List</title>
 </head>
 <body>
 <h1>Todos for today:</h1>
 <h3><a href="/todo/add">Add new todo</a></h3>
-<table>
+<table class="table table-hover">
     <thead>
     <tr>
-        <th>Id</th>
-        <th>Task</th>
-        <th>isUrgent</th>
-        <th>isDone</th>
+        <th>ID</th>
+        <th>ACTION</th>
+        <th>DONE</th>
+        <th>URGENT</th>
+        <th>DELETE</th>
     </tr>
     <tbody>
     </thead>
@@ -47,8 +52,17 @@
         <td th:text="${todo.getTitle()}"></td>
         <td th:text="${todo.isUrgent()}"></td>
         <td th:text="${todo.isDone()}"></td>
+        <td>
+        <form action="/todo/delete" th:action="@{/todo/delete}" method="post">
+            <input type="hidden" name="remove" th:value="${todo.getId()}">
+            <input type="submit" name="remove" value="Delete"/>
+        </form>
+        </td>
     </tr>
     </tbody>
 </table>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
 </body>
 </html>

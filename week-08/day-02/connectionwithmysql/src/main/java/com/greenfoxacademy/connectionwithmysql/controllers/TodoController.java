@@ -39,4 +39,10 @@ public class TodoController {
     todoRepository.save(todo);
     return "redirect:/todo/list";
   }
+
+  @PostMapping("/delete")
+  public String deleteTask(@ModelAttribute(value = "remove") long id) {
+    todoRepository.deleteById(id);
+    return "redirect:/todo/list";
+  }
 }
