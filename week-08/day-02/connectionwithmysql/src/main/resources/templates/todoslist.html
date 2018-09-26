@@ -34,35 +34,45 @@
     <title>Todo List</title>
 </head>
 <body>
-<h1>Todos for today:</h1>
-<h3><a href="/todo/add">Add new todo</a></h3>
+<div align="center">
+    <h1>TODOS FOR TODAY</h1>
+    <form th:action="@{/todo/add}" method="get">
+        <button align="center" type="submit" class="btn btn-warning btn-lg">Add new todo</button>
+    </form>
+    <!--<h3><a href="/todo/add">Add new todo</a></h3>-->
+</div>
 <table class="table table-hover">
     <thead>
-    <tr>
+    <tr class="text-center">
         <th>ID</th>
         <th>ACTION</th>
-        <th>DONE</th>
         <th>URGENT</th>
-        <th>DELETE</th>
-        <th>EDIT</th>
+        <th>DONE</th>
     </tr>
     <tbody>
     </thead>
     <tr th:each="todo : ${todoList}">
         <td th:text="${todo.getId()}"></td>
-        <td th:text="${todo.getTitle()}"></td>
+        <td>
+
+        <form th:action="@{'/todo/' + ${todo.getId()} + '/description'}" method="get">
+            <input type="hidden" name="description" th:value="${todo.getId()}">
+            <input type="submit" class="btn btn-primary" th:value="${todo.getTitle()}"></input>
+        </form>
+
+        </td>
         <td th:text="${todo.isUrgent()}? 'Yes' : 'No'"></td>
         <td th:text="${todo.isDone()}? 'Yes' : 'No'"></td>
         <td>
-        <form th:action="@{'/todo/' + ${todo.getId()} + '/delete'}" method="get">
-            <input type="hidden" name="remove" th:value="${todo.getId()}">
-            <input type="submit" name="remove" value="Delete"/>
-        </form>
+            <form th:action="@{'/todo/' + ${todo.getId()} + '/delete'}" method="get">
+                <input type="hidden" name="remove" th:value="${todo.getId()}">
+                <input class="btn btn-danger" type="submit" name="remove" value="Delete"/>
+            </form>
         </td>
         <td>
             <form th:action="@{'/todo/' + ${todo.getId()}+ '/edit'}" method="get">
                 <input type="hidden" name="edit" th:value="${todo.getId()}">
-                <input type="submit" value="Edit">
+                <input class="btn btn-info" type="submit" value="Edit">
             </form>
         </td>
     </tr>

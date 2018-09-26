@@ -2,20 +2,37 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <title>Edit todo</title>
 </head>
 <body>
-<form method="post" th:action="@{'/todo/' + ${todo.getId()}+ '/edit'}" th:object="${todo}" >
+<h1>Edit Todo</h1>
+<form method="post" th:action="@{'/todo/' + ${todo.getId()}+ '/edit'}" th:object="${todo}">
     <p>
-        <label for ="description">Task description:</label>
-        <input type="text" required th:field="*{title}" id="description"/>
-        <label for ="isUrgent">Urgent:</label>
+        <label for="task">Task description:</label>
+        <input type="text" required th:field="*{title}" id="task"  class="form-control" placeholder="Task"/>
+    </p>
+    <p>
+        <label for="description">Task description:</label>
+        <textarea th:field="*{description}" id="description" class="form-control" rows="3" placeholder="Description"/>
+    </p>
+    <p>
+        <label for="isUrgent">Urgent:</label>
         <input type="checkbox" th:field="*{urgent}" id="isUrgent"/>
-        <label for ="isDone">Done:</label>
+    </p>
+    <p>
+        <label for="isDone">Done:</label>
         <input type="checkbox" th:field="*{done}" id="isDone"/>
     </p>
-    <p><input type="submit" value="Edit"/>
-        <input type="reset" value="Reset"/></p>
+    <p>
+        <input type="submit" value="Edit" class="btn btn-success"/>
+        <input type="reset" value="Reset" class="btn btn-warning"/>
+        <a href="/todo/list">Cancel</a>
+    </p>
 </form>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
 </body>
 </html>

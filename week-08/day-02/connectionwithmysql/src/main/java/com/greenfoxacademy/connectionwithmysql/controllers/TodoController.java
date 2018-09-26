@@ -55,13 +55,21 @@ public class TodoController {
   @PostMapping(value = "/{id}/edit")
   public String editTask(@PathVariable(value = "id") long id,
                          @RequestParam(value = "title") String title,
+                         @RequestParam(value = "description") String description,
                          @RequestParam(value = "urgent", required = false) boolean urgent,
                          @RequestParam(value = "done", required = false) boolean done) {
     Todo todo = todoRepository.findById(id);
     todo.setTitle(title);
+    todo.setDescription(description);
     todo.setUrgent(urgent);
     todo.setDone(done);
     todoRepository.save(todo);
     return "redirect:/todo/list";
+  }
+
+  @GetMapping(value = "/{id}/description")
+  public String descriptionTask(@PathVariable(value = "id") long id, Model model) {
+    model.addAttribute("todo", todoRepository.findById(id));
+    return "description";
   }
 }

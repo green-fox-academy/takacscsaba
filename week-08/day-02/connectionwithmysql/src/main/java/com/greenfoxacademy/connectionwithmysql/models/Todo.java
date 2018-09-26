@@ -13,6 +13,7 @@ public class Todo {
   String title;
   boolean urgent;
   boolean done;
+  String description;
 
   public Todo(String title) {
     this.title = title;
@@ -59,6 +60,14 @@ public class Todo {
 
   public void setDone(boolean done) {
     this.done = done;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   @Override
