@@ -8,4 +8,5 @@ import java.util.List;
 public interface TodoRepository extends CrudRepository<Todo, Long> {
   List<Todo> findAll();
   List<Todo> findAllByDoneIsTrue();
+  Todo findById(long id);
 }

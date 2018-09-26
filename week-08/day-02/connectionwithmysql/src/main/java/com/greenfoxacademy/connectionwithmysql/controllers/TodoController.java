@@ -40,9 +40,28 @@ public class TodoController {
     return "redirect:/todo/list";
   }
 
-  @PostMapping("/delete")
-  public String deleteTask(@ModelAttribute(value = "remove") long id) {
+  @GetMapping(value = "/{id}/delete")
+  public String deleteTask(@PathVariable(value = "id") long id) {
     todoRepository.deleteById(id);
+    return "redirect:/todo/list";
+  }
+
+  @GetMapping(value = "/{id}/edit")
+  public String editTaskPage(@PathVariable(value = "id") long id, Model model) {
+    model.addAttribute("todo", todoRepository.findById(id));
+    return "edit";
+  }
+
+  @PostMapping(value = "/{id}/edit")
+  public String editTask(@PathVariable(value = "id") long id,
+                         @RequestParam(value = "title") String title,
+                         @RequestParam(value = "urgent", required = false) boolean urgent,
+                         @RequestParam(value = "done", required = false) boolean done) {
+    Todo todo = todoRepository.findById(id);
+    todo.setTitle(title);
+    todo.setUrgent(urgent);
+    todo.setDone(done);
+    todoRepository.save(todo);
     return "redirect:/todo/list";
   }
 }
