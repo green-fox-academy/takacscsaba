@@ -40,9 +40,9 @@
         <th>isDone</th>
     </tr>
     <tbody>
-    <tr th:each="todo : ${todoList}">
     </thead>
-    <td th:text="${todo.getId()}" }></td>
+    <tr th:each="todo : ${todoList}">
+    <td th:text="${todo.getId()}"></td>
     <td th:text="${todo.getTitle()}"></td>
     <td th:text="${todo.isUrgent()}"></td>
     <td th:text="${todo.isDone()}"></td>
