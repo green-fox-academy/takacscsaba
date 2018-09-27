@@ -21,7 +21,7 @@ public class AppController {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("new_user", new User());
+        model.addAttribute("user", new User());
         model.addAttribute("yolo", service.getAll());
         return "index";
     }
