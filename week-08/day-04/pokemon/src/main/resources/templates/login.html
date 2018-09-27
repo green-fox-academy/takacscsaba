@@ -13,9 +13,11 @@
     <!--<select>-->
         <!--<option th:each="trainer : ${trainers}" th:text="${trainer.getTrainername()}"/>-->
     <!--</select>-->
-    <input type="text" required th:field="*{trainer.trainername}"/>
-    <input type="password" required th:field="*{trainer.trainerpassword}">
-    <p><input type="submit" value="Submit" class="btn btn-success"/>
+    <p></p>
+    <input type="text" required th:field="*{trainer.trainername}" class="form" size="30px"/>
+    <input type="password" required th:field="*{trainer.trainerpassword}" class="form" size="30px">
+    <p></p>
+    <p><input type="submit" value="Login" class="btn btn-success"/>
         <input type="reset" value="Reset" class="btn btn-warning"/></p>
 </form>
 
