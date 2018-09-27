@@ -2,10 +2,8 @@ package com.greenfoxacademy.pokemon.models;
 
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Trainer {
@@ -16,6 +14,8 @@ public class Trainer {
   private String trainername;
   @Length(max = 20)
   private String trainerpassword;
+  @OneToMany
+  private List<Pokemon> pokemons;
 
   public Trainer(@Length(max = 20) String trainername, @Length(max = 20) String trainerpassword) {
     this.trainername = trainername;
@@ -47,5 +47,13 @@ public class Trainer {
 
   public void setTrainerpassword(String trainerpassword) {
     this.trainerpassword = trainerpassword;
+  }
+
+  public List<Pokemon> getPokemons() {
+    return pokemons;
+  }
+
+  public void setPokemons(List<Pokemon> pokemons) {
+    this.pokemons = pokemons;
   }
 }

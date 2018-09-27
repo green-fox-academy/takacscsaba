@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class MainController {
   private PokemonRepository pokemonRepository;
   private TrainerRepository trainerRepository;
+  Long loggedInTrainerId;
 
   @Autowired
   public MainController(PokemonRepository pokemonRepository, TrainerRepository trainerRepository) {
@@ -28,7 +29,8 @@ public class MainController {
 
 
   @GetMapping("/index")
-  public String indexPage() {
+  public String indexPage(Model model) {
+    model.addAttribute("trainer", trainerRepository.findByTrainerid(loggedInTrainerId));
     return "index";
   }
 
@@ -43,12 +45,17 @@ public class MainController {
     if (trainerRepository.findByTrainername(trainer.getTrainername()) != null) {
       trainerRepository.save(trainer);
       if (trainer.getTrainerpassword().equals(trainerRepository.findFirstByTrainername(trainer.getTrainername()).getTrainerpassword())) {
+        idSaver(trainerRepository.findFirstByTrainername(trainer.getTrainername()));
         trainerRepository.delete(trainer);
         return "redirect:/index";
       }
       trainerRepository.delete(trainer);
     }
     return "redirect:/";
+  }
+
+  public void idSaver(Trainer trainer) {
+    this.loggedInTrainerId = trainer.getTrainerid();
   }
 
 }

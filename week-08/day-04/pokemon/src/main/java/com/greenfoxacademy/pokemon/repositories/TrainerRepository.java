@@ -12,5 +12,5 @@ public interface TrainerRepository extends CrudRepository<Trainer, Long> {
   Trainer findByTrainername(String trainername);
   Trainer findFirstByTrainername(String trainername);
   Trainer findByTrainerid(Long id);
-  Trainer findTopByTrainernameOrderByTraineridDesc(String trainername);
+//  Trainer findTopByTrainernameOrderByTraineridDesc(String trainername);
 }
