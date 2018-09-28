@@ -14,16 +14,18 @@
     <!--<option th:each="trainer : ${trainers}" th:text="${trainer.getTrainername()}"/>-->
     <!--</select>-->
     <p></p>
-    <p>
+    <p class="form-group">
         <label for="name">Trainer name:</label>
-        <input type="text" required th:field="*{trainer.trainername}" class="form" size="30px" id="name"/>
+        <input type="text" required th:field="*{trainer.trainername}" class="form" size="30px" id="name" placeholder="Trainer name"/>
     </p>
-    <p>
+    <p class="form-group">
         <label for="password">Trainer password:</label>
-        <input type="password" required th:field="*{trainer.trainerpassword}" class="form" size="30px" id="password">
+        <input type="password" required th:field="*{trainer.trainerpassword}" class="form" size="30px" id="password" placeholder="Password">
     </p>
-    <label for="checkbox">Show password:</label>
-    <input id="checkbox" type="checkbox" onclick="myFunction()">
+    <p class="checkbox-inline">
+        <input id="checkbox" type="checkbox" onclick="myFunction()">
+        Show password
+    </p>
     <script>
         function myFunction() {
             var x = document.getElementById("password");

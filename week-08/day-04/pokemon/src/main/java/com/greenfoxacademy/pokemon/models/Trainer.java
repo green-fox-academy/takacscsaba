@@ -15,7 +15,7 @@ public class Trainer {
   private String trainername;
   @Length(max = 20)
   private String trainerpassword;
-  @OneToMany
+  @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   private List<Pokemon> pokemons;
 
   public Trainer(@Length(max = 20) String trainername, @Length(max = 20) String trainerpassword) {

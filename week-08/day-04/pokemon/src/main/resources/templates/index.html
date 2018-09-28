@@ -7,8 +7,30 @@
     <title>Pokemon</title>
 </head>
 <body>
-<a href="login">Login</a>
-<h1 th:text="${trainer.trainername} + ' trainer\'s pokemons'"></h1>
+<a class="btn btn-default" href="login" role="button">Login as another trainer</a>
+<h2 th:text="${trainer.trainername} + ' trainer\'s pokemons'"></h2>
+<table>
+<form action="/addpokemon" method="post">
+    <tr th:if="${trainer.getPokemons().size() < 6}">
+        <td width="300px">
+            <h3>Catch new Pokemon:</h3>
+        </td>
+        <td width="150px">
+            <h3></h3>
+            <select name="pokemonName" class="form-control">
+                <!--<option th:each="pokemon : ${pokemons}" th:if="!${pokemon.getTrainer() != null}"-->
+                <option th:each="pokemon : ${pokemons}"
+                        th:value="${pokemon.getTname()}" th:text="${pokemon.getTname()}">
+                </option>
+            </select>
+        </td>
+        <td>
+            <h3></h3>
+            <input type="submit" value="Catch" class="btn btn-primary">
+        </td>
+    </tr>
+</form>
+</table>
 <table class="table table-hover">
     <thead>
     <tr class="text-center">
@@ -19,7 +41,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="pokemon : ${trainer.getPokemons()}">
+    <tr th:each="pokemon : ${pokemonsOfTrainer}">
         <td>
             <h3 th:text="${pokemon.getPid()}"></h3>
         </td>
@@ -28,10 +50,10 @@
         </td>
         <td>
             <h3 th:text="${pokemon.getType1()}"></h3>
-            <h3 th:text="${pokemon.getType2()}"></h3>
+            <h3 th:if="${pokemon.getType2()} != 'Nothing'"? th:text="${pokemon.getType2()}"></h3>
         </td>
         <td>
-            <img th:src="${pokemon.getPicture()}" height="50%">
+            <!--<img th:src="${pokemon.getPicture()}" height="35%">-->
         </td>
         <td>
             <form th:action="@{/removepokemon}" method="post">
@@ -40,21 +62,6 @@
             </form>
         </td>
     </tr>
-    <form action="/addpokemon" method="post">
-        <tr th:if="${trainer.getPokemons().size() < 6}">
-            <td>Catch new Pokemon:</td>
-            <td>
-                <select name="pokemonName">
-                    <option th:each="pokemon : ${pokemons}" th:if="!${trainer.getPokemons().contains(pokemon)}"
-                            th:value="${pokemon.getTname()}" th:text="${pokemon.getTname()}">
-                    </option>
-                </select>
-            </td>
-            <td>
-                <input type="submit" value="Catch">
-            </td>
-        </tr>
-    </form>
     </tbody>
 </table>
 

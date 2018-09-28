@@ -39,9 +39,15 @@ public class MainController {
   @GetMapping("/index")
   public String indexPage(Model model) {
 //    pokemonSetter();
-    model.addAttribute("trainer", trainerRepository.findByTrainerid(loggedInTrainerId));
-    model.addAttribute("pokemons", pokemonRepository.findAll());
-    return "index";
+    if (loggedInTrainerId != null) {
+      model.addAttribute("trainer", trainerRepository.findByTrainerid(loggedInTrainerId));
+      model.addAttribute("pokemons", pokemonRepository.findAll());
+
+//      model.addAttribute("pokemonsOfTrainer", pokemonRepository.findByTrainerTrainerid(trainerRepository.findByTrainerid(loggedInTrainerId).getTrainerid()));
+      model.addAttribute("pokemonsOfTrainer", trainerRepository.findByTrainerid(loggedInTrainerId).getPokemons());
+      return "index";
+    }
+    return "redirect:/login";
   }
 
   @GetMapping("/login")
@@ -73,8 +79,8 @@ public class MainController {
     Pokemon pokemon = pokemonRepository.findByTname(pokemonName);
     Trainer trainer = trainerRepository.findByTrainerid(loggedInTrainerId);
     trainer.getPokemons().add(pokemon);
-    pokemon.setTrainer(trainer);
-    pokemonRepository.save(pokemon);
+//    pokemon.setTrainer(trainer);
+//    pokemonRepository.save(pokemon);
     trainerRepository.save(trainer);
     return "redirect:/index";
   }
@@ -84,7 +90,7 @@ public class MainController {
     Pokemon pokemon = pokemonRepository.findByPid(pokemonId);
     Trainer trainer = trainerRepository.findByTrainerid(loggedInTrainerId);
     trainer.getPokemons().remove(pokemon);
-    pokemon.setTrainerNull();
+//    pokemon.setTrainerNull();
     pokemonRepository.save(pokemon);
     trainerRepository.save(trainer);
     return "redirect:/index";
@@ -99,9 +105,9 @@ public class MainController {
 
     trainerRepository.findByTrainername("Csabi").setPokemons(csabiPoke);
     trainerRepository.save(trainerRepository.findByTrainername("Csabi"));
-    pokemonRepository.findByTname("Charizard").setTrainer(trainerRepository.findByTrainername("Csabi"));
-    pokemonRepository.findByTname("Kadabra").setTrainer(trainerRepository.findByTrainername("Csabi"));
-    pokemonRepository.findByTname("Scyther").setTrainer(trainerRepository.findByTrainername("Csabi"));
+//    pokemonRepository.findByTname("Charizard").setTrainer(trainerRepository.findByTrainername("Csabi"));
+//    pokemonRepository.findByTname("Kadabra").setTrainer(trainerRepository.findByTrainername("Csabi"));
+//    pokemonRepository.findByTname("Scyther").setTrainer(trainerRepository.findByTrainername("Csabi"));
     pokemonRepository.save(pokemonRepository.findByTname("Charizard"));
     pokemonRepository.save(pokemonRepository.findByTname("Kadabra"));
     pokemonRepository.save(pokemonRepository.findByTname("Scyther"));
@@ -114,9 +120,9 @@ public class MainController {
 
     trainerRepository.findByTrainername("Koumon").setPokemons(kocsogPoke);
     trainerRepository.save(trainerRepository.findByTrainername("Koumon"));
-    pokemonRepository.findByTname("Psyduck").setTrainer(trainerRepository.findByTrainername("Koumon"));
-    pokemonRepository.findByTname("Ditto").setTrainer(trainerRepository.findByTrainername("Koumon"));
-    pokemonRepository.findByTname("Zubat").setTrainer(trainerRepository.findByTrainername("Koumon"));
+//    pokemonRepository.findByTname("Psyduck").setTrainer(trainerRepository.findByTrainername("Koumon"));
+//    pokemonRepository.findByTname("Ditto").setTrainer(trainerRepository.findByTrainername("Koumon"));
+//    pokemonRepository.findByTname("Zubat").setTrainer(trainerRepository.findByTrainername("Koumon"));
     pokemonRepository.save(pokemonRepository.findByTname("Psyduck"));
     pokemonRepository.save(pokemonRepository.findByTname("Ditto"));
     pokemonRepository.save(pokemonRepository.findByTname("Zubat"));
