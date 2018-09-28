@@ -39,7 +39,7 @@
             <td>
                 <select>
                     <option th:each="pokemon : ${pokemons}" th:if="!${trainer.getPokemons().contains(pokemon)}"
-                            th:value="${pokemon.getTname()}" th:text="${pokemon.getTname()}">
+                            th:value="${pokemon.getTname()}" th:text="${pokemon.getTname()}" name="pokemonName">
                     </option>
                 </select>
             </td>

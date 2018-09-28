@@ -19,7 +19,7 @@ import java.util.List;
 public class MainController {
   private PokemonRepository pokemonRepository;
   private TrainerRepository trainerRepository;
-  Long loggedInTrainerId;
+  private Long loggedInTrainerId;
 
   @Autowired
   public MainController(PokemonRepository pokemonRepository, TrainerRepository trainerRepository) {
@@ -29,12 +29,16 @@ public class MainController {
 
   @GetMapping("/")
   public String redirecter() {
-    return "redirect:/login";
+    if (loggedInTrainerId == null) {
+      return "redirect:/login";
+    } else {
+      return "redirect:/index";
+    }
   }
 
   @GetMapping("/index")
   public String indexPage(Model model) {
-    pokemonSetter();
+//    pokemonSetter();
     model.addAttribute("trainer", trainerRepository.findByTrainerid(loggedInTrainerId));
     model.addAttribute("pokemons", pokemonRepository.findAll());
     return "index";
