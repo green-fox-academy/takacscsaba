@@ -53,7 +53,7 @@
             <h3 th:if="${pokemon.getType2()} != 'Nothing'"? th:text="${pokemon.getType2()}"></h3>
         </td>
         <td>
-            <!--<img th:src="${pokemon.getPicture()}" height="35%">-->
+            <img th:src="${pokemon.getPicture()}" height="35%">
         </td>
         <td>
             <form th:action="@{/removepokemon}" method="post">

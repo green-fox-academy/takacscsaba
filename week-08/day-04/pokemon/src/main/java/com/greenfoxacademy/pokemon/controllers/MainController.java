@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 public class MainController {
   private PokemonRepository pokemonRepository;
@@ -112,37 +109,5 @@ public class MainController {
     }
     model.addAttribute("warning", "Name already exists!!");
     return "redirect:/register";
-  }
-
-
-  public void pokemonSetter() {
-    List<Pokemon> csabiPoke = new ArrayList<>();
-    csabiPoke.add(pokemonRepository.findByTname("Charizard"));
-    csabiPoke.add(pokemonRepository.findByTname("Kadabra"));
-    csabiPoke.add(pokemonRepository.findByTname("Scyther"));
-
-    trainerRepository.findByTrainername("Csabi").setPokemons(csabiPoke);
-    trainerRepository.save(trainerRepository.findByTrainername("Csabi"));
-//    pokemonRepository.findByTname("Charizard").setTrainer(trainerRepository.findByTrainername("Csabi"));
-//    pokemonRepository.findByTname("Kadabra").setTrainer(trainerRepository.findByTrainername("Csabi"));
-//    pokemonRepository.findByTname("Scyther").setTrainer(trainerRepository.findByTrainername("Csabi"));
-    pokemonRepository.save(pokemonRepository.findByTname("Charizard"));
-    pokemonRepository.save(pokemonRepository.findByTname("Kadabra"));
-    pokemonRepository.save(pokemonRepository.findByTname("Scyther"));
-
-
-    List<Pokemon> kocsogPoke = new ArrayList<>();
-    kocsogPoke.add(pokemonRepository.findByTname("Psyduck"));
-    kocsogPoke.add(pokemonRepository.findByTname("Ditto"));
-    kocsogPoke.add(pokemonRepository.findByTname("Zubat"));
-
-    trainerRepository.findByTrainername("Koumon").setPokemons(kocsogPoke);
-    trainerRepository.save(trainerRepository.findByTrainername("Koumon"));
-//    pokemonRepository.findByTname("Psyduck").setTrainer(trainerRepository.findByTrainername("Koumon"));
-//    pokemonRepository.findByTname("Ditto").setTrainer(trainerRepository.findByTrainername("Koumon"));
-//    pokemonRepository.findByTname("Zubat").setTrainer(trainerRepository.findByTrainername("Koumon"));
-    pokemonRepository.save(pokemonRepository.findByTname("Psyduck"));
-    pokemonRepository.save(pokemonRepository.findByTname("Ditto"));
-    pokemonRepository.save(pokemonRepository.findByTname("Zubat"));
   }
 }

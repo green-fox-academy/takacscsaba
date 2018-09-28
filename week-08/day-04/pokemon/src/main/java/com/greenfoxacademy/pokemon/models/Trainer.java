@@ -3,7 +3,6 @@ package com.greenfoxacademy.pokemon.models;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
