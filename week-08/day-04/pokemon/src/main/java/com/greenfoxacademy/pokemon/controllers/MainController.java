@@ -110,4 +110,10 @@ public class MainController {
     model.addAttribute("warning", "Name already exists!!");
     return "redirect:/register";
   }
+
+  @PostMapping("/signout")
+  public String signOut() {
+    this.loggedInTrainerId = null;
+    return "redirect:/";
+  }
 }
