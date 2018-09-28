@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 public class Pokemon {
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE)
   private Long pid;
   @Length(max = 20)
   private String tname;
