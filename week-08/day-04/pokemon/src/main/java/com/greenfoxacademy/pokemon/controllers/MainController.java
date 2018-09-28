@@ -96,6 +96,24 @@ public class MainController {
     return "redirect:/index";
   }
 
+  @GetMapping("/register")
+  public String registerPage(@ModelAttribute String warning, Model model) {
+    model.addAttribute("warning", warning);
+    model.addAttribute("trainer", new Trainer());
+    return "register";
+  }
+
+  @PostMapping("/register")
+  public String registerNewTrainer(@ModelAttribute Trainer trainer,
+                                   Model model) {
+    if (trainerRepository.findByTrainername(trainer.getTrainername()) == null) {
+      trainerRepository.save(trainer);
+      return "redirect:/login";
+    }
+    model.addAttribute("warning", "Name already exists!!");
+    return "redirect:/register";
+  }
+
 
   public void pokemonSetter() {
     List<Pokemon> csabiPoke = new ArrayList<>();
