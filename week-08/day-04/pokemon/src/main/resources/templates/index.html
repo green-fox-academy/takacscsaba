@@ -7,6 +7,7 @@
     <title>Pokemon</title>
 </head>
 <body>
+<a href="login">Login</a>
 <h1 th:text="${trainer.trainername} + ' trainer\'s pokemons'"></h1>
 <table class="table table-hover">
     <thead>
@@ -32,14 +33,20 @@
         <td>
             <img th:src="${pokemon.getPicture()}" height="50%">
         </td>
+        <td>
+            <form th:action="@{/removepokemon}" method="post">
+                <input type="hidden" name="pokemonId" th:value="${pokemon.getPid()}">
+                <input class="btn btn-danger" type="submit" name="pokemonId" value="Release"/>
+            </form>
+        </td>
     </tr>
     <form action="/addpokemon" method="post">
         <tr th:if="${trainer.getPokemons().size() < 6}">
             <td>Catch new Pokemon:</td>
             <td>
-                <select>
+                <select name="pokemonName">
                     <option th:each="pokemon : ${pokemons}" th:if="!${trainer.getPokemons().contains(pokemon)}"
-                            th:value="${pokemon.getTname()}" th:text="${pokemon.getTname()}" name="pokemonName">
+                            th:value="${pokemon.getTname()}" th:text="${pokemon.getTname()}">
                     </option>
                 </select>
             </td>

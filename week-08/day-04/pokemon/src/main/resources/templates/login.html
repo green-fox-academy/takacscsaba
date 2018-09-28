@@ -11,11 +11,29 @@
 <body>
 <form action="/login" th:action="@{/login}" method="post">
     <!--<select>-->
-        <!--<option th:each="trainer : ${trainers}" th:text="${trainer.getTrainername()}"/>-->
+    <!--<option th:each="trainer : ${trainers}" th:text="${trainer.getTrainername()}"/>-->
     <!--</select>-->
     <p></p>
-    <input type="text" required th:field="*{trainer.trainername}" class="form" size="30px"/>
-    <input type="password" required th:field="*{trainer.trainerpassword}" class="form" size="30px">
+    <p>
+        <label for="name">Trainer name:</label>
+        <input type="text" required th:field="*{trainer.trainername}" class="form" size="30px" id="name"/>
+    </p>
+    <p>
+        <label for="password">Trainer password:</label>
+        <input type="password" required th:field="*{trainer.trainerpassword}" class="form" size="30px" id="password">
+    </p>
+    <label for="checkbox">Show password:</label>
+    <input id="checkbox" type="checkbox" onclick="myFunction()">
+    <script>
+        function myFunction() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
     <p></p>
     <p><input type="submit" value="Login" class="btn btn-success"/>
         <input type="reset" value="Reset" class="btn btn-warning"/></p>

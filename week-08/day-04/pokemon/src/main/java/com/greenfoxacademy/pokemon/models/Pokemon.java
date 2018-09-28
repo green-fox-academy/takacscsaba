@@ -78,4 +78,8 @@ public class Pokemon {
   public void setTrainer(Trainer trainer) {
     this.trainer = trainer;
   }
+
+  public void setTrainerNull() {
+    this.trainer = null;
+  }
 }

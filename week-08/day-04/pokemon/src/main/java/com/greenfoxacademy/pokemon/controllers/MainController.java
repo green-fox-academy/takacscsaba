@@ -69,10 +69,22 @@ public class MainController {
   }
 
   @PostMapping("/addpokemon")
-  public String addPokemonGet(@RequestParam(value = "pokemonName") String pokemonName) {
+  public String addPokemon(@RequestParam(value = "pokemonName") String pokemonName) {
     Pokemon pokemon = pokemonRepository.findByTname(pokemonName);
     Trainer trainer = trainerRepository.findByTrainerid(loggedInTrainerId);
+    trainer.getPokemons().add(pokemon);
     pokemon.setTrainer(trainer);
+    pokemonRepository.save(pokemon);
+    trainerRepository.save(trainer);
+    return "redirect:/index";
+  }
+
+  @PostMapping("/removepokemon")
+  public String removePokemon(@RequestParam(value = "pokemonId") Long pokemonId) {
+    Pokemon pokemon = pokemonRepository.findByPid(pokemonId);
+    Trainer trainer = trainerRepository.findByTrainerid(loggedInTrainerId);
+    trainer.getPokemons().remove(pokemon);
+    pokemon.setTrainerNull();
     pokemonRepository.save(pokemon);
     trainerRepository.save(trainer);
     return "redirect:/index";

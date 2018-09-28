@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PokemonRepository extends CrudRepository<Pokemon, Long> {
   Pokemon findByTname(String name);
+  Pokemon findByPid(Long id);
 }
