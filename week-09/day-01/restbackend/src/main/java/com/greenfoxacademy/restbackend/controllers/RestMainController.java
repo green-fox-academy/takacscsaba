@@ -6,6 +6,8 @@ import com.greenfoxacademy.restbackend.services.MainServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class RestMainController {
   MainService mainService;
@@ -19,6 +21,7 @@ public class RestMainController {
   @GetMapping("/doubling")
   public Object makingDouble(@RequestParam(value = "input", required = false) Integer received) {
     if (received != null) {
+      mainService.saveLog("/doubling", "input=" + mainService.makeItDouble(new Doubled(received)).getResult());
       return new Doubled(received);
     } else {
       return new ErrorMessage("Please provide an input!");
@@ -76,4 +79,10 @@ public class RestMainController {
     }
     return new ErrorMessage("Please provide what to do with the numbers!");
   }
+
+  @GetMapping("/log")
+  public List<LogObject> logHandler() {
+    return mainService.listAllLog();
+  }
+
 }

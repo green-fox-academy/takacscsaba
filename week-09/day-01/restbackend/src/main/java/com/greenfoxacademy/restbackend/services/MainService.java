@@ -1,12 +1,14 @@
 package com.greenfoxacademy.restbackend.services;
 
-import com.greenfoxacademy.restbackend.models.ArrayObject;
-import com.greenfoxacademy.restbackend.models.DoUntil;
-import com.greenfoxacademy.restbackend.models.Result;
+import com.greenfoxacademy.restbackend.models.*;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public interface MainService {
+  Result makeItDouble(Doubled doubled);
+
   Result factorNumber(DoUntil doUntil);
 
   Result sumNumber(DoUntil doUntil);
@@ -16,4 +18,8 @@ public interface MainService {
   Result multiplyArray(ArrayObject arrayObject);
 
   Result doubleArray(ArrayObject arrayObject);
+
+  void saveLog(String endpoint, String data);
+
+  List<LogObject> listAllLog();
 }

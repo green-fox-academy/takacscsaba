@@ -1,18 +1,29 @@
 package com.greenfoxacademy.restbackend.services;
 
-import com.greenfoxacademy.restbackend.models.ArrayObject;
-import com.greenfoxacademy.restbackend.models.DoUntil;
-import com.greenfoxacademy.restbackend.models.Result;
+import com.greenfoxacademy.restbackend.models.*;
+import com.greenfoxacademy.restbackend.repositories.LogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class MainServiceImpl implements MainService {
   private Result result;
+  private LogRepository logRepository;
 
   @Autowired
+  public MainServiceImpl(Result result, LogRepository logRepository) {
+    this.result = result;
+    this.logRepository = logRepository;
+  }
+
   public MainServiceImpl(Result result) {
     this.result = result;
+  }
+
+  public Result makeItDouble(Doubled doubled) {
+    return new Result(doubled.getReceived() * 2);
   }
 
   @Override
@@ -64,5 +75,15 @@ public class MainServiceImpl implements MainService {
     }
     result.setResultArray(doubledArray);
     return result;
+  }
+
+  @Override
+  public void saveLog(String endpoint, String data) {
+    logRepository.save(new LogObject(endpoint, data));
+  }
+
+  @Override
+  public List<LogObject> listAllLog() {
+    return logRepository.findAll();
   }
 }

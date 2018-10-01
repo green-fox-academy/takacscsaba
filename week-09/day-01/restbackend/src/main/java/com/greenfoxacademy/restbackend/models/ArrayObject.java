@@ -1,5 +1,8 @@
 package com.greenfoxacademy.restbackend.models;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ArrayObject {
   private String what;
   private int[] numbers;
