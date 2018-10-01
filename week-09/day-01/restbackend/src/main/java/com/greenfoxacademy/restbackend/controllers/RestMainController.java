@@ -1,9 +1,13 @@
 package com.greenfoxacademy.restbackend.controllers;
 
+import com.greenfoxacademy.restbackend.models.AppendA;
 import com.greenfoxacademy.restbackend.models.Doubled;
 import com.greenfoxacademy.restbackend.models.ErrorMessage;
 import com.greenfoxacademy.restbackend.models.WelcomeMessage;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,5 +33,10 @@ public class RestMainController {
     } else {
       return new WelcomeMessage(name, title);
     }
+  }
+
+  @GetMapping("/appenda/{appendable}")
+  public AppendA appendAFunction(@PathVariable(value = "appendable") String appendable) {
+    return new AppendA(appendable);
   }
 }
