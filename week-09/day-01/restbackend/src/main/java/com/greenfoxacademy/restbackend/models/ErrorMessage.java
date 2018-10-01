@@ -1,7 +1,7 @@
 package com.greenfoxacademy.restbackend.models;
 
 public class ErrorMessage {
-    String error = "Please provide an input!";
+    private String error;
 
     public ErrorMessage(String error) {
         this.error = error;
