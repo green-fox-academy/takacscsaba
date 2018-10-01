@@ -2,6 +2,7 @@ package com.greenfoxacademy.restbackend.controllers;
 
 import com.greenfoxacademy.restbackend.models.*;
 import com.greenfoxacademy.restbackend.services.MainService;
+import com.greenfoxacademy.restbackend.services.MainServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,17 +44,17 @@ public class RestMainController {
 
   @PostMapping("/dountil/{action}")
   public Object untilTimer(@PathVariable(value = "action", required = false) String action, @RequestBody(required = false) DoUntil doUntil) {
-    if (action.equals("sum")) {
-      mainService.sumNumber(doUntil);
-      return mainService.getResult();
-    } else if (action.equals("factor")) {
-      mainService.factorNumber(doUntil);
-      return mainService.getResult();
+    Result result = new Result();
+    MainService mainService = new MainServiceImpl(result);
+
+    if (doUntil != null) {
+      if (action.equals("sum")) {
+        return mainService.sumNumber(doUntil);
+      }
+      if (action.equals("factor")) {
+        return mainService.factorNumber(doUntil);
+      }
     }
-    if (doUntil == null) {
-      return new ErrorMessage("Please provide an number!");
-    } else {
-      return null;
-    }
+    return new ErrorMessage("Please provide a number!");
   }
 }

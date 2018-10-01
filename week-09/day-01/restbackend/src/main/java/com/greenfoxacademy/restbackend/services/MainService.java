@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface MainService {
-  void factorNumber(DoUntil doUntil);
-  void sumNumber(DoUntil doUntil);
+  Result factorNumber(DoUntil doUntil);
+  Result sumNumber(DoUntil doUntil);
   Result getResult();
 }
