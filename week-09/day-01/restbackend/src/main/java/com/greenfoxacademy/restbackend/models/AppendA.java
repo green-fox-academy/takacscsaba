@@ -1,7 +1,7 @@
 package com.greenfoxacademy.restbackend.models;
 
 public class AppendA {
-  String appended;
+  private String appended;
 
 
   public AppendA(String appended) {

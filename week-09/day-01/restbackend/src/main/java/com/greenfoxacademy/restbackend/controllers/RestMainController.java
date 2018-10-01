@@ -1,18 +1,19 @@
 package com.greenfoxacademy.restbackend.controllers;
 
-import com.greenfoxacademy.restbackend.models.AppendA;
-import com.greenfoxacademy.restbackend.models.Doubled;
-import com.greenfoxacademy.restbackend.models.ErrorMessage;
-import com.greenfoxacademy.restbackend.models.WelcomeMessage;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.greenfoxacademy.restbackend.models.*;
+import com.greenfoxacademy.restbackend.services.MainService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class RestMainController {
+  MainService mainService;
+
+  @Autowired
+  public RestMainController(MainService mainService) {
+    this.mainService = mainService;
+  }
+
 
   @GetMapping("/doubling")
   public Object makingDouble(@RequestParam(value = "input", required = false) Integer received) {
@@ -38,5 +39,21 @@ public class RestMainController {
   @GetMapping("/appenda/{appendable}")
   public AppendA appendAFunction(@PathVariable(value = "appendable") String appendable) {
     return new AppendA(appendable);
+  }
+
+  @PostMapping("/dountil/{action}")
+  public Object untilTimer(@PathVariable(value = "action", required = false) String action, @RequestBody(required = false) DoUntil doUntil) {
+    if (action.equals("sum")) {
+      mainService.sumNumber(doUntil);
+      return mainService.getResult();
+    } else if (action.equals("factor")) {
+      mainService.factorNumber(doUntil);
+      return mainService.getResult();
+    }
+    if (doUntil == null) {
+      return new ErrorMessage("Please provide an number!");
+    } else {
+      return null;
+    }
   }
 }
