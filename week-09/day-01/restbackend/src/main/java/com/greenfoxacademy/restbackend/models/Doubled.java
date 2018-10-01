@@ -6,7 +6,7 @@ public class Doubled {
 
     public Doubled(Integer received) {
         this.received = received;
-        this.result = received*2;
+        this.result = received * 2;
     }
 
     public Doubled() {

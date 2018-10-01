@@ -12,9 +12,10 @@ public class RestMainController {
     @GetMapping("/doubling")
     public Object makingDouble(@RequestParam(value = "input", required = false) Integer received) {
         if (received != null) {
-            return new Doubled(received).getResult();
+            Doubled doubled = new Doubled(received);
+            return doubled;
         } else {
-            return new ErrorMessage().getError();
+            return new ErrorMessage();
         }
     }
 }
