@@ -57,4 +57,23 @@ public class RestMainController {
     }
     return new ErrorMessage("Please provide a number!");
   }
+
+  @PostMapping("/arrays")
+  public Object arrayHandler(@RequestBody(required = false) ArrayObject arrayObject) {
+    Result result = new Result();
+    MainService mainService = new MainServiceImpl(result);
+
+    if (arrayObject.getWhat() != null) {
+      if (arrayObject.getWhat().equals("sum")) {
+        return mainService.sumArray(arrayObject);
+      }
+      if (arrayObject.getWhat().equals("multiply")) {
+        return mainService.multiplyArray(arrayObject);
+      }
+      if (arrayObject.getWhat().equals("double")) {
+        return mainService.doubleArray(arrayObject);
+      }
+    }
+    return new ErrorMessage("Please provide what to do with the numbers!");
+  }
 }
