@@ -14,5 +14,6 @@ public class RestMainController {
     this.messageService = messageService;
   }
 
-  @PostMapping("/api/message/receive")
+//  @PostMapping("/api/message/receive")
+  
 }
