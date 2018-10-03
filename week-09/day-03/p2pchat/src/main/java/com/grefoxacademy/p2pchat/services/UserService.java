@@ -14,7 +14,11 @@ public interface UserService {
 
   List<User> findAllUser();
 
-  User getFirstUser();
+  User getLoggedInUser();
 
-  void usernameChanger(String username);
+  void usernameChanger(String newUsername);
+
+  void setLoggedInUserName(String loggedInUserName);
+
+  String getLoggedInUserName();
 }

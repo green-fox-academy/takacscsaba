@@ -2,11 +2,11 @@ package com.grefoxacademy.p2pchat.models;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Timestamp;
 
+@Entity
 public class Messages {
   @Id
   private Long id;

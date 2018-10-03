@@ -8,7 +8,6 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
-  User findByName(String name);
+  User findById(String name);
   List<User> findAll();
-  User findFirstById(Long id);
 }

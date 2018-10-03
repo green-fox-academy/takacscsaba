@@ -9,14 +9,25 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
   private UserRepository userRepository;
+  private String loggedInUserName;
 
   public UserServiceImpl(UserRepository userRepository) {
     this.userRepository = userRepository;
   }
 
   @Override
+  public String getLoggedInUserName() {
+    return loggedInUserName;
+  }
+
+  @Override
+  public void setLoggedInUserName(String loggedInUserName) {
+    this.loggedInUserName = loggedInUserName;
+  }
+
+  @Override
   public boolean isUserWithSameNameExists(User user) {
-    if (userRepository.findByName(user.getName()) == null) {
+    if (userRepository.findById(user.getId()) == null) {
       return false;
     }
     return true;
@@ -24,6 +35,7 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public void saveNewUser(User user) {
+    setLoggedInUserName(user.getId());
     userRepository.save(user);
   }
 
@@ -33,13 +45,14 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public User getFirstUser() {
-    return userRepository.findFirstById(1L);
+  public User getLoggedInUser() {
+    return userRepository.findById(loggedInUserName);
   }
 
   @Override
-  public void usernameChanger(String username) {
-    getFirstUser().setName(username);
-    userRepository.save(getFirstUser());
+  public void usernameChanger(String newUsername) {
+    userRepository.delete(getLoggedInUser());
+    setLoggedInUserName(newUsername);
+    userRepository.save(new User(newUsername));
   }
 }

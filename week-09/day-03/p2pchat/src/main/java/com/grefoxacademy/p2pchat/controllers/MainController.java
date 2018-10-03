@@ -24,14 +24,16 @@ public class MainController {
     if (userService.findAllUser().isEmpty()) {
       return "redirect:/register";
     } else {
-      model.addAttribute("user", userService.getFirstUser());
+      userService.setLoggedInUserName(userService.findAllUser().get(0).getId());
+      model.addAttribute("user", userService.getLoggedInUser());
       return "index";
     }
   }
 
   @PostMapping("/")
-  public String updateUsername(@RequestParam(value = "username") String username) {
-    userService.usernameChanger(username);
+  public String updateUsername(@RequestParam(value = "newUsername") String newUsername) {
+    userService.setLoggedInUserName(userService.findAllUser().get(0).getId());
+    userService.usernameChanger(newUsername);
     return "redirect:/";
   }
 
