@@ -18,4 +18,16 @@ public class PostServiceImpl implements PostService {
   public List<Post> getPostList() {
     return postRepository.findAll();
   }
+
+  @Override
+  public void countIncreaser(Long id) {
+    Post post = postRepository.findAllById(id);
+    post.setCount(post.getCount() + 1);
+  }
+
+  @Override
+  public void countDecreaser(Long id) {
+    Post post = postRepository.findAllById(id);
+    post.setCount(post.getCount() - 1);
+  }
 }

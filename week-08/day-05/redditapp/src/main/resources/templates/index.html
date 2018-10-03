@@ -17,9 +17,11 @@
         <tr th:each="post : ${postList}">
             <td th:text="${post.count}"></td>
             <td>
-                <a class="btn btn-success" role="button" th:href="@{'/counInc/' + ${post.id}}">+</a></td>
-            <td th:text="${post.count}">
-                <a class="btn btn-success" role="button" th:href="@{'/countDec/' + ${post.id}}">-</a></td>
+                <a class="btn btn-success" role="button" th:href="@{'/countInc/' + ${post.id}}">+</a>
+            </td>
+            <td>
+                <a class="btn btn-success" role="button" th:href="@{'/countDec/' + ${post.id}}">-</a>
+            </td>
             <td th:text="${post.title}"></td>
         </tr>
     </form>

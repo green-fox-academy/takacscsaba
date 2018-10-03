@@ -8,4 +8,8 @@ import java.util.List;
 @Service
 public interface PostService {
   List<Post> getPostList();
+
+  void countIncreaser(Long id);
+
+  void countDecreaser(Long id);
 }
