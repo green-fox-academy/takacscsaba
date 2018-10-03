@@ -11,7 +11,7 @@
 <h1>Enter</h1>
 <form action="/register" method="post">
     <label for="name">Choose your name:</label>
-    <input type="text" id="name" th:field="${user.name}">
+    <input type="text" required id="name" th:field="${user.name}">
     <input type="submit" value="Enter">
 </form>
 

@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
@@ -19,12 +20,19 @@ public class MainController {
   }
 
   @GetMapping("/")
-  public String indexPage() {
+  public String indexPage(Model model) {
     if (userService.findAllUser().isEmpty()) {
       return "redirect:/register";
     } else {
+      model.addAttribute("user", userService.getFirstUser());
       return "index";
     }
+  }
+
+  @PostMapping("/")
+  public String updateUsername(@RequestParam(value = "username") String username) {
+    userService.usernameChanger(username);
+    return "redirect:/";
   }
 
   @GetMapping("/register")
@@ -34,7 +42,7 @@ public class MainController {
   }
 
   @PostMapping("/register")
-  public String registerNewUser(@ModelAttribute User user, Model model) {
+  public String registerNewUser(@ModelAttribute User user) {
     if (!userService.isUserWithSameNameExists(user)) {
       userService.saveNewUser(user);
       return "redirect:/";

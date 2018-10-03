@@ -31,4 +31,15 @@ public class UserServiceImpl implements UserService {
   public List<User> findAllUser() {
     return userRepository.findAll();
   }
+
+  @Override
+  public User getFirstUser() {
+    return userRepository.findFirstById(1L);
+  }
+
+  @Override
+  public void usernameChanger(String username) {
+    getFirstUser().setName(username);
+    userRepository.save(getFirstUser());
+  }
 }

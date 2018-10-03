@@ -13,4 +13,8 @@ public interface UserService {
   void saveNewUser(User user);
 
   List<User> findAllUser();
+
+  User getFirstUser();
+
+  void usernameChanger(String username);
 }
