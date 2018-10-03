@@ -1,5 +1,6 @@
 package com.grefoxacademy.p2pchat.services;
 
+import com.grefoxacademy.p2pchat.models.Messages;
 import com.grefoxacademy.p2pchat.models.User;
 import org.apache.catalina.LifecycleState;
 import org.springframework.stereotype.Service;

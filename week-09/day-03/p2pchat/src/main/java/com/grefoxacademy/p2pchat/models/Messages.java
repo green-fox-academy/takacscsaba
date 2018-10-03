@@ -5,6 +5,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 public class Messages {
@@ -12,18 +13,17 @@ public class Messages {
   private Long id;
   private String username;
   private String text;
-  @CreationTimestamp
-  private Timestamp timestamp;
+  private LocalDateTime timestamp;
 
   public Messages() {
     this.id = generateMyNumber();
   }
 
-  public Messages(String username, String text, Timestamp timestamp) {
+  public Messages(String username, String text) {
     this.id = generateMyNumber();
     this.username = username;
     this.text = text;
-    this.timestamp = timestamp;
+    this.timestamp = LocalDateTime.now();
   }
 
   public static Long generateMyNumber()
@@ -58,11 +58,11 @@ public class Messages {
     this.text = text;
   }
 
-  public Timestamp getTimestamp() {
+  public LocalDateTime getTimestamp() {
     return timestamp;
   }
 
-  public void setTimestamp(Timestamp timestamp) {
+  public void setTimestamp(LocalDateTime timestamp) {
     this.timestamp = timestamp;
   }
 }
