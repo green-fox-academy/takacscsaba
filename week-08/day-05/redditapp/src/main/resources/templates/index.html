@@ -8,7 +8,22 @@
     <title>Reddit</title>
 </head>
 <body>
-
+<a href="submit">Submit new post</a>
+<h1 style="text-align: center">
+    Trending posts
+</h1>
+<table>
+    <form>
+        <tr th:each="post : ${postList}">
+            <td th:text="${post.count}"></td>
+            <td>
+                <a class="btn btn-success" role="button" th:href="@{'/counInc/' + ${post.id}}">+</a></td>
+            <td th:text="${post.count}">
+                <a class="btn btn-success" role="button" th:href="@{'/countDec/' + ${post.id}}">-</a></td>
+            <td th:text="${post.title}"></td>
+        </tr>
+    </form>
+</table>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"

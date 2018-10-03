@@ -9,10 +9,10 @@ import javax.persistence.Id;
 public class Post {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  Long id;
-  String title;
-  String url;
-  Integer count;
+  private Long id;
+  private String title;
+  private String url;
+  private Integer count;
 
   public Post() {
   }
