@@ -12,4 +12,6 @@ public interface PostService {
   void countIncreaser(Long id);
 
   void countDecreaser(Long id);
+
+  void postSaver(Post post);
 }

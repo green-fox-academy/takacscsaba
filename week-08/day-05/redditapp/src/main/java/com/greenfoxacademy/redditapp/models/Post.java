@@ -17,6 +17,8 @@ public class Post {
   private LocalDateTime timestamp;
 
   public Post() {
+    this.count = 0;
+    this.timestamp = LocalDateTime.now();
   }
 
   public Post(String title, String url) {

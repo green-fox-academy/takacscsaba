@@ -23,11 +23,20 @@ public class PostServiceImpl implements PostService {
   public void countIncreaser(Long id) {
     Post post = postRepository.findAllById(id);
     post.setCount(post.getCount() + 1);
+    postRepository.save(post);
   }
 
   @Override
   public void countDecreaser(Long id) {
     Post post = postRepository.findAllById(id);
-    post.setCount(post.getCount() - 1);
+    if (post.getCount() > 0) {
+      post.setCount(post.getCount() - 1);
+    }
+    postRepository.save(post);
+  }
+
+  @Override
+  public void postSaver(Post post) {
+    postRepository.save(post);
   }
 }

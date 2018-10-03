@@ -8,6 +8,17 @@
     <title>Submit</title>
 </head>
 <body>
+<h1>Submit a new post</h1>
+<form action="/submit" method="post">
+    <label for="title">Title:</label>
+    <input type="text" required th:field="*{post.title}" id="title">
+    <label for="url">URL:</label>
+    <input type="text" required th:field="*{post.url}" id="url">
+    <p>
+        <input type="submit" value="Signup" class="btn btn-success"/>
+        <input type="reset" value="Reset" class="btn btn-warning"/>
+    </p>
+</form>
 
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
