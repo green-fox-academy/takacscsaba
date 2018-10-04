@@ -8,6 +8,25 @@
     <title>Bank of Simba</title>
 </head>
 <body>
+<table>
+    <thead>
+    <tr>
+        <th>Raise balance</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Balance</th>
+        <th>Type</th>
+        <th>Personality</th>
+        <th>Title</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="bankAccount : ${bankAccounts}" th:object="${bankAccount}" }>
+        <td>
+
+        </td>
+    </tr>
+</table>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
