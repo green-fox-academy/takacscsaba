@@ -8,7 +8,7 @@
     <title>Bank of Simba</title>
 </head>
 <body>
-<table>
+<table class="table table-hover">
     <thead>
     <tr>
         <th>Raise balance</th>
@@ -21,11 +21,33 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="bankAccount : ${bankAccounts}" th:object="${bankAccount}" }>
-        <td>
-
-        </td>
+    <tr th:each="bankAccount : ${bankAccounts}" }>
+        <form action="/raisebalance" method="POST" th:object="${bankAccount}">
+            <th:block th:switch="${bankAccount.isKing()}">
+                <td th:case="true">
+                    <input type="submit" th:field="*{id}" required value="+100">
+                </td>
+                <td th:case="false">
+                    <input type="submit" th:field="*{id}" required value="+10">
+                </td>
+            </th:block>
+        </form>
+        <td th:text="${bankAccount.id}"></td>
+        <td th:text="${bankAccount.name}"></td>
+        <td th:text="${#numbers.formatDecimal(bankAccount.balance, 1, 'COMMA', 2, 'POINT')} + ' Zebra'" }></td>
+        <td th:text="${bankAccount.animalType}" }></td>
+        <!--<th:block th:switch="${bankAccount.isGood()}">-->
+        <!--<td th:case="true">-->
+        <!--Good one-->
+        <!--</td>-->
+        <!--<td th:case="false">-->
+        <!--Bad guy-->
+        <!--</td>-->
+        <!--</th:block>-->
+        <td th:text="${bankAccount.isGood()? 'Good one' : 'Bad guy'}">
+        <td th:if="${bankAccount.isKing()}" th:text="King" }></td>
     </tr>
+    </tbody>
 </table>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
