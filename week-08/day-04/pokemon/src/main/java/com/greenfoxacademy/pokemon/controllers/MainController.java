@@ -27,7 +27,7 @@ public class MainController {
   @GetMapping("/")
   public String redirecter() {
     if (loggedInTrainerId == null) {
-      return "redirect:/login";
+      return "redirect:/loginuser";
     } else {
       return "redirect:/index";
     }
@@ -44,16 +44,16 @@ public class MainController {
       model.addAttribute("pokemonsOfTrainer", trainerRepository.findByTrainerid(loggedInTrainerId).getPokemons());
       return "index";
     }
-    return "redirect:/login";
+    return "redirect:/loginuser";
   }
 
-  @GetMapping("/login")
+  @GetMapping("/loginuser")
   public String loginPage(Model model) {
     model.addAttribute("trainer", new Trainer());
     return "login";
   }
 
-  @PostMapping("/login")
+  @PostMapping("/loginuser")
   public String loggingIn(@ModelAttribute Trainer trainer) {
     if (trainerRepository.findByTrainername(trainer.getTrainername()) != null) {
       trainerRepository.save(trainer);
@@ -105,7 +105,7 @@ public class MainController {
                                    Model model) {
     if (trainerRepository.findByTrainername(trainer.getTrainername()) == null) {
       trainerRepository.save(trainer);
-      return "redirect:/login";
+      return "redirect:/loginuser";
     }
     model.addAttribute("warning", "Name already exists!!");
     return "redirect:/register";
