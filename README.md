@@ -1,4 +1,4 @@
-# My repository for java tasks
+# My repository for Java tasks
 
 <h2>My other repos:</h2>
 <ul>
